@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archangel Frequencies — Reveal Your Frequency Code</title>
+<meta name="description" content="The signs are already there. We help you decode them. Reveal your free Frequency Code in under a minute.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#05070f;
+  --navy:#0a0e1e;
+  --navy-soft:#10152b;
+  --gold:#d9b45c;
+  --gold-bright:#f0d489;
+  --violet:#8b6cf0;
+  --violet-glow:rgba(139,108,240,.35);
+  --cyan:#7fd8e8;
+  --ink:#e9e6dd;
+  --ink-dim:#a5a3b8;
+  --hairline:rgba(217,180,92,.18);
+  --ease:cubic-bezier(.22,.9,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy-deep);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--violet);color:#fff}
+
+/* ---------- ambient layers ---------- */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.veil{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(139,108,240,.14), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 100%, rgba(127,216,232,.05), transparent 65%);
+}
+main{position:relative;z-index:1}
+
+/* ---------- type ---------- */
+h1,h2,h3,.serif{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+  line-height:1.12;
+  letter-spacing:.01em;
+}
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:.68rem;
+  font-weight:500;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.lede{color:var(--ink-dim);font-size:1.05rem;max-width:34em}
+em{font-style:italic;color:var(--gold-bright)}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+.center{text-align:center}
+.center .lede{margin-left:auto;margin-right:auto}
+
+/* ---------- reveal on scroll ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.7em;
+  font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--navy-deep);text-decoration:none;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold) 55%,#b8933f);
+  padding:1.15em 2.4em;border-radius:100px;
+  position:relative;isolation:isolate;
+  box-shadow:0 0 0 1px rgba(240,212,137,.4),0 8px 40px -8px rgba(217,180,92,.45);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.btn::after{
+  content:"";position:absolute;inset:-14px;border-radius:inherit;z-index:-1;
+  background:radial-gradient(closest-side,var(--violet-glow),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(240,212,137,.6),0 14px 60px -8px rgba(217,180,92,.6)}
+.btn:hover::after{opacity:1}
+.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.btn-note{display:block;margin-top:1.1em;font-size:.75rem;letter-spacing:.12em;color:var(--ink-dim)}
+
+.link-quiet{
+  color:var(--cyan);text-decoration:none;font-size:.85rem;letter-spacing:.06em;
+  border-bottom:1px solid rgba(127,216,232,.3);padding-bottom:2px;
+  transition:border-color .3s;
+}
+.link-quiet:hover{border-color:var(--cyan)}
+.link-quiet:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:120px 24px 90px;position:relative;
+}
+.portal{
+  position:relative;width:min(78vw,560px);aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:-8vmin;
+}
+.portal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring-slow{animation:spin 140s linear infinite;transform-origin:center}
+.ring-mid{animation:spin 90s linear infinite reverse;transform-origin:center}
+.ring-fast{animation:spin 60s linear infinite;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portal-core{
+  position:relative;z-index:2;width:34%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 42%, rgba(139,108,240,.28), rgba(10,14,30,.0) 70%);
+  display:flex;align-items:center;justify-content:center;
+  animation:breathe 7s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+.portal-core span{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,3.6rem);
+  color:var(--gold-bright);letter-spacing:.22em;padding-left:.22em;
+  text-shadow:0 0 30px rgba(217,180,92,.55),0 0 80px rgba(139,108,240,.4);
+}
+.hero h1{
+  font-size:clamp(2.5rem,6.4vw,4.6rem);
+  max-width:12.5em;margin:0 auto .45em;
+  position:relative;z-index:2;
+}
+.hero .lede{position:relative;z-index:2;margin:0 auto 2.6em}
+.scroll-hint{
+  position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  width:1px;height:54px;background:linear-gradient(var(--gold),transparent);
+  opacity:.6;
+}
+
+/* ---------- journey strip ---------- */
+.journey{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);background:rgba(10,14,30,.5)}
+.journey .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stage{padding:34px 20px;text-align:center;position:relative}
+.stage+.stage::before{
+  content:"";position:absolute;left:0;top:28%;bottom:28%;width:1px;
+  background:linear-gradient(transparent,var(--hairline),transparent);
+}
+.stage .serif{font-size:1.5rem;color:var(--gold-bright)}
+.stage p{font-size:.78rem;color:var(--ink-dim);letter-spacing:.04em;margin-top:.3em}
+
+/* ---------- what we do ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.about-grid h2{font-size:clamp(2rem,4vw,3rem);margin:0.6em 0 0.55em}
+.sigil{
+  width:100%;max-width:340px;margin:0 auto;display:block;
+}
+.sigil circle,.sigil path,.sigil line{stroke:var(--gold);fill:none;stroke-width:.6;opacity:.75}
+.sigil .v{stroke:var(--violet)}
+.sigil .c{stroke:var(--cyan);opacity:.5}
+
+/* ---------- calculator feature ---------- */
+.calc{
+  border:1px solid var(--hairline);border-radius:24px;
+  background:linear-gradient(160deg,rgba(16,21,43,.9),rgba(5,7,15,.9));
+  padding:clamp(36px,6vw,72px);
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.calc::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 100% 0%,rgba(139,108,240,.12),transparent 60%);
+}
+.calc h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:.5em 0 .5em}
+.reduce{
+  font-family:'Cormorant Garamond',serif;text-align:center;user-select:none;
+}
+.reduce .row{font-size:clamp(1.3rem,3vw,1.8rem);color:var(--ink-dim);letter-spacing:.28em}
+.reduce .arrow{color:var(--violet);font-size:1.4rem;margin:.35em 0;opacity:.8}
+.reduce .code{
+  font-size:clamp(3rem,8vw,4.6rem);color:var(--gold-bright);letter-spacing:.3em;padding-left:.3em;
+  text-shadow:0 0 26px rgba(217,180,92,.5),0 0 70px rgba(139,108,240,.35);
+  animation:breathe 6s ease-in-out infinite;
+}
+.reduce .cap{font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);margin-top:1.4em}
+
+/* ---------- 248 ---------- */
+.infinity-wrap{display:flex;justify-content:center;margin:44px 0 34px}
+.infinity{width:min(86vw,520px);overflow:visible}
+.lem-base{fill:none;stroke:rgba(217,180,92,.22);stroke-width:1.2}
+.lem-light{
+  fill:none;stroke:var(--gold-bright);stroke-width:1.8;stroke-linecap:round;
+  stroke-dasharray:70 640;
+  filter:drop-shadow(0 0 6px rgba(240,212,137,.9)) drop-shadow(0 0 18px rgba(139,108,240,.6));
+  animation:trace 7s linear infinite;
+}
+@keyframes trace{to{stroke-dashoffset:-710}}
+.n248{display:flex;justify-content:center;gap:clamp(28px,8vw,72px);margin-top:8px}
+.n248 div{text-align:center}
+.n248 .num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7vw,4rem);color:var(--gold-bright)}
+.n248 .lbl{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim)}
+.sec-248 h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+.sec-248 .lede{margin-top:1.2em}
+
+/* ---------- angel numbers ---------- */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+.tile{
+  border:1px solid var(--hairline);border-radius:18px;padding:34px 20px 30px;
+  background:rgba(10,14,30,.55);text-align:center;position:relative;overflow:hidden;
+  transition:transform .5s var(--ease),border-color .5s,box-shadow .5s;
+}
+.tile::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%,var(--violet-glow),transparent 70%);
+}
+.tile:hover{transform:translateY(-6px);border-color:rgba(217,180,92,.45);box-shadow:0 18px 50px -18px rgba(139,108,240,.5)}
+.tile:hover::before{opacity:1}
+.tile .num{
+  font-family:'Cormorant Garamond',serif;font-size:2.3rem;color:var(--gold-bright);
+  text-shadow:0 0 22px rgba(217,180,92,.4);position:relative;
+}
+.tile p{font-size:.82rem;color:var(--ink-dim);margin-top:.7em;position:relative}
+.sec-angel h2{font-size:clamp(2rem,4vw,2.9rem)}
+
+/* ---------- final CTA ---------- */
+.final{
+  text-align:center;position:relative;padding:150px 24px 140px;overflow:hidden;
+}
+.final::before{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(120vw,900px);aspect-ratio:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(139,108,240,.16),transparent 62%);
+}
+.final h2{font-size:clamp(2.3rem,5.6vw,3.9rem);max-width:14em;margin:0 auto .4em;position:relative}
+.final .lede{margin:0 auto 2.6em;position:relative}
+.secondary{
+  display:flex;gap:44px;justify-content:center;flex-wrap:wrap;
+  margin-top:74px;position:relative;
+}
+.sec-card{max-width:230px;text-align:center}
+.sec-card .serif{font-size:1.25rem;color:var(--ink)}
+.sec-card p{font-size:.8rem;color:var(--ink-dim);margin:.45em 0 .9em}
+
+/* ---------- footer ---------- */
+footer{
+  border-top:1px solid var(--hairline);padding:44px 24px;text-align:center;
+  font-size:.72rem;letter-spacing:.14em;color:var(--ink-dim);
+}
+footer .serif{color:var(--gold);font-size:1rem;letter-spacing:.3em;text-transform:uppercase;display:block;margin-bottom:.8em}
+
+/* ---------- trust ---------- */
+.trust{
+  margin:2.4em auto 0;max-width:32em;position:relative;z-index:2;
+  font-size:.78rem;letter-spacing:.05em;color:var(--ink-dim);line-height:1.8;
+}
+.trust strong{color:var(--gold);font-weight:500}
+.collection-link{display:inline-block;margin-top:48px}
+
+/* ---------- follow / social ---------- */
+.social-row{display:flex;gap:20px;justify-content:center;margin-top:44px}
+.social-row a{
+  width:54px;height:54px;border:1px solid var(--hairline);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--gold);
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;
+}
+.social-row a:hover{transform:translateY(-4px);border-color:rgba(217,180,92,.55);box-shadow:0 12px 34px -12px rgba(139,108,240,.55)}
+.social-row a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.social-row svg{width:20px;height:20px;fill:currentColor}
+
+/* ---------- footer nav ---------- */
+footer nav{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center;margin:22px auto 28px;max-width:720px}
+footer nav a{color:var(--ink-dim);text-decoration:none;font-size:.72rem;letter-spacing:.14em;transition:color .3s}
+footer nav a:hover{color:var(--gold)}
+footer nav a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+footer .social-row{margin:6px 0 26px}
+footer .social-row a{width:42px;height:42px}
+footer .social-row svg{width:16px;height:16px}
+.copyright{opacity:.7}
+
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+  section{padding:80px 0}
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  .about-grid .sigil{order:-1;max-width:240px}
+  .calc{grid-template-columns:1fr;gap:40px}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .journey .wrap{grid-template-columns:repeat(2,1fr)}
+  .stage:nth-child(3)::before{display:none}
+  .stage:nth-child(n+3){border-top:1px solid var(--hairline)}
+}
+@media(max-width:420px){
+  .tiles{grid-template-columns:1fr 1fr;gap:12px}
+  .tile{padding:26px 12px 22px}
+}
+
+/* ---------- reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="veil" aria-hidden="true"></div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="portal" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <!-- outer ring: dodecagon points -->
+      <g class="ring-slow" stroke="rgba(217,180,92,.5)" fill="none" stroke-width=".7">
+        <circle cx="200" cy="200" r="190" stroke="rgba(217,180,92,.25)"/>
+        <circle cx="200" cy="200" r="178" stroke-dasharray="1 10"/>
+        <g id="marks"></g>
+      </g>
+      <!-- mid ring: seed of life -->
+      <g class="ring-mid" stroke="rgba(139,108,240,.55)" fill="none" stroke-width=".7">
+        <circle cx="200" cy="200" r="72"/>
+        <circle cx="200" cy="128" r="72"/>
+        <circle cx="200" cy="272" r="72"/>
+        <circle cx="262.4" cy="164" r="72"/>
+        <circle cx="262.4" cy="236" r="72"/>
+        <circle cx="137.6" cy="164" r="72"/>
+        <circle cx="137.6" cy="236" r="72"/>
+      </g>
+      <!-- inner ring: triangles -->
+      <g class="ring-fast" stroke="rgba(127,216,232,.45)" fill="none" stroke-width=".7">
+        <polygon points="200,96 290,252 110,252"/>
+        <polygon points="200,304 110,148 290,148"/>
+        <circle cx="200" cy="200" r="104" stroke="rgba(127,216,232,.25)"/>
+      </g>
+    </svg>
+    <div class="portal-core"><span>248</span></div>
+  </div>
+
+  <h1 class="rv in">The signs are already there.</h1>
+  <p class="lede rv in d1">You’ve been seeing repeating numbers, meaningful coincidences, and moments that feel impossible to explain. We help you discover the pattern underneath them.</p>
+  <div class="rv in d2">
+    <a class="btn" href="https://geni.us/Calc">Discover Your Free Frequency Code</a>
+    <span class="btn-note">Free • Takes less than one minute</span>
+    <p class="trust">Trusted by over <strong>170,000 people</strong> exploring angel numbers, synchronicities, manifestation, and spiritual growth.</p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</header>
+
+<!-- ============ JOURNEY STRIP ============ -->
+<div class="journey rv">
+  <div class="wrap">
+    <div class="stage"><div class="serif">Awaken</div><p>Notice the pattern</p></div>
+    <div class="stage"><div class="serif">Decode</div><p>Learn what it points to</p></div>
+    <div class="stage"><div class="serif">Align</div><p>Move with it, not against it</p></div>
+    <div class="stage"><div class="serif">Live</div><p>Make it your way of seeing</p></div>
+  </div>
+</div>
+
+<!-- ============ WHAT WE DO ============ -->
+<section>
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow rv">What Archangel Frequencies does</div>
+      <h2 class="rv d1">Pattern recognition for the part of your life that has no dashboard.</h2>
+      <p class="lede rv d2">You already track your money, your steps, your sleep. But the moments that actually change your direction, the number that keeps appearing, the person who shows up at the exact right time, go unmeasured. We teach you to recognize those signals, decode what they point to, and act on them with confidence instead of guesswork.</p>
+    </div>
+    <svg class="sigil rv d2" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="88"/>
+      <circle cx="100" cy="100" r="60" class="v"/>
+      <circle cx="100" cy="100" r="30" class="c"/>
+      <line x1="100" y1="12" x2="100" y2="188"/>
+      <line x1="12" y1="100" x2="188" y2="100"/>
+      <line x1="38" y1="38" x2="162" y2="162" class="v"/>
+      <line x1="162" y1="38" x2="38" y2="162" class="v"/>
+      <polygon points="100,40 152,130 48,130" fill="none" stroke="#d9b45c" stroke-width=".6"/>
+      <polygon points="100,160 48,70 152,70" fill="none" stroke="#8b6cf0" stroke-width=".6" opacity=".7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section>
+  <div class="wrap">
+    <div class="calc rv">
+      <div>
+        <div class="eyebrow">The Frequency Code Calculator</div>
+        <h2>One date. One name. One number that has been following you.</h2>
+        <p class="lede">Your Frequency Code is calculated from the numbers you were born carrying. Enter them once and the calculator reveals your personal code, what it means, and why certain numbers keep finding you.</p>
+        <p style="margin-top:2em"><a class="btn" href="https://geni.us/Calc">Calculate My Frequency Code</a></p>
+      </div>
+      <div class="reduce" aria-hidden="true">
+        <div class="row">0 · 4 · 1 · 9 · 9 · 2</div>
+        <div class="arrow">▽</div>
+        <div class="row" style="letter-spacing:.5em">2 5</div>
+        <div class="arrow">▽</div>
+        <div class="code" id="liveCode">7</div>
+        <div class="cap">Your code is waiting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 248 ============ -->
+<section class="sec-248 center">
+  <div class="wrap">
+    <div class="eyebrow rv">The signature pattern</div>
+    <h2 class="rv d1">The 248 Infinity Frequency Code</h2>
+    <div class="infinity-wrap rv d2">
+      <svg class="infinity" viewBox="0 0 400 160" aria-hidden="true">
+        <path class="lem-base" d="M200,80 C200,35 130,20 90,45 C50,70 50,90 90,115 C130,140 200,125 200,80 C200,35 270,20 310,45 C350,70 350,90 310,115 C270,140 200,125 200,80 Z"/>
+        <path class="lem-light" d="M200,80 C200,35 130,20 90,45 C50,70 50,90 90,115 C130,140 200,125 200,80 C200,35 270,20 310,45 C350,70 350,90 310,115 C270,140 200,125 200,80 Z"/>
+      </svg>
+    </div>
+    <div class="n248 rv d2">
+      <div><div class="num">2</div><div class="lbl">Begins</div></div>
+      <div><div class="num">4</div><div class="lbl">Builds</div></div>
+      <div><div class="num">8</div><div class="lbl">Multiplies</div></div>
+    </div>
+    <p class="lede rv d3" style="margin-top:2.2em">Two becomes four. Four becomes eight. It is the oldest pattern of expansion there is, and when 248 starts appearing in your life, something in it is ready to double. Learning to work with this code is the heart of our method.</p>
+  </div>
+</section>
+
+<!-- ============ ANGEL NUMBERS ============ -->
+<section class="sec-angel center">
+  <div class="wrap">
+    <div class="eyebrow rv">Seeing repeating numbers?</div>
+    <h2 class="rv d1">That number isn’t random. It’s a message with a timestamp.</h2>
+    <p class="lede rv d2">Every repeating number carries a different signal. Here is a glimpse. Your Frequency Code tells you which ones are meant for you.</p>
+    <div class="tiles">
+      <div class="tile rv"><div class="num">11:11</div><p>A doorway is open. Attention decides what walks through it.</p></div>
+      <div class="tile rv d1"><div class="num">222</div><p>Hold the line. What you started is still forming.</p></div>
+      <div class="tile rv d2"><div class="num">444</div><p>You are more supported than the evidence suggests.</p></div>
+      <div class="tile rv d3"><div class="num">777</div><p>You’re on the right thread. Keep pulling.</p></div>
+    </div>
+    <p class="rv d3"><a class="link-quiet collection-link" href="https://geni.us/archangelbook">Explore our complete Angel Number Collection →</a></p>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="eyebrow rv">Begin here</div>
+  <h2 class="rv d1">Your journey starts with a single number.</h2>
+  <p class="lede rv d2">Discover your personal Frequency Code in under a minute and begin understanding the patterns already appearing throughout your life.</p>
+  <div class="rv d3">
+    <a class="btn" href="https://geni.us/Calc">Start Free</a>
+    <span class="btn-note">No signup required</span>
+  </div>
+
+  <div class="secondary">
+    <div class="sec-card rv">
+      <div class="serif">Archangel Frequencies App</div>
+      <p>Decode angel numbers anywhere, save your insights, and carry your Frequency Code wherever you go.</p>
+      <a class="link-quiet" href="https://geni.us/afapp">Try the Free App</a>
+    </div>
+    <div class="sec-card rv d1">
+      <div class="serif">Archangel Frequencies Community</div>
+      <p>Connect with others exploring angel numbers, synchronicities, manifestation, and personal growth.</p>
+      <a class="link-quiet" href="https://www.skool.com/archangel-frequencies-academy-1947">Join Free Community</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<div class="journey rv">
+  <div class="wrap">
+    <div class="stage"><div class="serif">170,000+</div><p>Followers</p></div>
+    <div class="stage"><div class="serif">Free</div><p>Mobile app</p></div>
+    <div class="stage"><div class="serif">Books</div><p>&amp; guides</p></div>
+    <div class="stage"><div class="serif">Growing</div><p>Community</p></div>
+  </div>
+</div>
+
+<!-- ============ FOLLOW THE JOURNEY ============ -->
+<section class="center">
+  <div class="wrap">
+    <h2 class="rv" style="font-size:clamp(2rem,4vw,2.9rem)">Follow the Journey</h2>
+    <p class="lede rv d1">Daily inspiration, angel number meanings, manifestation insights, and Frequency Code discoveries.</p>
+    <div class="social-row rv d2">
+      <a href="https://youtube.com/@archangelfrequencies" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+      <a href="https://www.facebook.com/ArchangelFrequencies" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+      <a href="https://www.instagram.com/ArchangelFrequencies" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a3.8 3.8 0 0 1-.9 1.4c-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.4-.3.8-.3 1.9-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.1.8.3 1.9.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.4.3-.8.3-1.9.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.9a2 2 0 0 0-.7-1.1 2 2 0 0 0-1.1-.7c-.4-.1-.8-.3-1.9-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm6.4-2.1a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+      <a href="https://www.tiktok.com/@archangelfrequencies" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="serif">Archangel Frequencies</span>
+  <nav aria-label="Footer">
+    <a href="#">Home</a>
+    <a href="https://geni.us/Calc">Frequency Code Calculator</a>
+    <a href="https://geni.us/archangelbook">Angel Numbers</a>
+    <a href="https://geni.us/Calc">Birth Date Meanings</a>
+    <a href="https://www.amazon.com/stores/Archangel-Frequencies/author/B0F9RCF2DV">Books</a>
+    <a href="https://geni.us/afapp">App</a>
+    <a href="https://www.skool.com/archangel-frequencies-academy-1947">Community</a>
+    <a href="mailto:info@archangelfrequencies.com">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </nav>
+  <div class="social-row">
+    <a href="https://youtube.com/@archangelfrequencies" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+    <a href="https://www.facebook.com/ArchangelFrequencies" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    <a href="https://www.instagram.com/ArchangelFrequencies" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm6.4-2.1a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zM12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2a3.8 3.8 0 0 1-.9 1.4c-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1z"/></svg></a>
+    <a href="https://www.tiktok.com/@archangelfrequencies" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+  </div>
+  <div class="copyright">© 2026 Archangel Frequencies. The signs are already there. We help you decode them.</div>
+</footer>
+
+<script>
+/* ---------- starfield ---------- */
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const c = document.getElementById('stars');
+  const ctx = c.getContext('2d');
+  let w, h, stars = [];
+  function size(){
+    w = c.width = innerWidth * devicePixelRatio;
+    h = c.height = innerHeight * devicePixelRatio;
+    c.style.width = innerWidth + 'px';
+    c.style.height = innerHeight + 'px';
+    const n = Math.min(160, Math.floor(innerWidth / 8));
+    stars = Array.from({length:n}, () => ({
+      x: Math.random()*w, y: Math.random()*h,
+      r: (Math.random()*1.1 + .3) * devicePixelRatio,
+      tw: Math.random()*Math.PI*2,
+      sp: .0025 + Math.random()*.006,
+      vy: (.02 + Math.random()*.06) * devicePixelRatio,
+      hue: Math.random() < .12 ? '139,108,240' : (Math.random() < .5 ? '240,212,137' : '233,230,221')
+    }));
+  }
+  function frame(){
+    ctx.clearRect(0,0,w,h);
+    for(const s of stars){
+      s.tw += s.sp;
+      if(!reduce){ s.y -= s.vy; if(s.y < -4) s.y = h + 4; }
+      const a = .25 + Math.abs(Math.sin(s.tw)) * .6;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, 7);
+      ctx.fillStyle = 'rgba(' + s.hue + ',' + a + ')';
+      ctx.fill();
+    }
+    if(!reduce) requestAnimationFrame(frame);
+  }
+  size(); frame();
+  addEventListener('resize', () => { size(); if(reduce) frame(); });
+})();
+
+/* ---------- outer ring tick marks ---------- */
+(function(){
+  const g = document.getElementById('marks');
+  if(!g) return;
+  let html = '';
+  for(let i = 0; i < 24; i++){
+    const a = i * Math.PI / 12;
+    const x1 = 200 + Math.cos(a) * 184, y1 = 200 + Math.sin(a) * 184;
+    const x2 = 200 + Math.cos(a) * 190, y2 = 200 + Math.sin(a) * 190;
+    html += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>';
+  }
+  g.innerHTML = html;
+})();
+
+/* ---------- scroll reveal ---------- */
+(function(){
+  const els = document.querySelectorAll('.rv');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(e => e.classList.add('in')); return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.18});
+  els.forEach(e => io.observe(e));
+})();
+
+/* ---------- cycling code digit ---------- */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const el = document.getElementById('liveCode');
+  const codes = ['7','2','9','4','1','8','3','6','5'];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % codes.length;
+    el.style.opacity = 0;
+    setTimeout(() => { el.textContent = codes[i]; el.style.opacity = 1; }, 380);
+  }, 2600);
+  el.style.transition = 'opacity .38s ease';
+})();
+</script>
+</body>
+</html>
