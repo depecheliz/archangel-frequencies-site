@@ -218,11 +218,16 @@ img { max-width: 100%; height: auto; }
 .hub-card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
 
 /* Related links */
-.related { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 8px; }
+.related { border-top: 1px solid var(--hairline); margin-top: 48px; padding-top: 8px; }
 .related ul { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
 .related li { list-style: none; }
-.related a { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 0.88rem; text-decoration: none; color: var(--text); background: var(--navy-1); }
-.related a:hover { border-color: var(--gold); }
+.related ul a {
+  display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px;
+  font-size: 0.88rem; text-decoration: none; color: var(--text); background: var(--navy-1);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.related ul a:hover { border-color: var(--gold); transform: translateY(-2px); }
+.related p a { color: var(--gold-bright); }
 
 /* FAQ */
 .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
