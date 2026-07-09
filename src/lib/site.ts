@@ -7,7 +7,19 @@ export const SITE = {
   social: {
     facebook: 'https://www.facebook.com/archangelfrequencies',
     instagram: 'https://www.instagram.com/archangelfrequencies',
+    youtube: 'https://youtube.com/@archangelfrequencies',
+    tiktok: 'https://www.tiktok.com/@archangelfrequencies',
   },
+};
+
+// Secondary external destinations — the app, the free community, the Amazon
+// author page. Distinct from REVEAL_URL below, which is the primary funnel
+// every on-site CTA points to; these are lower-intent secondary links used
+// in the footer and the homepage final-CTA section.
+export const EXTERNAL = {
+  app: 'https://geni.us/afapp',
+  community: 'https://www.skool.com/archangel-frequencies-academy-1947',
+  amazonBooks: 'https://www.amazon.com/stores/Archangel-Frequencies/author/B0F9RCF2DV',
 };
 
 // The Systeme.io funnel — the conversion endpoint.

@@ -2,10 +2,34 @@
 interface Props {
   number: string;
   label?: string;
+  /** 'lite' (default): the calm ring used on every angel-number page.
+   *  'portal': the full rotating multi-ring treatment, reserved for the homepage hero. */
+  variant?: 'lite' | 'portal';
 }
-const { number, label = 'Angel Number' } = Astro.props;
+const { number, label = 'Angel Number', variant = 'lite' } = Astro.props;
 ---
-<div class="seal" role="img" aria-label={`${label} ${number}`}>
-  <span class="n">{number}</span>
-  <span class="sub">{label}</span>
-</div>
+{variant === 'portal' ? (
+  <div class="portal" role="img" aria-label={`${label} ${number}`}>
+    <svg viewBox="0 0 400 400" aria-hidden="true">
+      <g class="ring-slow">
+        <circle cx="200" cy="200" r="190" />
+        <circle cx="200" cy="200" r="178" stroke-dasharray="1 10" />
+      </g>
+      <g class="ring-mid">
+        <circle cx="200" cy="200" r="148" />
+        <circle cx="200" cy="130" r="70" />
+        <circle cx="200" cy="270" r="70" />
+      </g>
+      <g class="ring-fast">
+        <polygon points="200,98 288,250 112,250" />
+        <circle cx="200" cy="200" r="104" />
+      </g>
+    </svg>
+    <div class="portal-core"><span class="n">{number}</span></div>
+  </div>
+) : (
+  <div class="seal" role="img" aria-label={`${label} ${number}`}>
+    <span class="n">{number}</span>
+    <span class="sub">{label}</span>
+  </div>
+)}

@@ -1,13 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
+import NumberSeal from '../components/NumberSeal.astro';
+import JourneyStrip from '../components/JourneyStrip.astro';
+import SocialRow from '../components/SocialRow.astro';
 import catalog from '../data/catalog.json';
-import { SITE, REVEAL_PATH } from '../lib/site';
+import { SITE, REVEAL_PATH, EXTERNAL } from '../lib/site';
 
 const title = 'Archangel Frequencies: Angel Numbers, Numerology & Your Frequency Code';
 const description = SITE.description;
-const featured = ['1111', '444', '222', '333', '555', '777', '888', '999'];
-const featuredEntries = featured.map((n) => catalog.find((c) => c.slug === n)).filter(Boolean);
+
+const tunedSlugs = ['1111', '444', '222', '333', '555', '777'];
+const tiles = tunedSlugs.map((n) => catalog.find((c) => c.slug === n)).filter(Boolean);
+const exampleEntry = catalog.find((c) => c.slug === '1111');
+
 const pillars = [
   { name: 'Angel Numbers', href: '/angel-numbers/', blurb: 'Every repeating sequence decoded — spiritual, love, money, twin flame, and biblical meanings.' },
   { name: 'Numerology', href: '/numerology/', blurb: 'Life path, expression, personal years — the system behind the signs.' },
@@ -16,64 +22,279 @@ const pillars = [
   { name: 'Manifestation', href: '/manifestation/', blurb: 'Neville Goddard techniques, methods, and affirmations that actually get practiced.' },
   { name: 'Calculators', href: '/calculators/', blurb: 'Free instant tools: angel number, life path, personal year, mirror hours.' },
 ];
+
+const journeyStages = [
+  { label: 'Awaken', caption: 'Notice the pattern' },
+  { label: 'Decode', caption: 'Learn what it points to' },
+  { label: 'Align', caption: 'Move with it, not against it' },
+  { label: 'Live', caption: 'Make it your way of seeing' },
+];
+
+const statStages = [
+  { label: '170,000+', caption: 'Followers' },
+  { label: String(catalog.length), caption: 'Numbers Decoded' },
+  { label: String(pillars.length), caption: 'Pillar Guides' },
+  { label: '4', caption: 'Free Calculators' },
+];
 ---
 
 <Base title={title} description={description} isHome={true}>
-  <div class="wrap">
+  <div class="home">
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="veil" aria-hidden="true"></div>
+
     <header class="hero">
-      <p class="eyebrow">{SITE.tagline}</p>
-      <h1>The Numbers Keep Appearing<br />For A Reason</h1>
-      <p class="lead">
-        Your birth date carries a number woven into everything you do. Decode the sequences that keep
-        finding you — then reveal the full code beneath them.
-      </p>
-      <div class="seal">
-        <span class="n">4:44</span>
-        <span class="sub">You've seen it. Decode it.</span>
+      <div class="wrap">
+        <p class="eyebrow rv">{SITE.tagline}</p>
+        <h1 class="rv d1">The Numbers Keep Appearing<br />For A Reason</h1>
+        <p class="lead rv d1">
+          Your birth date carries a number woven into everything you do. Decode the sequences that keep
+          finding you — then reveal the full code beneath them.
+        </p>
+        <div class="rv d2">
+          <NumberSeal variant="portal" number="4:44" label="You've seen it. Decode it." />
+        </div>
+        <p class="rv d2">
+          <a class="btn" href={REVEAL_PATH}>Reveal My Frequency Code →</a>
+        </p>
+        <p class="muted rv d2" style="font-size:0.85rem">Free. Takes 15 seconds. No email required. Trusted by 170K+ followers across Archangel Frequencies.</p>
+        <div class="scroll-hint" aria-hidden="true"></div>
       </div>
-      <p>
-        <a class="btn" href="/angel-numbers/calculator/">Reveal My Angel Number →</a>
-      </p>
-      <p class="muted" style="font-size:0.85rem">Free. Takes 15 seconds. No email required. Trusted by 170K+ followers across Archangel Frequencies.</p>
     </header>
 
-    <section aria-labelledby="pop-h">
-      <h2 id="pop-h" style="text-align:center">The Numbers Finding You Right Now</h2>
-      <ul class="grid">
-        {featuredEntries.map((e) => (
-          <li>
-            <a class="card" href={`/angel-numbers/${e.slug}/`}>
+    <JourneyStrip stages={journeyStages} />
+
+    <section aria-labelledby="about-h">
+      <div class="wrap about-grid">
+        <div>
+          <p class="eyebrow rv">What Archangel Frequencies covers</p>
+          <h2 id="about-h" class="rv d1">Five ways in, one pattern underneath.</h2>
+          <p class="lead rv d2">
+            Angel numbers are the entry point — the sequence on a clock or receipt that made you stop.
+            Numerology is the system beneath them. Archangels give the signal a name. Frequency covers
+            the tones and the methodology that ties it together. Manifestation is what you do with it
+            once you can read it. Start anywhere; they all connect.
+          </p>
+        </div>
+        <svg class="sigil rv d2" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="88" />
+          <circle cx="100" cy="100" r="60" class="v" />
+          <circle cx="100" cy="100" r="30" class="c" />
+          <line x1="100" y1="12" x2="100" y2="188" />
+          <line x1="12" y1="100" x2="188" y2="100" />
+          <line x1="38" y1="38" x2="162" y2="162" class="v" />
+          <line x1="162" y1="38" x2="38" y2="162" class="v" />
+          <polygon points="100,40 152,130 48,130" />
+        </svg>
+      </div>
+    </section>
+
+    <section aria-labelledby="calc-h">
+      <div class="wrap">
+        <div class="calc calc-feature rv">
+          <div>
+            <p class="eyebrow">The Angel Number Calculator</p>
+            <h2 id="calc-h" style="margin:0.4em 0 0.5em">One birthdate. One number that has been finding you.</h2>
+            <p class="lead">Your angel number is calculated from the date you were born. The free calculator reveals it in about fifteen seconds, then shows what it means.</p>
+            <p style="margin-top:1.6em"><a class="btn" href="/angel-numbers/calculator/">Calculate My Angel Number →</a></p>
+          </div>
+          {exampleEntry && (
+            <div class="reduce" aria-hidden="true">
+              <div class="row">{exampleEntry.number.split('').join(' · ')}</div>
+              <div class="arrow">▽</div>
+              <div class="code">{exampleEntry.reduces}</div>
+              <div class="cap">Example: {exampleEntry.number} reduces to {exampleEntry.reduces}</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="center" aria-labelledby="sec248-h">
+      <div class="wrap">
+        <p class="eyebrow rv">The signature pattern</p>
+        <h2 id="sec248-h" class="rv d1">The 248 Frequency™</h2>
+        <div class="infinity-wrap rv d2">
+          <svg class="infinity" viewBox="0 0 400 160" aria-hidden="true">
+            <path class="lem-base" d="M200,80 C200,35 130,20 90,45 C50,70 50,90 90,115 C130,140 200,125 200,80 C200,35 270,20 310,45 C350,70 350,90 310,115 C270,140 200,125 200,80 Z" />
+            <path class="lem-light" d="M200,80 C200,35 130,20 90,45 C50,70 50,90 90,115 C130,140 200,125 200,80 C200,35 270,20 310,45 C350,70 350,90 310,115 C270,140 200,125 200,80 Z" />
+          </svg>
+        </div>
+        <div class="n248 rv d2">
+          <div><div class="num">2</div><div class="lbl">Balance</div></div>
+          <div><div class="num">4</div><div class="lbl">Foundation</div></div>
+          <div><div class="num">8</div><div class="lbl">Return</div></div>
+        </div>
+        <p class="lead rv d3" style="margin-top:1.8em">
+          Most people's repeating numbers cluster around one of three themes over months at a time. The
+          248 Frequency™ is the practice of reading that cluster as a single ongoing signal.
+        </p>
+        <p class="rv d3"><a href="/frequency/248/">Read the full methodology →</a></p>
+      </div>
+    </section>
+
+    <section class="center" aria-labelledby="tiles-h">
+      <div class="wrap">
+        <p class="eyebrow rv">The most searched numbers</p>
+        <h2 id="tiles-h" class="rv d1">Start with the numbers finding people right now.</h2>
+        <div class="tiles">
+          {tiles.map((e, i) => (
+            <a class={`tile rv d${Math.min(i, 3)}`} href={`/angel-numbers/${e.slug}/`}>
               <span class="num">{e.number}</span>
-              <span class="lbl">{e.tags[0]}</span>
+              <p>{e.tags[0]}</p>
             </a>
-          </li>
-        ))}
-      </ul>
-      <p style="text-align:center"><a href="/angel-numbers/meanings/">Browse all number meanings →</a></p>
+          ))}
+        </div>
+        <p class="rv d3" style="margin-top:32px"><a href="/angel-numbers/meanings/">Browse every number meaning →</a></p>
+      </div>
     </section>
 
     <section aria-labelledby="pillar-h">
-      <h2 id="pillar-h" style="text-align:center">Explore the Guides</h2>
-      <ul class="hub-grid">
-        {pillars.map((p) => (
-          <li>
-            <a class="hub-card" href={p.href}>
-              <h3>{p.name}</h3>
-              <p>{p.blurb}</p>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div class="wrap">
+        <h2 id="pillar-h" class="rv" style="text-align:center">Explore the Guides</h2>
+        <ul class="hub-grid">
+          {pillars.map((p, i) => (
+            <li>
+              <a class={`hub-card rv d${Math.min(i % 3, 3)}`} href={p.href}>
+                <h3>{p.name}</h3>
+                <p>{p.blurb}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <p class="eyebrow rv">Begin here</p>
+        <h2 class="rv d1">One number. Twenty-six pages. Entirely yours.</h2>
+        <p class="lead rv d2" style="max-width:44em; margin-left:auto; margin-right:auto">
+          The free calculator shows your number. Your personalized Frequency Code™ report shows what
+          it's doing in your life — the desire you've been pushing down, where your energy leaks, and
+          the next 12 months.
+        </p>
+        <div class="rv d3">
+          <a class="btn" href={REVEAL_PATH}>Unlock My Full Frequency Code →</a>
+        </div>
+
+        <div class="secondary">
+          <div class="sec-card rv">
+            <div class="label">Archangel Frequencies App</div>
+            <p>Decode angel numbers anywhere and carry your Frequency Code wherever you go.</p>
+            <a class="link-quiet" href={EXTERNAL.app} target="_blank" rel="noopener">Try the App →</a>
+          </div>
+          <div class="sec-card rv d1">
+            <div class="label">Archangel Frequencies Community</div>
+            <p>Connect with others exploring angel numbers, synchronicities, and manifestation.</p>
+            <a class="link-quiet" href={EXTERNAL.community} target="_blank" rel="noopener">Join Free →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <JourneyStrip stages={statStages} />
+
+    <section class="center" aria-labelledby="follow-h">
+      <div class="wrap">
+        <h2 id="follow-h" class="rv">Follow the Journey</h2>
+        <p class="lead rv d1">Daily inspiration, angel number meanings, and Frequency Code discoveries.</p>
+        <div class="rv d2" style="margin-top:36px">
+          <SocialRow size="lg" />
+        </div>
+      </div>
     </section>
 
     <div class="article" style="padding:0">
       <Cta
-        heading="One number. Twenty-six pages. Entirely yours."
-        line="The free calculator shows your number. Your personalized Frequency Code™ report shows what it's doing in your life — the desire you've been pushing down, where your energy leaks, and the next 12 months."
-        button="Unlock My Full Frequency Code →"
+        heading="How our readings are constructed"
+        line="Every reading on this site follows a documented method — not a random generator."
+        button="Reveal My Frequency Code →"
         secondaryHref="/methodology/"
         secondaryLabel="How our readings are constructed"
       />
     </div>
   </div>
 </Base>
+
+<style>
+  .link-quiet {
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(79, 214, 227, 0.3);
+    padding-bottom: 2px;
+  }
+  .link-quiet:hover { border-color: var(--cyan); color: var(--cyan); }
+</style>
+
+<script>
+  (function () {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.getElementById('stars') as HTMLCanvasElement | null;
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        let w = 0, h = 0;
+        let stars: { x: number; y: number; r: number; tw: number; sp: number; vy: number; hue: string }[] = [];
+        function size() {
+          w = canvas!.width = innerWidth * devicePixelRatio;
+          h = canvas!.height = innerHeight * devicePixelRatio;
+          canvas!.style.width = innerWidth + 'px';
+          canvas!.style.height = innerHeight + 'px';
+          const n = Math.min(110, Math.floor(innerWidth / 10));
+          stars = Array.from({ length: n }, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: (Math.random() * 1.1 + 0.3) * devicePixelRatio,
+            tw: Math.random() * Math.PI * 2,
+            sp: 0.0025 + Math.random() * 0.006,
+            vy: (0.02 + Math.random() * 0.05) * devicePixelRatio,
+            hue: Math.random() < 0.12 ? '139,111,216' : Math.random() < 0.5 ? '227,200,135' : '234,230,244',
+          }));
+        }
+        function frame() {
+          ctx!.clearRect(0, 0, w, h);
+          for (const s of stars) {
+            s.tw += s.sp;
+            if (!reduce) {
+              s.y -= s.vy;
+              if (s.y < -4) s.y = h + 4;
+            }
+            const a = 0.25 + Math.abs(Math.sin(s.tw)) * 0.6;
+            ctx!.beginPath();
+            ctx!.arc(s.x, s.y, s.r, 0, 7);
+            ctx!.fillStyle = 'rgba(' + s.hue + ',' + a + ')';
+            ctx!.fill();
+          }
+          if (!reduce) requestAnimationFrame(frame);
+        }
+        size();
+        frame();
+        addEventListener('resize', () => {
+          size();
+          if (reduce) frame();
+        });
+      }
+    }
+
+    const els = document.querySelectorAll('.rv');
+    if (reduce) {
+      els.forEach((e) => e.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      els.forEach((e) => io.observe(e));
+    }
+  })();
+</script>

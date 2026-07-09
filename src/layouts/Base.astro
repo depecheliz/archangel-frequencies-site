@@ -1,6 +1,7 @@
 ---
-import { SITE, NAV, REVEAL_PATH } from '../lib/site';
+import { SITE, NAV, REVEAL_PATH, EXTERNAL } from '../lib/site';
 import { organizationSchema, websiteSchema } from '../lib/schema';
+import SocialRow from '../components/SocialRow.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -87,8 +88,14 @@ const blocks = [...(isHome ? [organizationSchema(), websiteSchema()] : []), ...s
           <a href={REVEAL_PATH}>Get Your Frequency Code</a>
         </div>
       </div>
-      <div class="wrap" style="margin-top:28px; font-size:0.78rem;">
-        <p>
+      <div class="wrap" style="margin-top:28px">
+        <SocialRow size="sm" />
+        <p style="margin-top:18px; font-size:0.78rem; text-align:center">
+          Elsewhere: <a href={EXTERNAL.app} target="_blank" rel="noopener">App</a> ·{' '}
+          <a href={EXTERNAL.community} target="_blank" rel="noopener">Community</a> ·{' '}
+          <a href={EXTERNAL.amazonBooks} target="_blank" rel="noopener">Books</a>
+        </p>
+        <p style="margin-top:12px; font-size:0.78rem">
           &copy; {new Date().getFullYear()} {SITE.name}. For reflection and entertainment; not a substitute for
           professional advice. Some pages contain affiliate links; see each page's disclosure.
         </p>

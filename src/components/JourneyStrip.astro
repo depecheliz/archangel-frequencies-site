@@ -1,0 +1,16 @@
+---
+interface Props {
+  stages: { label: string; caption: string }[];
+}
+const { stages } = Astro.props;
+---
+<div class="journey rv">
+  <div class="wrap">
+    {stages.map((s) => (
+      <div class="stage">
+        <div class="label">{s.label}</div>
+        <p>{s.caption}</p>
+      </div>
+    ))}
+  </div>
+</div>
