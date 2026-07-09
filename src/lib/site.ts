@@ -37,7 +37,7 @@ export const NAV = [
   { label: 'Frequency', href: '/frequency/' },
   { label: 'Manifestation', href: '/manifestation/' },
   { label: 'Calculators', href: '/calculators/' },
-  { label: 'Reviews', href: '/reviews/' },
+  { label: 'Methodology', href: '/methodology/' },
 ];
 
 export const CTA_LINE = 'Your birthdate carries its own number. Reveal your Frequency Code.';

@@ -21,7 +21,6 @@ export default defineConfig({
       filter: (page) => {
         const path = new URL(page).pathname;
         if (path === '/reveal/') return false;
-        if (path === '/vs/') return false;
         if (draftPaths.has(path)) return false;
         return true;
       },
