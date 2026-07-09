@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+const path = '/privacy/';
+const title = 'Privacy Policy — Archangel Frequencies';
+const description = 'What Archangel Frequencies collects, how it is used, cookies and analytics, third-party services, and your choices.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Privacy Policy', href: path }];
+const schema = [breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero" style="text-align:left; padding-top:24px">
+      <p class="eyebrow">Archangel Frequencies</p>
+      <h1>Privacy Policy</h1>
+    </header>
+    <p class="muted">Last updated: July 8, 2026</p>
+
+    <h2>What we collect</h2>
+    <p>We may collect information you voluntarily provide, such as your name, email address, birth date entered into the Frequency Code Calculator, and basic website analytics.</p>
+
+    <h2>How we use it</h2>
+    <p>We use this information to deliver requested content, provide Frequency Code results, respond to inquiries, improve the website, and send emails you request.</p>
+
+    <h2>Cookies and analytics</h2>
+    <p>This website may use cookies and analytics tools, including Google Analytics and similar technologies, to improve performance and understand visitor behavior.</p>
+
+    <h2>Third-party services</h2>
+    <p>We may use trusted third-party providers for hosting, email delivery, payments, analytics, and application services. They process data only as necessary to provide their services.</p>
+
+    <h2>Your choices</h2>
+    <p>You may unsubscribe from emails at any time and may request access to, correction of, or deletion of your personal information by contacting us.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy? Reach us at <a href="mailto:info@archangelfrequencies.com">info@archangelfrequencies.com</a>.</p>
+  </div>
+</Base>

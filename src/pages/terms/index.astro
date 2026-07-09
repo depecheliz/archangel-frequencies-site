@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+const path = '/terms/';
+const title = 'Terms of Use — Archangel Frequencies';
+const description = 'The terms governing use of Archangel Frequencies — content nature, intellectual property, purchases and refunds, and limitation of liability.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Terms of Use', href: path }];
+const schema = [breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero" style="text-align:left; padding-top:24px">
+      <p class="eyebrow">Archangel Frequencies</p>
+      <h1>Terms of Use</h1>
+    </header>
+    <p class="muted">Last updated: July 8, 2026</p>
+
+    <h2>Acceptance of terms</h2>
+    <p>By accessing or using Archangel Frequencies, you agree to these Terms of Use. If you do not agree, please discontinue use of the website.</p>
+
+    <h2>Nature of the content</h2>
+    <p>Frequency Codes, angel number meanings, manifestation content, and related materials are provided for educational, inspirational, personal reflection, and entertainment purposes. They are not medical, legal, financial, or mental health advice.</p>
+
+    <h2>Intellectual property</h2>
+    <p>All content, branding, graphics, text, Frequency Code™, 248 Infinity Frequency Code™, and related original materials are the intellectual property of Archangel Frequencies unless otherwise noted. They may not be copied or redistributed without written permission.</p>
+
+    <h2>Purchases and refunds</h2>
+    <p>Digital products are generally non-refundable once delivered unless otherwise stated. Physical products are subject to the retailer's return policy.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>Archangel Frequencies is not liable for any direct or indirect damages arising from use of this website or reliance on its content.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms? Reach us at <a href="mailto:info@archangelfrequencies.com">info@archangelfrequencies.com</a>.</p>
+  </div>
+</Base>
