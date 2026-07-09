@@ -1,0 +1,19 @@
+---
+// Conversion endpoint. This page instantly forwards to the Systeme.io funnel.
+// After connecting the custom domain in Systeme.io, update REVEAL_URL in
+// src/lib/site.ts to https://go.archangelfrequencies.com — nothing else changes.
+import { REVEAL_URL } from '../../lib/site';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=${REVEAL_URL}`} />
+    <link rel="canonical" href={REVEAL_URL} />
+    <title>Revealing your Frequency Code…</title>
+  </head>
+  <body style="background:#0b1026;color:#eae6f4;font-family:system-ui;display:grid;place-items:center;min-height:100vh">
+    <p>Revealing your Frequency Code… <a href={REVEAL_URL} style="color:#e3c887">Continue</a></p>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+const path = '/numerology/life-path/';
+const title = 'Life Path Numbers: Meanings 1–9 and Master Numbers';
+const description = 'What life path numbers mean — every number from 1 to 9 plus master numbers 11, 22, and 33 — and how to calculate yours the correct way.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Numerology', href: '/numerology/' }, { name: 'Life Path', href: path }];
+const faqs = [
+  { q: 'What is a life path number?', a: 'Your life path number is the reduction of your full date of birth — the single most-referenced number in a numerology chart. It describes the long arc of your life: core strengths, recurring lessons, and natural direction.' },
+  { q: 'How do I calculate my life path number?', a: 'Reduce month, day, and year separately, then add the three results and reduce again — stopping at 11, 22, or 33. Our free calculator does this correctly and instantly.' },
+  { q: 'Which life path number is best?', a: 'None. Each path carries its own strengths and its own recurring lesson; an 8 with unexamined power issues struggles exactly as much as a 2 who never learns to decide. The value is knowing your pattern.' },
+];
+const paths = [
+  ['1', 'The Leader — initiative, independence, going first.'],
+  ['2', 'The Diplomat — partnership, timing, quiet influence.'],
+  ['3', 'The Voice — creativity and expression as the assignment.'],
+  ['4', 'The Builder — structure, discipline, things that last.'],
+  ['5', 'The Explorer — change, freedom, adaptation.'],
+  ['6', 'The Guardian — home, care, responsibility.'],
+  ['7', 'The Seeker — study, solitude, depth.'],
+  ['8', 'The Executive — power, abundance, cause and effect.'],
+  ['9', 'The Humanitarian — completion and compassion.'],
+  ['11', 'Master 11, The Intuitive — the 2 at higher voltage.'],
+  ['22', 'Master 22, The Master Builder — vision plus discipline.'],
+  ['33', 'Master 33, The Master Teacher — care at scale.'],
+];
+const schema = [articleSchema({ title, description, path }), faqSchema(faqs), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Hub</p><h1>Life Path Numbers</h1>
+    <p class="lead">Twelve paths. One is the spine of your chart.</p></header>
+    <p>Your life path is calculated from your date of birth and stays constant for life — the climate your years happen inside. Find yours with the <a href="/calculators/life-path/">life path calculator</a>, then read your number below. Full individual pages for each path are being published; each summary links to the deepest reading currently available.</p>
+    <table>
+      <thead><tr><th>Path</th><th>Essence</th></tr></thead>
+      <tbody>{paths.map(([n, d]) => (<tr><td style="font-family:var(--serif);font-size:1.3rem;color:var(--gold-bright)">{n}</td><td>{d}</td></tr>))}</tbody>
+    </table>
+    <p>Your life path digit also has a signal form: the repeating sequence built from it. A life path 4 will meet <a href="/angel-numbers/444/">444</a> differently than anyone else does. Cross-reference your path with its sequence in the <a href="/angel-numbers/meanings/">meanings index</a>.</p>
+    <Cta secondaryHref="/calculators/life-path/" secondaryLabel="Calculate my life path free" />
+    <section class="faq"><h2>Life Path FAQs</h2>{faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}</section>
+  </div>
+</Base>

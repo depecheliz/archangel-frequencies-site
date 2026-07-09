@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+const path = '/best/';
+const title = 'Best-Of Guides: Readings, Books & Spiritual Tools';
+const description = 'Hand-tested roundups of the best numerology readings, angel number books, and spiritual tools — with honest picks and clear disclosures.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Best-Of Guides', href: path }];
+const guides = [
+  { name: 'Best Numerology Reading', href: '/best/numerology-reading/', blurb: 'Personalized readings compared: what each contains, costs, and who it fits.' },
+  { name: 'Best Angel Number Books', href: '/best/angel-number-books/', blurb: 'The books worth owning on angel numbers, ranked and reviewed.' },
+];
+const schema = [breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="wrap" style="max-width:900px">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Guides</p><h1>Best-Of Guides</h1>
+    <p class="lead">Comparisons and roundups, with disclosures on every page. More guides ship monthly.</p></header>
+    <ul class="hub-grid">{guides.map((g) => (<li><a class="hub-card" href={g.href}><h3>{g.name}</h3><p>{g.blurb}</p></a></li>))}</ul>
+    <p class="muted">Coming next: best manifestation programs, best oracle decks, best meditation apps, best spiritual gifts.</p>
+  </div>
+</Base>

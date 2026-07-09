@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import catalog from '../data/catalog.json';
+import { SITE, REVEAL_PATH } from '../lib/site';
+
+const title = 'Archangel Frequencies: Angel Numbers, Numerology & Your Frequency Code';
+const description = SITE.description;
+const featured = ['1111', '444', '222', '333', '555', '777', '888', '999'];
+const featuredEntries = featured.map((n) => catalog.find((c) => c.slug === n)).filter(Boolean);
+const pillars = [
+  { name: 'Angel Numbers', href: '/angel-numbers/', blurb: 'Every repeating sequence decoded — spiritual, love, money, twin flame, and biblical meanings.' },
+  { name: 'Numerology', href: '/numerology/', blurb: 'Life path, expression, personal years — the system behind the signs.' },
+  { name: 'Archangels', href: '/archangels/', blurb: 'The 15 archangels, their numbers, colors, and how to work with each.' },
+  { name: 'Frequency', href: '/frequency/', blurb: 'Solfeggio tones, the Frequency Code™, and the 248 Frequency™ methodology.' },
+  { name: 'Manifestation', href: '/manifestation/', blurb: 'Neville Goddard techniques, methods, and affirmations that actually get practiced.' },
+  { name: 'Calculators', href: '/calculators/', blurb: 'Free instant tools: angel number, life path, personal year, mirror hours.' },
+];
+---
+
+<Base title={title} description={description} isHome={true}>
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">{SITE.tagline}</p>
+      <h1>The Numbers Keep Appearing<br />For A Reason</h1>
+      <p class="lead">
+        Your birth date carries a number woven into everything you do. Decode the sequences that keep
+        finding you — then reveal the full code beneath them.
+      </p>
+      <div class="seal">
+        <span class="n">4:44</span>
+        <span class="sub">You've seen it. Decode it.</span>
+      </div>
+      <p>
+        <a class="btn" href="/angel-numbers/calculator/">Reveal My Angel Number →</a>
+      </p>
+      <p class="muted" style="font-size:0.85rem">Free. Takes 15 seconds. No email required. Trusted by 170K+ followers across Archangel Frequencies.</p>
+    </header>
+
+    <section aria-labelledby="pop-h">
+      <h2 id="pop-h" style="text-align:center">The Numbers Finding You Right Now</h2>
+      <ul class="grid">
+        {featuredEntries.map((e) => (
+          <li>
+            <a class="card" href={`/angel-numbers/${e.slug}/`}>
+              <span class="num">{e.number}</span>
+              <span class="lbl">{e.tags[0]}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p style="text-align:center"><a href="/angel-numbers/meanings/">Browse all number meanings →</a></p>
+    </section>
+
+    <section aria-labelledby="pillar-h">
+      <h2 id="pillar-h" style="text-align:center">Explore the Guides</h2>
+      <ul class="hub-grid">
+        {pillars.map((p) => (
+          <li>
+            <a class="hub-card" href={p.href}>
+              <h3>{p.name}</h3>
+              <p>{p.blurb}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="article" style="padding:0">
+      <Cta
+        heading="One number. Twenty-six pages. Entirely yours."
+        line="The free calculator shows your number. Your personalized Frequency Code™ report shows what it's doing in your life — the desire you've been pushing down, where your energy leaks, and the next 12 months."
+        button="Unlock My Full Frequency Code →"
+        secondaryHref="/methodology/"
+        secondaryLabel="How our readings are constructed"
+      />
+    </div>
+  </div>
+</Base>

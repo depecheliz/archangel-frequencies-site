@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import NumberSeal from '../../components/NumberSeal.astro';
+import catalog from '../../data/catalog.json';
+import { articleSchema, faqSchema, breadcrumbSchema } from '../../lib/schema';
+import { REVEAL_PATH } from '../../lib/site';
+
+export function getStaticPaths() {
+  return catalog.map((entry) => ({ params: { number: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const path = `/angel-numbers/${entry.slug}/`;
+const title = `${entry.number} Angel Number Meaning: Love, Money, Twin Flame & More`;
+const description = `What ${entry.number} means when you keep seeing it — spiritual meaning, love, money and career, twin flame, biblical meaning, and exactly what to do next.`;
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Angel Numbers', href: '/angel-numbers/' },
+  { name: entry.number, href: path },
+];
+
+const relatedEntries = entry.related
+  .map((slug) => catalog.find((c) => c.slug === slug))
+  .filter(Boolean);
+
+const schema = [
+  articleSchema({ title, description, path }),
+  faqSchema(entry.faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+
+<Base title={title} description={description} schema={schema} noindex={entry.draft === true}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+
+    <header style="text-align:center">
+      <NumberSeal number={entry.number} />
+      <h1>{entry.number} Angel Number Meaning</h1>
+      <ul class="tags">
+        {entry.tags.map((t) => <li>{t}</li>)}
+      </ul>
+    </header>
+
+    <h2 id="spiritual">The Spiritual Meaning of {entry.number}</h2>
+    <p>{entry.spiritual}</p>
+
+    <h2 id="love">{entry.number} in Love and Relationships</h2>
+    <p>{entry.love}</p>
+
+    <h2 id="money">{entry.number} for Money and Career</h2>
+    <p>{entry.money}</p>
+
+    <h2 id="twin-flame">{entry.number} and Twin Flames</h2>
+    <p>{entry.twinFlame}</p>
+
+    <h2 id="biblical">The Biblical Meaning of {entry.number}</h2>
+    <p>{entry.biblical}</p>
+
+    <h2 id="what-to-do">What to Do When You Keep Seeing {entry.number}</h2>
+    <p>{entry.action}</p>
+    <p>
+      Numbers repeat for people, not at them. The pattern behind why <em>you</em> keep meeting{' '}
+      {entry.number} lives in your own numbers — start with the{' '}
+      <a href="/angel-numbers/calculator/">angel number calculator</a> to find the number woven into
+      your birthdate.
+    </p>
+
+    <Cta
+      secondaryHref="/angel-numbers/calculator/"
+      secondaryLabel="Or calculate your angel number first"
+    />
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Frequently Asked Questions About {entry.number}</h2>
+      {entry.faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+
+    <section class="related" aria-labelledby="rel-h">
+      <h2 id="rel-h">Related Angel Numbers</h2>
+      <ul>
+        {relatedEntries.map((r) => (
+          <li>
+            <a href={`/angel-numbers/${r.slug}/`}>{r.number} — {r.tags[0]}</a>
+          </li>
+        ))}
+        <li><a href="/angel-numbers/meanings/">All angel number meanings →</a></li>
+      </ul>
+      <p class="muted" style="margin-top:16px; font-size:0.88rem">
+        Part of the <a href="/angel-numbers/">Angel Numbers</a> guide. New here? Read{' '}
+        <a href="/methodology/">how our readings are constructed</a> or{' '}
+        <a href={REVEAL_PATH}>get your full Frequency Code</a>.
+      </p>
+    </section>
+  </div>
+</Base>

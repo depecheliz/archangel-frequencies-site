@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# When the Systeme.io custom domain (go.archangelfrequencies.com) is live,
+# replace the meta-refresh page by uncommenting this for a server-side 302:
+# /reveal/  https://go.archangelfrequencies.com  302

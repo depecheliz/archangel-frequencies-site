@@ -1,0 +1,111 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { webApplicationSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { REVEAL_PATH } from '../../../lib/site';
+
+const path = '/calculators/personal-year/';
+const title = 'Personal Year Calculator: Your 2026 Numerology Theme';
+const description = 'Free personal year number calculator. Enter your birth month and day to discover where you are in the nine-year numerology cycle and what this year is asking of you.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Calculators', href: '/calculators/' },
+  { name: 'Personal Year', href: path },
+];
+const faqs = [
+  { q: 'How is the personal year calculated?', a: 'Your birth month and birth day are added to the current calendar year, then reduced to a single digit. Birth year is not used — the personal year measures where you are in the cycle now, not who you are.' },
+  { q: 'When does my personal year change?', a: 'The most common convention, and the one this calculator uses, is January 1. Some numerologists count from your birthday; if you were born late in the year, read both adjacent years and notice which describes your life better.' },
+  { q: 'What is the nine-year cycle?', a: 'Numerology reads life in repeating nine-year arcs: 1 plants, 2 waits, 3 expresses, 4 builds, 5 changes, 6 tends, 7 studies, 8 harvests, 9 releases. Knowing your position in the arc explains why some years push and others pull.' },
+];
+const schema = [
+  webApplicationSchema({ name: 'Personal Year Calculator', description, path }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Free Tool</p>
+      <h1>Personal Year Calculator</h1>
+      <p class="lead">Nine-year cycles shape every life. Find out which year you are standing in.</p>
+    </header>
+
+    <div class="calc">
+      <div class="row">
+        <div>
+          <label for="m">Birth Month</label>
+          <select id="m">{Array.from({ length: 12 }, (_, i) => <option value={i + 1}>{i + 1}</option>)}</select>
+        </div>
+        <div>
+          <label for="d">Birth Day</label>
+          <select id="d">{Array.from({ length: 31 }, (_, i) => <option value={i + 1}>{i + 1}</option>)}</select>
+        </div>
+        <div>
+          <label for="y">Year to Read</label>
+          <input id="y" type="number" inputmode="numeric" min="1900" max="2100" value="2026" />
+        </div>
+      </div>
+      <div class="actions"><button class="btn" id="go">Reveal My Personal Year →</button></div>
+
+      <div class="calc-result" id="result" aria-live="polite">
+        <div class="seal"><span class="n" id="rnum"></span><span class="sub">Personal Year</span></div>
+        <p class="interp" id="rtext"></p>
+        <p><a class="btn" href={REVEAL_PATH}>Get My Full 12-Month Reading →</a></p>
+        <p><button class="btn-ghost" id="share" type="button">Share my year</button></p>
+        <p class="muted" id="shared" style="font-size:0.8rem"></p>
+      </div>
+    </div>
+
+    <h2>Reading the Nine-Year Cycle</h2>
+    <p>The cycle moves like a season: plant (1), root (2), bloom (3), build (4), turn (5), tend (6), deepen (7), harvest (8), release (9). Most frustration comes from acting against the year — trying to harvest in a planting year, or plant in a release year. The calculator tells you which season you are in; the pages in the <a href="/numerology/">numerology hub</a> tell you how to work with it.</p>
+
+    <h2>Related Tools</h2>
+    <p>Your personal year is the weather; your <a href="/calculators/life-path/">life path</a> is the climate. And the number that keeps appearing on clocks this year? Decode it with the <a href="/angel-numbers/calculator/">angel number calculator</a> or the <a href="/calculators/mirror-hour/">mirror hour decoder</a>.</p>
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Personal Year FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+  </div>
+
+  <script>
+    const MEANINGS: Record<number, string> = {
+      1: 'Year 1 — Plant. New beginnings, fresh identity, first steps. What you start this year shapes the next eight.',
+      2: 'Year 2 — Root. Patience, partnership, slow growth underground. Progress is real even when invisible.',
+      3: 'Year 3 — Bloom. Expression, visibility, social expansion. Share the work; this is your loud year.',
+      4: 'Year 4 — Build. Structure, discipline, foundations. Unglamorous effort now pays for years.',
+      5: 'Year 5 — Turn. Change, travel, disruption, freedom. Hold plans loosely; the pivot is the point.',
+      6: 'Year 6 — Tend. Home, family, responsibility, repair. Relationships are the curriculum this year.',
+      7: 'Year 7 — Deepen. Study, solitude, spiritual growth. A quiet year that changes everything after it.',
+      8: 'Year 8 — Harvest. Power, money, recognition. Effort from years 1–7 comes due; make the big asks.',
+      9: 'Year 9 — Release. Completion, forgiveness, clearing. Let go well and year 1 arrives clean.',
+    };
+    const el = (id: string) => document.getElementById(id)!;
+    function reduce(n: number): number {
+      while (n > 9) n = String(n).split('').reduce((a, c) => a + Number(c), 0);
+      return n;
+    }
+    el('go').addEventListener('click', () => {
+      const y = Number((el('y') as HTMLInputElement).value);
+      if (!y || y < 1900 || y > 2100) { (el('y') as HTMLInputElement).focus(); return; }
+      const m = Number((el('m') as HTMLSelectElement).value);
+      const d = Number((el('d') as HTMLSelectElement).value);
+      const py = reduce(reduce(m) + reduce(d) + reduce(String(y).split('').reduce((a, c) => a + Number(c), 0)));
+      el('rnum').textContent = String(py);
+      el('rtext').textContent = MEANINGS[py];
+      el('result').classList.add('show');
+      el('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    el('share').addEventListener('click', async () => {
+      const num = el('rnum').textContent;
+      const data = { title: 'My Personal Year', text: `I'm in a Personal Year ${num}. Find yours:`, url: 'https://archangelfrequencies.com/calculators/personal-year/' };
+      try {
+        if (navigator.share) { await navigator.share(data); }
+        else { await navigator.clipboard.writeText(`${data.text} ${data.url}`); el('shared').textContent = 'Link copied to clipboard.'; }
+      } catch {}
+    });
+  </script>
+</Base>

@@ -1,0 +1,75 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { itemListSchema, faqSchema, breadcrumbSchema, articleSchema } from '../../../lib/schema';
+import { REVEAL_PATH, SITE } from '../../../lib/site';
+
+const path = '/best/numerology-reading/';
+const title = 'Best Numerology Reading Online (2026): 5 Options Compared';
+const description = 'The best numerology readings compared — personalized reports, live readings, and free options — with prices, what each contains, and who each one fits.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Best-Of Guides', href: '/best/' },
+  { name: 'Best Numerology Reading', href: path },
+];
+const picks = [
+  { name: 'Frequency Code™ Report (Archangel Frequencies)', tag: 'Best for repeating numbers', body: 'Our own 26-page personalized report, built around the number in your birthdate and the pattern of sequences that keep finding you. Starts with a free reveal — no email required — and there is exactly one product, no upsell chain. We make it, so weigh that; the free step lets you test the fit before spending anything.' },
+  { name: 'Numerologist.com', tag: 'Best classical chart for beginners', body: 'The biggest name in the space. Low entry price, instant delivery, and a solid introduction to life path, expression, and soul urge numbers. Software-generated depth and a heavy upsell sequence are the trade-offs. Full breakdown in our detailed review.' },
+  { name: 'A live reading with an independent numerologist', tag: 'Best for depth', body: 'A human practitioner working through your full chart live will always out-depth any generated report — at 5 to 20 times the price. Look for practitioners who publish their method and offer a defined scope, and expect $75–$250 per session.' },
+  { name: 'Psychic network numerology readings (Keen, Kasamba)', tag: 'Best for on-demand access', body: 'Per-minute live readings with new-customer discounts. Quality varies enormously by advisor; use the introductory minutes to test one before committing, and check advisor reviews specific to numerology rather than general ratings.' },
+  { name: 'Do it yourself (free)', tag: 'Best free option', body: 'Every core number can be calculated by hand or with free tools. Start with our life path calculator and angel number calculator, then read the numerology hub. You trade convenience and synthesis for zero cost.' },
+];
+const faqs = [
+  { q: 'Are numerology readings accurate?', a: 'A reading is an interpretation system, not a prediction machine. Good readings are accurate the way a good mirror is: they organize what is true about you so you can see it clearly. Judge any reading by whether it produces specific, usable self-recognition — not by prophecy.' },
+  { q: 'What should a numerology reading include?', a: 'At minimum: your life path number, expression number, and soul urge number, each explained in plain language, plus a forward-looking section such as personal year cycles. Reports that only restate one number are previews, not readings.' },
+  { q: 'What is the difference between a generated report and a live reading?', a: 'Generated reports are assembled by software from your birthdate and name — inexpensive, instant, and identical for identical inputs. Live readings synthesize your full chart in conversation — deeper, and priced accordingly.' },
+];
+const schema = [
+  articleSchema({ title, description, path }),
+  itemListSchema({ name: 'Best Numerology Readings', items: picks.map((p) => ({ name: p.name })) }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header>
+      <p class="eyebrow">Buying Guide · Updated July 2026</p>
+      <h1>The Best Numerology Reading Online in 2026</h1>
+    </header>
+
+    <p class="notice">Disclosure: this page contains affiliate links and features our own product, clearly labeled. We may earn a commission at no cost to you.</p>
+
+    <p>There are three genuinely different products hiding under the phrase "numerology reading": software-generated personalized reports, live sessions with a practitioner, and free do-it-yourself calculation. The right one depends on your budget and on which question brought you here. Here are the five options worth considering, including our own — labeled as ours.</p>
+
+    {picks.map((p, i) => (
+      <section>
+        <h2>{i + 1}. {p.name}</h2>
+        <p class="eyebrow">{p.tag}</p>
+        <p>{p.body}</p>
+      </section>
+    ))}
+
+    <h2>How to Choose</h2>
+    <p>If a repeating number brought you here, start with the free <a href="/angel-numbers/calculator/">angel number calculator</a> and see whether the reveal resonates before spending anything. If you want the classical chart vocabulary, an entry-level generated report is the cheapest education available — read our <a href="/reviews/numerologist-review/">Numerologist.com review</a> first. If you have a major decision on the table, pay for a human.</p>
+
+    <Cta secondaryHref="/angel-numbers/calculator/" secondaryLabel="Start with the free calculator" />
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Numerology Reading FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+
+    <section class="related">
+      <h2>Related Guides</h2>
+      <ul>
+        <li><a href="/reviews/numerologist-review/">Numerologist.com Review</a></li>
+        <li><a href="/best/angel-number-books/">Best Angel Number Books</a></li>
+        <li><a href="/numerology/">Numerology: The Complete Guide</a></li>
+      </ul>
+    </section>
+  </div>
+</Base>

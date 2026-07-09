@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+const path = '/numerology/';
+const title = 'Numerology: The System Behind the Numbers';
+const description = 'Numerology explained plainly — life path, expression, soul urge, personal years, and master numbers — with free calculators for each.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Numerology', href: path }];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Pillar Guide</p><h1>Numerology</h1>
+    <p class="lead">Angel numbers are the signals. Numerology is the system that reads them.</p></header>
+    <p>Numerology maps meaning onto numbers through a simple mechanic: reduction. Any date or name becomes a set of core numbers, and each core number carries a consistent theme. This hub covers the chart's main components — start with your life path, then layer the rest.</p>
+    <ul class="hub-grid">
+      <li><a class="hub-card" href="/numerology/life-path/"><h3>Life Path Numbers</h3><p>The spine of the chart — your long-term direction, including master numbers 11, 22, 33.</p></a></li>
+      <li><a class="hub-card" href="/calculators/life-path/"><h3>Life Path Calculator</h3><p>Calculate yours correctly, with per-part reduction that preserves master numbers.</p></a></li>
+      <li><a class="hub-card" href="/calculators/personal-year/"><h3>Personal Year</h3><p>The nine-year cycle and where you stand in it right now.</p></a></li>
+      <li><a class="hub-card" href="/angel-numbers/"><h3>Angel Numbers</h3><p>How the system shows up in the wild — repeating sequences and what they carry.</p></a></li>
+    </ul>
+    <p class="muted">Coming to this hub: expression number, soul urge, personality number, karmic debt, and compatibility guides.</p>
+    <Cta />
+  </div>
+</Base>

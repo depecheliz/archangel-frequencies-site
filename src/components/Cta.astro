@@ -1,0 +1,27 @@
+---
+import { REVEAL_PATH, CTA_LINE } from '../lib/site';
+interface Props {
+  heading?: string;
+  line?: string;
+  button?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+const {
+  heading = 'The number found you. Now decode it.',
+  line = CTA_LINE,
+  button = 'Reveal My Frequency Code →',
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+---
+<aside class="cta">
+  <h3>{heading}</h3>
+  <p>{line}</p>
+  <a class="btn" href={REVEAL_PATH}>{button}</a>
+  {secondaryHref && (
+    <p style="margin-top:14px">
+      <a class="btn-ghost" href={secondaryHref}>{secondaryLabel}</a>
+    </p>
+  )}
+</aside>

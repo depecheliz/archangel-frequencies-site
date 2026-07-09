@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+const path = '/archangels/';
+const title = 'The Archangels: Names, Roles, Numbers & Colors';
+const description = 'Meet the archangels — Michael, Gabriel, Raphael, Uriel and more — their roles, colors, and the numbers associated with each.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Archangels', href: path }];
+const angels = [
+  ['Michael', 'Protection, courage, cutting cords of fear.'],
+  ['Gabriel', 'Messages, communication, creative announcement.'],
+  ['Raphael', 'Healing of body and situation.'],
+  ['Uriel', 'Wisdom, insight, the light in the intellect.'],
+  ['Chamuel', 'Peace, finding what is lost, love repaired.'],
+  ['Jophiel', 'Beauty, uplifted perception, gratitude.'],
+  ['Zadkiel', 'Mercy, forgiveness, memory healed.'],
+  ['Metatron', 'Sacred geometry of life, focus, ascension.'],
+];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Pillar Guide</p><h1>The Archangels</h1>
+    <p class="lead">The names behind the numbers. This is the territory our brand is named for.</p></header>
+    <p>Across traditions, archangels are the named intelligences associated with protection, healing, messages, and guidance — and each carries associated colors and numbers. Full individual profiles are being published; here is the map of who governs what.</p>
+    <table><thead><tr><th>Archangel</th><th>Domain</th></tr></thead>
+    <tbody>{angels.map(([n, d]) => (<tr><td style="font-family:var(--serif);font-size:1.15rem;color:var(--gold-bright)">{n}</td><td>{d}</td></tr>))}</tbody></table>
+    <p>Numbers and archangels interlock: repeating sequences are traditionally read as the signature of specific archangels. Start with the number that keeps finding you in the <a href="/angel-numbers/meanings/">meanings index</a>, or reveal the number you carry with the <a href="/angel-numbers/calculator/">calculator</a>.</p>
+    <Cta />
+  </div>
+</Base>

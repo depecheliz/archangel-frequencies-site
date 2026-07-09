@@ -1,0 +1,120 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { webApplicationSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { REVEAL_PATH } from '../../../lib/site';
+
+const path = '/calculators/life-path/';
+const title = 'Life Path Number Calculator (With Master Numbers)';
+const description = 'Calculate your life path number from your date of birth — including master numbers 11, 22, and 33 — and read what it means for your direction, work, and relationships.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Calculators', href: '/calculators/' },
+  { name: 'Life Path', href: path },
+];
+const faqs = [
+  { q: 'How is the life path number calculated?', a: 'Month, day, and year are each reduced separately, then the three results are added and reduced again — stopping at 11, 22, or 33, which are master numbers. This per-part method is the standard Pythagorean approach and is why some quick calculators give wrong master number results.' },
+  { q: 'What are master numbers?', a: 'If your reduction lands on 11, 22, or 33, it is not reduced further. These are master numbers: 11 the intuitive, 22 the master builder, 33 the master teacher. They carry the base digit\u2019s meaning at higher voltage.' },
+  { q: 'Is my life path the same as my angel number?', a: 'They come from the same birthdate but answer different questions. Life path describes long-term direction; your angel number is the repeating signal form of your core energy. Try both calculators and compare.' },
+];
+const schema = [
+  webApplicationSchema({ name: 'Life Path Number Calculator', description, path }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Free Tool</p>
+      <h1>Life Path Number Calculator</h1>
+      <p class="lead">The most important number in your numerology chart — calculated correctly, master numbers included.</p>
+    </header>
+
+    <div class="calc">
+      <div class="row">
+        <div>
+          <label for="m">Month</label>
+          <select id="m">{Array.from({ length: 12 }, (_, i) => <option value={i + 1}>{i + 1}</option>)}</select>
+        </div>
+        <div>
+          <label for="d">Day</label>
+          <select id="d">{Array.from({ length: 31 }, (_, i) => <option value={i + 1}>{i + 1}</option>)}</select>
+        </div>
+        <div>
+          <label for="y">Year</label>
+          <input id="y" type="number" inputmode="numeric" min="1900" max="2026" placeholder="1990" />
+        </div>
+      </div>
+      <div class="actions"><button class="btn" id="go">Calculate My Life Path →</button></div>
+
+      <div class="calc-result" id="result" aria-live="polite">
+        <div class="seal"><span class="n" id="rnum"></span><span class="sub">Life Path</span></div>
+        <p class="interp" id="rtext"></p>
+        <p><a class="btn" href={REVEAL_PATH}>See What Your Full Code Reveals →</a></p>
+        <p>
+          <a class="btn-ghost" href="/numerology/life-path/">Learn about life path numbers</a>
+          <button class="btn-ghost" id="share" type="button" style="margin-left:8px">Share my number</button>
+        </p>
+        <p class="muted" id="shared" style="font-size:0.8rem"></p>
+      </div>
+    </div>
+
+    <h2>Why This Calculator Handles Master Numbers Correctly</h2>
+    <p>Many calculators add every digit of the birthdate in one long string, which erases master numbers. The traditional Pythagorean method reduces the month, day, and year <em>separately</em> first. Someone born 11/29/1985 keeps the 11 of November intact — and that changes the entire reading. This tool uses the per-part method.</p>
+
+    <h2>Related Tools and Reading</h2>
+    <p>Your life path is the spine of your chart, not the whole body. Find your signal sequence with the <a href="/angel-numbers/calculator/">angel number calculator</a>, check this year's theme with the <a href="/calculators/personal-year/">personal year calculator</a>, and read the <a href="/numerology/">numerology hub</a> for how the numbers fit together.</p>
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Life Path FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+  </div>
+
+  <script>
+    const MEANINGS: Record<string, string> = {
+      '1': 'The Leader. You are built to initiate — independence, originality, and the courage to go first define your path.',
+      '2': 'The Diplomat. Partnership, patience, and quiet influence. You move the world by moving with people, not over them.',
+      '3': 'The Voice. Creativity and expression are not hobbies for you — they are the assignment.',
+      '4': 'The Builder. Structure, discipline, and things that last. You turn ideas into foundations others stand on.',
+      '5': 'The Explorer. Change is your element. Freedom, variety, and adaptation are how you grow.',
+      '6': 'The Guardian. Home, care, and responsibility. People heal in your orbit.',
+      '7': 'The Seeker. Study, solitude, and depth. Your path runs inward before it runs anywhere else.',
+      '8': 'The Executive. Power, abundance, and cause-and-effect. You are here to master the material world, not fear it.',
+      '9': 'The Humanitarian. Completion and compassion. You finish cycles — for yourself and for others.',
+      '11': 'Master Number 11 — The Intuitive. A path of heightened sensitivity and inspiration; a 2 at higher voltage.',
+      '22': 'Master Number 22 — The Master Builder. The vision of the 11 with the discipline of the 4; big things built to last.',
+      '33': 'Master Number 33 — The Master Teacher. Care at scale; the 6 elevated to service beyond the family circle.',
+    };
+    const el = (id: string) => document.getElementById(id)!;
+    function reducePart(n: number): number {
+      while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+        n = String(n).split('').reduce((a, c) => a + Number(c), 0);
+      }
+      return n;
+    }
+    el('go').addEventListener('click', () => {
+      const y = Number((el('y') as HTMLInputElement).value);
+      if (!y || y < 1900 || y > 2026) { (el('y') as HTMLInputElement).focus(); return; }
+      const m = reducePart(Number((el('m') as HTMLSelectElement).value));
+      const d = reducePart(Number((el('d') as HTMLSelectElement).value));
+      const yr = reducePart(String(y).split('').reduce((a, c) => a + Number(c), 0));
+      const lp = reducePart(m + d + yr);
+      el('rnum').textContent = String(lp);
+      el('rtext').textContent = MEANINGS[String(lp)];
+      el('result').classList.add('show');
+      el('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    el('share').addEventListener('click', async () => {
+      const num = el('rnum').textContent;
+      const data = { title: 'My Life Path Number', text: `My life path number is ${num}. Find yours:`, url: 'https://archangelfrequencies.com/calculators/life-path/' };
+      try {
+        if (navigator.share) { await navigator.share(data); }
+        else { await navigator.clipboard.writeText(`${data.text} ${data.url}`); el('shared').textContent = 'Link copied to clipboard.'; }
+      } catch {}
+    });
+  </script>
+</Base>

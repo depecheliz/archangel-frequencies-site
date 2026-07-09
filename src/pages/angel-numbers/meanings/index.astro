@@ -1,0 +1,51 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import catalog from '../../../data/catalog.json';
+import { articleSchema, breadcrumbSchema, itemListSchema } from '../../../lib/schema';
+import { SITE } from '../../../lib/site';
+
+const path = '/angel-numbers/meanings/';
+const title = 'Angel Number Meanings: The Complete Index';
+const description = 'Every angel number meaning in one place — repeating numbers, mirror numbers, and sequences from 0 to 9999, each with love, money, twin flame, and biblical readings.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Angel Numbers', href: '/angel-numbers/' },
+  { name: 'Meanings Index', href: path },
+];
+const sorted = [...catalog].sort((a, b) => a.slug.length - b.slug.length || Number(a.slug) - Number(b.slug));
+const groups = [
+  { label: 'Single Digits', test: (n) => n.length === 1 },
+  { label: 'Double Numbers', test: (n) => n.length === 2 },
+  { label: 'Triple Numbers & Sequences', test: (n) => n.length === 3 },
+  { label: 'Quadruple & Mirror Numbers', test: (n) => n.length === 4 },
+];
+const schema = [
+  articleSchema({ title, description, path }),
+  itemListSchema({ name: 'Angel Number Meanings', items: sorted.map((e) => ({ name: `${e.number} Angel Number`, url: `${SITE.url}/angel-numbers/${e.slug}/` })) }),
+  breadcrumbSchema(crumbs),
+];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="wrap" style="max-width:900px">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Master Index</p>
+      <h1>Every Angel Number Meaning</h1>
+      <p class="lead">{sorted.length} numbers decoded, each with spiritual, love, money, twin flame, and biblical readings. The full 000–999 library is being released in weekly batches.</p>
+    </header>
+    {groups.map((g) => (
+      <section>
+        <h2>{g.label}</h2>
+        <ul class="grid">
+          {sorted.filter((e) => g.test(e.slug)).map((e) => (
+            <li><a class="card" href={`/angel-numbers/${e.slug}/`}><span class="num">{e.number}</span><span class="lbl">{e.tags[0]}</span></a></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <p class="muted">Don’t see your number yet? It reduces to one that’s here: add its digits together and look that up — or <a href="/angel-numbers/calculator/">use the calculator</a>.</p>
+    <Cta />
+  </div>
+</Base>

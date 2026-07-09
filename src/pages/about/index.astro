@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+const path = '/about/';
+const title = 'About Archangel Frequencies';
+const description = 'Who is behind Archangel Frequencies, why the brand exists, and the standards every page on this site is held to.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'About', href: path }];
+const schema = [breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">About</p><h1>The signs are already there.<br/>We help you decode them.</h1></header>
+    <p>Archangel Frequencies started the way most of these signals do — noticed, not planned. Years spent building rate models and reading dashboards for a living taught one habit above all: trust the pattern before you can explain it. Turning that same discipline toward the numbers that kept repeating — on receipts, on clocks, in the corner of an eye — led somewhere unexpected. The two practices describe the same thing. A pattern is a pattern whether it shows up in a spreadsheet or a mirror.</p>
+    <p>Archangel Frequencies exists for the moment after you notice — when the same number has found you three times in a week and "coincidence" stops feeling like the whole answer. We decode the sequences, teach the system beneath them, and hold every page to a written standard: plain language, no recycled filler, and a faith-respectful reading alongside every numerological one.</p>
+    <p>Our interpretations follow a documented method — read <a href="/methodology/">how our readings are constructed</a> — and our community of 170,000+ followers across Facebook and Instagram keeps the work honest.</p>
+    <Cta />
+  </div>
+</Base>

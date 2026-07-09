@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+const path = '/glossary/';
+const title = 'Glossary of Angel Number & Numerology Terms';
+const description = 'Plain-language definitions of angel number, numerology, and manifestation terms.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Glossary', href: path }];
+const terms = [
+  ['Angel number', 'A repeating or patterned number sequence noticed recurrently in daily life, read for meaning through its digits and pattern.'],
+  ['Life path number', 'The reduction of a full birthdate; the core number of a numerology chart describing long-term direction.'],
+  ['Master number', '11, 22, or 33 — reductions that stop before a single digit and carry amplified meaning.'],
+  ['Mirror hour', 'A clock time with repeating or reflected digits (11:11, 12:21), read as a signal moment.'],
+  ['Reduction', 'Summing the digits of a number repeatedly until one digit (or a master number) remains.'],
+  ['Personal year', 'Your position in the nine-year numerology cycle for the current calendar year.'],
+  ['Twin flame', 'In spiritual traditions, a mirrored soul connection; certain numbers are read as milestones in it.'],
+  ['SATS', 'State akin to sleep — Neville Goddard\u2019s technique of imagining a fulfilled scene at the edge of sleep.'],
+];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Reference</p><h1>Glossary</h1>
+    <p class="lead">Every term on this site, defined plainly. Individual term pages are being published.</p></header>
+    <table><tbody>{terms.map(([t, d]) => (<tr><td style="font-weight:600;white-space:nowrap">{t}</td><td>{d}</td></tr>))}</tbody></table>
+  </div>
+</Base>

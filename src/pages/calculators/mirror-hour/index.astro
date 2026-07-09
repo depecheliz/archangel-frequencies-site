@@ -1,0 +1,106 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { webApplicationSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { REVEAL_PATH } from '../../../lib/site';
+
+const path = '/calculators/mirror-hour/';
+const title = 'Mirror Hour Decoder: 11:11, 3:33, 12:12 & Every Mirror Time';
+const description = 'Keep catching the clock at 11:11, 3:33, or 22:22? Select the time you keep seeing and decode what the mirror hour means — free and instant.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Calculators', href: '/calculators/' },
+  { name: 'Mirror Hour Decoder', href: path },
+];
+const faqs = [
+  { q: 'What is a mirror hour?', a: 'A mirror hour is a clock time where the digits repeat or reflect — 11:11, 3:33, 12:21, 22:22. Repeatedly catching the same one is read as a signal, with the meaning drawn from the digits involved.' },
+  { q: 'Why do I always wake up at the same time?', a: 'Habitual waking has physical rhythms behind it, and the time you wake to has a numerological reading on top of them. If you wake at 3:33 nightly, the message of triple 3 — expression, unsaid words — is worth sitting with.' },
+  { q: 'Are reversed mirror hours different?', a: 'Yes. True mirrors (11:11) amplify one energy; reversed mirrors (12:21, 13:31) are read as reflections — a situation outside you showing you something inside you.' },
+];
+const schema = [
+  webApplicationSchema({ name: 'Mirror Hour Decoder', description, path }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+const HOURS = [
+  '00:00','01:01','01:10','02:02','02:20','03:03','03:30','03:33','04:04','04:40','05:05','05:50',
+  '06:06','07:07','08:08','09:09','10:01','10:10','11:11','12:12','12:21','13:13','13:31','14:14',
+  '14:41','15:15','15:51','16:16','17:17','18:18','19:19','20:02','20:20','21:12','21:21','22:22','23:23','23:32',
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Free Tool</p>
+      <h1>Mirror Hour Decoder</h1>
+      <p class="lead">The clock keeps catching your eye at the same moment. Decode it.</p>
+    </header>
+
+    <div class="calc">
+      <label for="t">The time you keep seeing</label>
+      <select id="t">{HOURS.map((h) => <option value={h}>{h}</option>)}</select>
+      <div class="actions"><button class="btn" id="go">Decode This Hour →</button></div>
+
+      <div class="calc-result" id="result" aria-live="polite">
+        <div class="seal"><span class="n" id="rnum" style="font-size:clamp(2.6rem,12vw,4.4rem)"></span><span class="sub">Mirror Hour</span></div>
+        <p class="interp" id="rtext"></p>
+        <p><a class="btn" href={REVEAL_PATH}>Reveal What It Means For You →</a></p>
+        <p>
+          <a class="btn-ghost" id="rlink" href="/angel-numbers/">Read the number behind this hour</a>
+          <button class="btn-ghost" id="share" type="button" style="margin-left:8px">Share</button>
+        </p>
+        <p class="muted" id="shared" style="font-size:0.8rem"></p>
+      </div>
+    </div>
+
+    <h2>How Mirror Hours Are Read</h2>
+    <p>Strip the colon and a mirror hour becomes an angel number: 3:33 carries the message of <a href="/angel-numbers/333/">333</a>, 11:11 the gate of <a href="/angel-numbers/1111/">1111</a>, 12:12 the balance of <a href="/angel-numbers/1212/">1212</a>. The clock is simply the most common place these sequences find people — which is why the same reading applies whether the number arrives on a phone, a receipt, or a license plate.</p>
+
+    <h2>Related Tools</h2>
+    <p>The hour that finds you is external; the number you carry is internal. Compare them: run the <a href="/angel-numbers/calculator/">angel number calculator</a> on your birthdate, then check your <a href="/calculators/life-path/">life path</a>. All tools are in the <a href="/calculators/">calculator library</a>.</p>
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Mirror Hour FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+  </div>
+
+  <script>
+    const DIGIT: Record<string, string> = {
+      '0': 'beginnings and open potential', '1': 'initiative and a decision that is yours to make',
+      '2': 'timing, patience, and partnership', '3': 'expression and the words you have been holding',
+      '4': 'foundations, protection, and steady work', '5': 'change arriving whether invited or not',
+      '6': 'home, care, and what is entrusted to you', '7': 'inner knowing and the answer found in quiet',
+      '8': 'power, harvest, and the bold clean ask', '9': 'completion and a graceful ending',
+    };
+    const el = (id: string) => document.getElementById(id)!;
+    function dominant(s: string): string {
+      const counts: Record<string, number> = {};
+      for (const c of s) counts[c] = (counts[c] || 0) + 1;
+      return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    }
+    el('go').addEventListener('click', () => {
+      const t = (el('t') as HTMLSelectElement).value;
+      const digits = t.replace(':', '');
+      const dom = dominant(digits);
+      const rev = digits !== digits.split('').reverse().join('') ? '' : ' As a true mirror, the message is amplified — this is the loud form of the signal.';
+      const isReversed = t.includes(':') && digits[0] + digits[1] === digits[3] + digits[2];
+      el('rnum').textContent = t;
+      el('rtext').textContent = `${t} carries the energy of ${dom}: ${DIGIT[dom]}.${rev}${isReversed && !rev ? ' As a reversed mirror, read it as a reflection: something outside you is showing you something inside you.' : ''}`;
+      const seq = digits.length === 4 && new Set(digits).size === 1 ? digits : dom.repeat(3);
+      (el('rlink') as HTMLAnchorElement).href = `/angel-numbers/${digits === '1111' || digits === '1212' || digits === '2222' ? digits : seq}/`;
+      el('result').classList.add('show');
+      el('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    el('share').addEventListener('click', async () => {
+      const t = el('rnum').textContent;
+      const data = { title: 'Mirror Hour', text: `I keep seeing ${t}. Decode yours:`, url: 'https://archangelfrequencies.com/calculators/mirror-hour/' };
+      try {
+        if (navigator.share) { await navigator.share(data); }
+        else { await navigator.clipboard.writeText(`${data.text} ${data.url}`); el('shared').textContent = 'Link copied to clipboard.'; }
+      } catch {}
+    });
+  </script>
+</Base>

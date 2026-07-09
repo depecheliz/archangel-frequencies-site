@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import catalog from '../../data/catalog.json';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
+
+const path = '/angel-numbers/';
+const title = 'Angel Numbers: Meanings, Guide & Calculator';
+const description = 'The complete guide to angel numbers — what they are, why numbers repeat, every number meaning from 000 to 999, and a free calculator to reveal the number in your birthdate.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Angel Numbers', href: path },
+];
+const faqs = [
+  { q: 'What are angel numbers?', a: 'Angel numbers are repeating or patterned number sequences — like 444, 1111, or 1212 — that people notice appearing repeatedly in daily life. In numerology and spiritual traditions, each sequence carries a specific meaning built from the digits it contains.' },
+  { q: 'Why do I keep seeing the same numbers?', a: 'Two things are usually true at once: your attention has locked onto a pattern, and the pattern you locked onto reflects something active in your life. The meaning comes from reading the digits and the context in which they appear.' },
+  { q: 'How do I find my personal angel number?', a: 'Your personal angel number comes from your birthdate. Add the digits of your full date of birth and reduce them; our free calculator does this instantly and shows what your number means.' },
+  { q: 'Are angel numbers biblical?', a: 'Numbers carry consistent symbolic weight throughout scripture — seven for completion, three for divine fullness, eight for new beginnings. Each of our number pages includes a faith-grounded reading alongside the numerological one.' },
+];
+const featured = ['1111','444','222','333','555','777','111','888','999','000','1212','1234'];
+const featuredEntries = featured.map((n) => catalog.find((c) => c.slug === n)).filter(Boolean);
+const schema = [articleSchema({ title, description, path }), faqSchema(faqs), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Pillar Guide</p>
+      <h1>Angel Numbers</h1>
+      <p class="lead">The numbers keep appearing for a reason. Here is how to read them.</p>
+    </header>
+
+    <p>An angel number is a number sequence that keeps finding you — on clocks, receipts, license plates, timestamps — until you finally stop and ask what it wants. Each sequence carries a meaning built from its digits, its pattern, and the number it reduces to. This guide is the master hub: what angel numbers are, how to decode any sequence, and the full meaning library.</p>
+
+    <h2>Most Searched Angel Numbers</h2>
+    <ul class="grid">
+      {featuredEntries.map((e) => (
+        <li><a class="card" href={`/angel-numbers/${e.slug}/`}><span class="num">{e.number}</span><span class="lbl">{e.tags[0]}</span></a></li>
+      ))}
+    </ul>
+    <p><a href="/angel-numbers/meanings/">Browse every number meaning →</a></p>
+
+    <h2>How to Decode Any Angel Number</h2>
+    <p>Every reading on this site follows the same three steps. First, the <strong>core digit</strong>: the digit that repeats or dominates sets the theme (4 is foundation, 7 is inner knowing, 8 is power). Second, the <strong>pattern</strong>: triples amplify, mirrors reflect, sequences signal forward motion. Third, the <strong>reduction</strong>: the digits summed and reduced reveal the undercurrent beneath the surface message. Our <a href="/methodology/">methodology page</a> explains the full system.</p>
+
+    <h2>Find the Number Woven Into Your Birthdate</h2>
+    <p>The numbers you notice out in the world are half the story. The other half is the number you carry — calculated from your date of birth. Use the free <a href="/angel-numbers/calculator/">angel number calculator</a>, then explore the <a href="/calculators/">full calculator library</a> including <a href="/calculators/life-path/">life path</a> and <a href="/calculators/personal-year/">personal year</a>.</p>
+
+    <Cta secondaryHref="/angel-numbers/calculator/" secondaryLabel="Try the free calculator first" />
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Angel Number FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+
+    <section class="related">
+      <h2>Keep Exploring</h2>
+      <ul>
+        <li><a href="/angel-numbers/meanings/">All Number Meanings</a></li>
+        <li><a href="/archangels/">The 15 Archangels</a></li>
+        <li><a href="/numerology/">Numerology Basics</a></li>
+        <li><a href="/frequency/248/">The 248 Frequency™</a></li>
+      </ul>
+    </section>
+  </div>
+</Base>

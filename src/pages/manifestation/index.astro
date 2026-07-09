@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+const path = '/manifestation/';
+const title = 'Manifestation: Techniques That Actually Get Practiced';
+const description = 'Manifestation without the fluff — Neville Goddard techniques, practical methods, and how repeating numbers fit into the practice.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Manifestation', href: path }];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Pillar Guide</p><h1>Manifestation</h1>
+    <p class="lead">The state comes first. The evidence follows. The numbers keep score.</p></header>
+    <p>This pillar covers manifestation as a practice rather than a slogan: Neville Goddard's imaginal techniques (SATS, revision, living in the end), practical methods, and the role repeating numbers play as feedback along the way. Technique guides are being published; the hub structure below shows what is coming.</p>
+    <ul class="hub-grid">
+      <li><a class="hub-card" href="/angel-numbers/"><h3>Numbers as Feedback</h3><p>Why sequences tend to appear mid-manifestation, and how to read them.</p></a></li>
+      <li><a class="hub-card" href="/calculators/personal-year/"><h3>Timing the Work</h3><p>Your personal year tells you whether this is a planting season or a harvest.</p></a></li>
+      <li><a class="hub-card" href="/frequency/"><h3>Frequency</h3><p>Sound and state — the felt side of the practice.</p></a></li>
+    </ul>
+    <p class="muted">Coming to this hub: SATS step-by-step, revision, the wish fulfilled, scripting, and manifestation signs.</p>
+    <Cta />
+  </div>
+</Base>

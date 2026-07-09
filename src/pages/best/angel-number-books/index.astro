@@ -1,0 +1,79 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { itemListSchema, faqSchema, breadcrumbSchema, articleSchema } from '../../../lib/schema';
+
+const path = '/best/angel-number-books/';
+const title = 'Best Angel Number Books (2026): 6 Worth Owning';
+const description = 'The best books on angel numbers, ranked — from complete reference guides to pocket companions — with who each book fits and what makes it worth shelf space.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Best-Of Guides', href: '/best/' },
+  { name: 'Best Angel Number Books', href: path },
+];
+
+// TODO(Liz): add Amazon Associates links per book, and slot your own KDP angel
+// numbers title into the list with the "ours" label, mirroring the reading roundup.
+
+const picks = [
+  { name: 'Angel Numbers — Kyle Gray', tag: 'Best overall reference', body: 'The modern standard: 0–999 covered in short, warm entries designed for lookup rather than cover-to-cover reading. Gray\u2019s interpretations lean encouraging and practical, and the format has made this the shelf reference most readers reach for first.' },
+  { name: 'Angel Numbers 101 — Doreen Virtue', tag: 'The classic', body: 'The book that popularized the modern angel numbers vocabulary. Entries are brief — a sentence or two per number — which makes it fast but thin. Worth owning for its historical place in the practice; note the author has since publicly distanced herself from this body of work, which some readers will want to know before buying.' },
+  { name: 'The Complete Book of Numerology — David A. Phillips', tag: 'Best for the system underneath', body: 'Not an angel numbers book — a numerology foundation. If you want to understand why 4 means foundation and 7 means inner knowing rather than memorizing meanings, this is the deeper education that makes every other book on this list more useful.' },
+  { name: 'Angel Numbers — Fortuna Nova', tag: 'Best budget pick', body: 'A compact, inexpensive lookup guide covering the common sequences. Less depth per entry than Gray, but a serviceable starter if you want a low-cost physical reference.' },
+  { name: 'The Angel Numbers Book — Mystic Michaela', tag: 'Best gift edition', body: 'A visually designed guide organized around daily guidance rather than pure reference. The aesthetic presentation makes it the strongest gift option on the list.' },
+  { name: 'A dedicated angel numbers journal', tag: 'Best companion purchase', body: 'Whichever reference you choose, the pattern that matters is yours: which numbers find you, when, and around what. A simple dated journal — any brand — turns passive noticing into an actual record you can read meaning from.' },
+];
+const faqs = [
+  { q: 'What is the best angel number book for beginners?', a: 'Kyle Gray\u2019s Angel Numbers is the strongest starting point: complete coverage of 0–999, short encouraging entries, and a lookup format that matches how people actually use these books.' },
+  { q: 'Do I need a book, or is a website enough?', a: 'A site like ours covers lookup and depth for free. A physical book earns its place beside your bed or in your bag — where numbers tend to find people. Many readers use both.' },
+  { q: 'Are Doreen Virtue\u2019s books still worth buying?', a: 'Angel Numbers 101 remains historically important and widely used. The author has publicly renounced her earlier work since converting to Christianity; the book\u2019s content is unchanged, and whether that history matters is a personal call we flag so you can make it.' },
+];
+const schema = [
+  articleSchema({ title, description, path }),
+  itemListSchema({ name: 'Best Angel Number Books', items: picks.map((p) => ({ name: p.name })) }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header>
+      <p class="eyebrow">Buying Guide · Updated July 2026</p>
+      <h1>The Best Angel Number Books in 2026</h1>
+    </header>
+
+    <p class="notice">Disclosure: this page contains affiliate links. We may earn a commission at no cost to you.</p>
+
+    <p>Angel number books split into two jobs: quick reference (what does 717 mean, right now, from the nightstand) and foundation (why numbers mean what they mean). The best shelf has one of each. Here are the six purchases worth making, and the one that matters more than any book.</p>
+
+    {picks.map((p, i) => (
+      <section>
+        <h2>{i + 1}. {p.name}</h2>
+        <p class="eyebrow">{p.tag}</p>
+        <p>{p.body}</p>
+      </section>
+    ))}
+
+    <h2>Before You Buy Anything</h2>
+    <p>Every number in these books is also decoded free in our <a href="/angel-numbers/meanings/">complete meanings index</a> — with love, money, twin flame, and biblical readings per number. Use the site to test whether the practice resonates; buy the book when you find yourself looking numbers up weekly.</p>
+
+    <Cta secondaryHref="/angel-numbers/meanings/" secondaryLabel="Browse the free meanings index" />
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Angel Number Book FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+
+    <section class="related">
+      <h2>Related Guides</h2>
+      <ul>
+        <li><a href="/best/numerology-reading/">Best Numerology Reading</a></li>
+        <li><a href="/angel-numbers/">Angel Numbers: The Complete Guide</a></li>
+        <li><a href="/reviews/">All Reviews</a></li>
+      </ul>
+    </section>
+  </div>
+</Base>

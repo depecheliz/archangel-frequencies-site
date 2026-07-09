@@ -1,0 +1,11 @@
+---
+interface Props {
+  number: string;
+  label?: string;
+}
+const { number, label = 'Angel Number' } = Astro.props;
+---
+<div class="seal" role="img" aria-label={`${label} ${number}`}>
+  <span class="n">{number}</span>
+  <span class="sub">{label}</span>
+</div>

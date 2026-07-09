@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+const path = '/methodology/';
+const title = 'How Our Readings Are Constructed';
+const description = 'The documented method behind every interpretation on Archangel Frequencies — sources, the three-step decoding system, and our editorial standards.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Methodology', href: path }];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Editorial Standards</p><h1>How Our Readings Are Constructed</h1></header>
+    <p>Most sites in this space never tell you where a meaning comes from. Here is where ours come from.</p>
+    <h2>Sources</h2>
+    <p>Our numerological readings are grounded in the Pythagorean system: digits 1 through 9 carry consistent themes, and any number is read through reduction, dominance, and pattern. Faith-adjacent readings draw on the symbolic use of numbers in scripture, cited to the passages involved. Where traditions disagree, we say so rather than flattening the disagreement.</p>
+    <h2>The Three-Step Decode</h2>
+    <p>Every number page follows the same documented method. <strong>Core digit:</strong> the dominant digit sets the theme. <strong>Pattern:</strong> repetition amplifies, mirrors reflect, sequences signal motion. <strong>Reduction:</strong> the summed digits reveal the undercurrent. This is why our readings are consistent with each other — the meanings are derived, not invented per page.</p>
+    <h2>Signature Methodologies</h2>
+    <p>Two frameworks are ours alone: the Frequency Code™, which reads the full pattern of your personal numbers, and the <a href="/frequency/248/">248 Frequency™</a>. Both are applied in the personalized report; the free content on this site uses the same underlying system.</p>
+    <h2>Editorial Standards</h2>
+    <p>Plain language over mystique vocabulary. No medical, financial, or legal advice dressed as guidance. Reviews are based on products we purchased, with disclosure on every commercial page. Reflection and self-recognition are the product — not prophecy.</p>
+    <Cta heading="See the method applied to your own numbers" />
+  </div>
+</Base>

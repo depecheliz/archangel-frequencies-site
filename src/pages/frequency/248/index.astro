@@ -1,0 +1,22 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { articleSchema, breadcrumbSchema } from '../../../lib/schema';
+const path = '/frequency/248/';
+const title = 'The 248 Frequency™: Our Signature Methodology';
+const description = 'The 248 Frequency™ is the signature methodology of Archangel Frequencies — the pattern beneath your personal numbers. What it is and how it is read.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Frequency', href: '/frequency/' }, { name: 'The 248 Frequency™', href: path }];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero"><p class="eyebrow">Signature Methodology</p><h1>The 248 Frequency™</h1></header>
+    <p>The 248 Frequency™ is one of the two signature methodologies of Archangel Frequencies, alongside the Frequency Code™. Where individual angel numbers read single signals, the 248 Frequency™ reads the pattern connecting them — the through-line in which numbers find you, when, and in what order.</p>
+    <p>The name anchors to three numbers that carry consistent weight throughout this site's readings: 2 for partnership and balance, 4 for foundation, and 8 for power and return. Most people's repeating numbers are not random — they cluster around one or two of these themes over months at a time. The 248 Frequency™ is the practice of reading that cluster as a single, ongoing signal instead of treating each sighting as a one-off.</p>
+    <p>In practice, that means tracking not just which numbers appear but which of the three themes they keep circling back to. A run of 2s and 222s points to a balance question working itself out. A run of 4s and 444s points to something structural being built or repaired. A run of 8s and 888s points to a return on effort already spent. Most people carry a dominant thread; the 248 Frequency™ names it.</p>
+    <p>The methodology is applied in full inside the personalized <a href="/reveal/">Frequency Code report</a>, and its foundations are described on our <a href="/methodology/">methodology page</a>.</p>
+    <Cta heading="Experience the 248 Frequency™ applied to your numbers" />
+  </div>
+</Base>

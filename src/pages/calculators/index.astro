@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { breadcrumbSchema, itemListSchema } from '../../lib/schema';
+import { SITE } from '../../lib/site';
+
+const path = '/calculators/';
+const title = 'Free Numerology & Angel Number Calculators';
+const description = 'Free, instant spiritual calculators: angel number by birthdate, life path number, personal year, and mirror hour decoder. No email required.';
+const crumbs = [{ name: 'Home', href: '/' }, { name: 'Calculators', href: path }];
+const tools = [
+  { name: 'Angel Number Calculator', href: '/angel-numbers/calculator/', blurb: 'The number woven into your birthdate, and the sequence most likely to follow you.' },
+  { name: 'Life Path Calculator', href: '/calculators/life-path/', blurb: 'Your core numerology number — the long-term direction of your life, including master numbers.' },
+  { name: 'Personal Year Calculator', href: '/calculators/personal-year/', blurb: 'The theme of your current year in the nine-year numerology cycle.' },
+  { name: 'Mirror Hour Decoder', href: '/calculators/mirror-hour/', blurb: 'Keep waking at 3:33 or catching 12:12? Decode what the mirror hour means.' },
+];
+const schema = [
+  itemListSchema({ name: 'Spiritual Calculators', items: tools.map((t) => ({ name: t.name, url: `${SITE.url}${t.href}` })) }),
+  breadcrumbSchema(crumbs),
+];
+---
+<Base title={title} description={description} schema={schema}>
+  <div class="wrap" style="max-width:900px">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Free Tools</p>
+      <h1>Calculators</h1>
+      <p class="lead">Instant, free, no email required. Each tool links to the full written meaning of your result.</p>
+    </header>
+    <ul class="hub-grid">
+      {tools.map((t) => (
+        <li><a class="hub-card" href={t.href}><h3>{t.name}</h3><p>{t.blurb}</p></a></li>
+      ))}
+    </ul>
+    <p class="muted">More tools are on the way: expression number, soul urge, compatibility, karmic debt, and the 248 Frequency™ finder.</p>
+    <Cta />
+  </div>
+</Base>

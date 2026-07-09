@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../lib/site';
+
+const title = `Page Not Found — ${SITE.name}`;
+const description = 'This page has moved or never existed. Find your angel number meaning or explore the full guide.';
+---
+<Base title={title} description={description} noindex={true}>
+  <div class="wrap" style="max-width:640px; text-align:center; padding-top:48px; padding-bottom:48px">
+    <p class="eyebrow">404</p>
+    <h1>That number isn't one we've decoded — yet.</h1>
+    <p class="lead">
+      The page you're looking for has moved or never existed. Try the angel number meanings index,
+      or use the search box in your browser's address bar.
+    </p>
+    <ul class="grid" style="justify-content:center; margin-top:24px">
+      <li><a class="card" href="/angel-numbers/meanings/"><span class="lbl">Browse all angel number meanings</span></a></li>
+      <li><a class="card" href="/angel-numbers/calculator/"><span class="lbl">Try the angel number calculator</span></a></li>
+      <li><a class="card" href="/"><span class="lbl">Back to homepage</span></a></li>
+    </ul>
+    <Cta />
+  </div>
+</Base>

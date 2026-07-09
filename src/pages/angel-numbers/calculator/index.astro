@@ -1,0 +1,119 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { webApplicationSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { REVEAL_PATH } from '../../../lib/site';
+
+const path = '/angel-numbers/calculator/';
+const title = 'Angel Number Calculator: Find Your Number by Birthdate';
+const description = 'Free angel number calculator. Enter your date of birth to reveal your personal angel number, what it means, and the deeper Frequency Code beneath it.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Angel Numbers', href: '/angel-numbers/' },
+  { name: 'Calculator', href: path },
+];
+const faqs = [
+  { q: 'How is my angel number calculated?', a: 'Your full date of birth is reduced digit by digit. For example, June 14, 1990 → 6+1+4+1+9+9+0 = 30 → 3+0 = 3. Your angel number is 3, and its amplified form is 333.' },
+  { q: 'Is this the same as my life path number?', a: 'The math is related but the reading differs. Your life path describes your long-term direction; your angel number is the signal form of that energy — the sequence most likely to follow you. Try the life path calculator to compare.' },
+  { q: 'Is the calculator free?', a: 'Yes. No email is required to see your number. The full personalized Frequency Code report is a separate, optional reading.' },
+];
+const schema = [
+  webApplicationSchema({ name: 'Angel Number Calculator', description, path }),
+  faqSchema(faqs),
+  breadcrumbSchema(crumbs),
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <div class="article">
+    <Breadcrumbs crumbs={crumbs} />
+    <header class="hero">
+      <p class="eyebrow">Free Tool</p>
+      <h1>Angel Number Calculator</h1>
+      <p class="lead">Your birth date carries a number woven into everything you do. Enter it below and watch your angel number reveal itself.</p>
+    </header>
+
+    <div class="calc" id="calc">
+      <div class="row">
+        <div>
+          <label for="m">Month</label>
+          <select id="m">{Array.from({ length: 12 }, (_, i) => <option value={i + 1}>{i + 1}</option>)}</select>
+        </div>
+        <div>
+          <label for="d">Day</label>
+          <select id="d">{Array.from({ length: 31 }, (_, i) => <option value={i + 1}>{i + 1}</option>)}</select>
+        </div>
+        <div>
+          <label for="y">Year</label>
+          <input id="y" type="number" inputmode="numeric" min="1900" max="2026" placeholder="1990" />
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="go">Reveal My Angel Number →</button>
+      </div>
+      <p class="muted" style="font-size:0.82rem; margin-top:12px">Free. Takes 15 seconds. No email required to see it.</p>
+
+      <div class="calc-result" id="result" aria-live="polite">
+        <div class="seal"><span class="n" id="rnum"></span><span class="sub">Your Angel Number</span></div>
+        <p class="interp" id="rtext"></p>
+        <p><a class="btn" href={REVEAL_PATH} id="rcta">Unlock My Full Frequency Code →</a></p>
+        <p>
+          <a class="btn-ghost" id="rlink" href="/angel-numbers/">Read the full meaning</a>
+          <button class="btn-ghost" id="share" type="button" style="margin-left:8px">Share my number</button>
+        </p>
+        <p class="muted" id="shared" style="font-size:0.8rem"></p>
+      </div>
+    </div>
+
+    <h2>How the Calculation Works</h2>
+    <p>Every digit of your date of birth is added together, then reduced until a single digit remains. That root digit is your personal angel number, and its repeated form — 3 becomes 333, 7 becomes 777 — is the sequence most likely to follow you through clocks, receipts, and timestamps. The root tells you the theme; your full <a href={REVEAL_PATH}>Frequency Code</a> tells you what the theme is doing in your life right now.</p>
+
+    <h2>Go Deeper</h2>
+    <p>Compare your angel number with your <a href="/calculators/life-path/">life path number</a>, check the theme of the current year with the <a href="/calculators/personal-year/">personal year calculator</a>, or decode the time you keep waking at with the <a href="/calculators/mirror-hour/">mirror hour decoder</a>. All tools live in the <a href="/calculators/">calculator library</a>.</p>
+
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Calculator FAQs</h2>
+      {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+    </section>
+  </div>
+
+  <script>
+    const MEANINGS: Record<number, string> = {
+      1: 'Initiative. A decision you have been circling is ready — and it is yours alone to make. Your signal sequence is 111.',
+      2: 'Partnership and timing. What you planted is developing correctly; forcing it now would cost more than waiting. Your signal sequence is 222.',
+      3: 'Expression. Your voice wants out — the idea, the words, the work you keep private. Your signal sequence is 333.',
+      4: 'Foundation. What you build carefully will hold. Structure is your superpower this season. Your signal sequence is 444.',
+      5: 'Change. Something is turning; ride the turn instead of bracing against it. Your signal sequence is 555.',
+      6: 'Home and care. The people and places in your keeping are the assignment right now. Your signal sequence is 666.',
+      7: 'Inner knowing. The answer arrives in quiet, not in more opinions. Your signal sequence is 777.',
+      8: 'Power and harvest. Effort is returning with interest — make the bold, clean ask. Your signal sequence is 888.',
+      9: 'Completion. A chapter you have outgrown is closing so a truer one can open. Your signal sequence is 999.',
+    };
+    const el = (id: string) => document.getElementById(id)!;
+    function reduce(n: number): number {
+      while (n > 9) n = String(n).split('').reduce((a, c) => a + Number(c), 0);
+      return n;
+    }
+    el('go').addEventListener('click', () => {
+      const y = Number((el('y') as HTMLInputElement).value);
+      if (!y || y < 1900 || y > 2026) { (el('y') as HTMLInputElement).focus(); return; }
+      const digits = `${(el('m') as HTMLSelectElement).value}${(el('d') as HTMLSelectElement).value}${y}`;
+      const root = reduce(digits.split('').reduce((a, c) => a + Number(c), 0));
+      const seq = String(root).repeat(3);
+      el('rnum').textContent = String(root);
+      el('rtext').textContent = MEANINGS[root];
+      (el('rlink') as HTMLAnchorElement).href = `/angel-numbers/${seq}/`;
+      el('rlink').textContent = `Read the full meaning of ${seq}`;
+      el('result').classList.add('show');
+      el('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    el('share').addEventListener('click', async () => {
+      const num = el('rnum').textContent;
+      const data = { title: 'My Angel Number', text: `My angel number is ${num}. Find yours:`, url: 'https://archangelfrequencies.com/angel-numbers/calculator/' };
+      try {
+        if (navigator.share) { await navigator.share(data); }
+        else { await navigator.clipboard.writeText(`${data.text} ${data.url}`); el('shared').textContent = 'Link copied to clipboard.'; }
+      } catch {}
+    });
+  </script>
+</Base>
