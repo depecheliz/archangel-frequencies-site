@@ -39,8 +39,9 @@ const blocks = [...(isHome ? [organizationSchema(), websiteSchema()] : []), ...s
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+   <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
     {blocks.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}
   </head>
   <body>
