@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+================================================================
+  PRE-LAUNCH MODE — v2 — TEMPORARY, NO LAUNCH-ALERT VARIANT
+================================================================
+  This file is a variant of the PRE-LAUNCH staging page. It
+  assumes the same reality — Android awaiting Google Play
+  approval, iOS in submission — but does NOT use the launch-alert
+  squeeze page as its conversion mechanism. Every CTA on this
+  page routes to the web app instead, since that is the only
+  destination that is actually live right now.
+  There is no email-capture "Get Notified at Launch" flow
+  anywhere on this page, and the dedicated Launch Alert section
+  has been removed entirely.
+  Three files now exist for this landing page:
+      archangel-frequencies-landing-page-POST-LAUNCH.html
+          — Google Play live. Intended final version.
+      archangel-frequencies-landing-page-PRE-LAUNCH.html
+          — Google Play pending. Captures emails via launch alert.
+      archangel-frequencies-landing-page-PRE-LAUNCH-v2.html  (this file)
+          — Google Play pending. No email capture. Sends
+            everyone to the live web app instead.
+  Do not treat this file as the design direction. It is a
+  holding state, same as PRE-LAUNCH v1. When Google Play
+  approves the listing, stop publishing this file and switch
+  to POST-LAUNCH instead.
+  ----------------------------------------------------------
+  GOOGLE PLAY LAUNCH CHECKLIST (do this the day Play approves)
+  ----------------------------------------------------------
+  1. Stop publishing this file. Publish
+     archangel-frequencies-landing-page-POST-LAUNCH.html in
+     its place. That file already has every launch CTA correct
+     — no manual copy-reversal needed.
+  2. If anything was changed in the app, pricing, HERO_READINGS,
+     or personalization since this file was branched, port that
+     specific change into POST-LAUNCH by hand before publishing
+     it (the files diverged on the date below).
+  3. Replace the placeholder Play Store link (currently
+     https://geni.us/afapp in POST-LAUNCH) with the direct,
+     approved Google Play listing URL if it differs.
+  4. Spot-check on real devices: "Get Archangel Frequencies
+     Free" button, Availability section Android card, Pricing
+     section Play button, nav CTA, sticky mobile bar.
+  5. Confirm iOS status is still accurate (still Coming Soon,
+     or update if iOS has also launched by then).
+  6. Delete or archive this file, PRE-LAUNCH v1, and this
+     comment block once POST-LAUNCH is live.
+  Branched from PRE-LAUNCH (v1) on: 2026-08-07
+================================================================
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archangel Frequencies | Angel Number Meanings, Instantly</title>
+<meta name="description" content="Enter the number you keep seeing and get a free angel number reading instantly. Explore angel numbers, mirror numbers, and Life Path meanings with Archangel Frequencies. Android app coming soon.">
+<meta property="og:title" content="Archangel Frequencies | Angel Number Meanings, Instantly">
+<meta property="og:description" content="Enter the number you keep seeing and discover what it means right now, free, no download required. Continue free in your browser &mdash; Android and iPhone apps coming soon.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="app-today.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#05070f;
+  --navy-1:#0a0f22;
+  --navy-2:#111731;
+  --line:rgba(217,180,92,.18);
+  --gold:#d9b45c;
+  --gold-lt:#f0d489;
+  --violet:#8b6cf0;
+  --cyan:#7fd8e8;
+  --bone:#e8e6df;
+  --mute:#9aa2bd;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --util:'Jost','Inter',sans-serif;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--void);color:var(--bone);
+  font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.75;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.eyebrow{
+  font-family:var(--util);font-size:11px;font-weight:400;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 18px;
+}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.04}
+h2{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.12}
+h3{font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.25}
+.lede{font-size:clamp(1.02rem,1.5vw,1.18rem);color:#c6cadd;max-width:56ch}
+.gold{color:var(--gold-lt)}
+.ital{font-style:italic;color:var(--gold-lt)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:clamp(76px,10vw,132px) 0;position:relative}
+.center{text-align:center}
+.center .lede{margin-inline:auto}
+.hr{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);border:0;margin:0}
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(5,7,15,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(217,180,92,.12);
+}
+.nav{display:flex;align-items:center;gap:28px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.mark{
+  width:30px;height:30px;border-radius:50%;flex:none;
+  background:radial-gradient(circle at 35% 30%,var(--gold-lt),var(--gold) 55%,#8a6c26);
+  box-shadow:0 0 16px rgba(217,180,92,.45);
+}
+.brand span{font-family:var(--util);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone)}
+.nav nav{display:flex;gap:26px}
+.nav nav a{
+  font-family:var(--util);font-size:13px;letter-spacing:.06em;color:var(--mute);
+  text-decoration:none;transition:color .2s;
+}
+.nav nav a:hover{color:var(--gold-lt)}
+.nav-cta{
+  font-family:var(--util);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;color:var(--void);background:var(--gold);
+  padding:9px 18px;border-radius:100px;white-space:nowrap;transition:transform .2s,box-shadow .2s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(217,180,92,.3)}
+@media(max-width:960px){.nav nav{display:none}}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.center .btns{justify-content:center}
+.btn{
+  display:flex;align-items:center;gap:12px;text-decoration:none;
+  padding:14px 26px;border-radius:14px;min-width:216px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.btn svg{width:22px;height:22px;flex:none}
+.btn b{display:block;font-family:var(--util);font-size:15px;font-weight:500;letter-spacing:.02em;line-height:1.2}
+.btn small{display:block;font-family:var(--util);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.72;line-height:1.6}
+.btn-play{
+  background:linear-gradient(135deg,var(--gold-lt),var(--gold) 60%,#c39c40);
+  color:#120d02;box-shadow:0 10px 30px rgba(217,180,92,.24);
+}
+.btn-play:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(217,180,92,.36)}
+.btn-apple{
+  background:rgba(139,108,240,.07);color:var(--bone);
+  border:1px solid rgba(139,108,240,.4);cursor:default;
+}
+.btn-apple small{color:var(--cyan);opacity:1}
+.btn-ghost{
+  background:transparent;border:1px solid var(--line);color:var(--bone);
+  justify-content:center;min-width:0;padding:14px 30px;
+}
+.btn-ghost:hover{border-color:var(--gold);transform:translateY(-2px)}
+.avail{
+  font-family:var(--util);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mute);margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 22px;
+}
+.center .avail{justify-content:center}
+.avail em{font-style:normal;color:var(--gold)}
+#hero{padding-top:clamp(52px,6vw,86px);overflow:hidden}
+#hero::before{
+  content:"";position:absolute;inset:-30% -20% auto -20%;height:120%;
+  background:
+    radial-gradient(ellipse 46% 40% at 22% 8%,rgba(139,108,240,.24),transparent 70%),
+    radial-gradient(ellipse 40% 36% at 84% 22%,rgba(127,216,232,.14),transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 0%,rgba(217,180,92,.1),transparent 72%);
+  pointer-events:none;
+}
+.starfield{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.hero-grid{position:relative;text-align:center;max-width:680px;margin:0 auto}
+.hero-copy .lede{margin:0 auto 40px}
+.funnel{position:relative;text-align:left}
+.funnel-step{
+  border:1px solid var(--line);border-radius:22px;
+  background:linear-gradient(180deg,rgba(17,23,49,.6),rgba(10,15,34,.5));
+  backdrop-filter:blur(6px);
+  padding:clamp(26px,4vw,40px);
+}
+.funnel-step + .funnel-step{margin-top:18px}
+.funnel-label{
+  font-family:var(--util);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 16px;
+}
+.num-row{display:flex;gap:12px;flex-wrap:wrap}
+.num-input{
+  flex:1 1 220px;background:rgba(5,7,15,.6);border:1px solid rgba(217,180,92,.3);
+  border-radius:14px;padding:16px 20px;color:var(--gold-lt);
+  font-family:var(--serif);font-size:1.8rem;letter-spacing:.04em;
+  outline:none;transition:border-color .2s;
+}
+.num-input::placeholder{color:rgba(217,180,92,.35)}
+.num-input:focus{border-color:var(--gold)}
+.reveal-btn{
+  flex:0 0 auto;border:0;cursor:pointer;font-family:var(--util);font-size:14px;
+  letter-spacing:.08em;text-transform:uppercase;color:#120d02;padding:0 30px;
+  border-radius:14px;background:linear-gradient(135deg,var(--gold-lt),var(--gold) 60%,#c39c40);
+  box-shadow:0 10px 28px rgba(217,180,92,.26);transition:transform .2s,box-shadow .2s;
+}
+.reveal-btn:hover{transform:translateY(-1px);box-shadow:0 14px 34px rgba(217,180,92,.34)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.chip{
+  font-family:var(--util);font-size:12px;letter-spacing:.06em;color:var(--cyan);
+  border:1px solid rgba(127,216,232,.32);border-radius:100px;padding:6px 15px;
+  cursor:pointer;background:transparent;transition:border-color .2s,color .2s;
+}
+.chip:hover{border-color:var(--cyan);color:var(--gold-lt)}
+.funnel-hint{
+  font-family:var(--util);font-size:11.5px;letter-spacing:.08em;color:var(--mute);
+  margin-top:16px;
+}
+.web-link{margin-top:12px}
+.web-link a{
+  font-family:var(--util);font-size:13px;color:var(--cyan);
+  text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(127,216,232,.4);
+}
+.web-link a:hover{text-decoration-color:var(--cyan)}
+.reading-card{display:none}
+.reading-card.show{display:block;animation:riseIn .5s ease both}
+@keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.reading-num{
+  font-family:var(--serif);font-size:clamp(3rem,8vw,4.2rem);line-height:1;color:var(--gold-lt);
+  text-shadow:0 0 34px rgba(217,180,92,.4);margin:0 0 8px;
+}
+.reading-sub{
+  font-family:var(--util);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--violet);margin:0 0 22px;line-height:1.6;
+}
+.reading-blk{padding:18px 0;border-top:1px solid rgba(217,180,92,.12)}
+.reading-blk .rlbl{
+  font-family:var(--util);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 8px;
+}
+.reading-blk .rlbl.c{color:var(--cyan)}
+.reading-blk p{margin:0;font-size:16px;line-height:1.72;color:#c9cddf}
+.reading-blk p.aff{
+  font-family:var(--serif);font-style:italic;font-size:1.28rem;color:var(--gold-lt);line-height:1.5;
+}
+.not-found{display:none}
+.not-found.show{display:block;animation:riseIn .5s ease both}
+.not-found p.msg{
+  font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--gold-lt);
+  margin:0 0 22px;line-height:1.4;
+}
+.area-step{display:none}
+.area-step.show{display:block;animation:riseIn .5s ease both}
+.area-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.area-btn{
+  border:1px solid var(--line);background:rgba(5,7,15,.4);border-radius:14px;
+  padding:16px 18px;text-align:left;cursor:pointer;color:var(--bone);
+  font-family:var(--util);font-size:14px;letter-spacing:.02em;
+  transition:border-color .2s,background .2s;
+}
+.area-btn:hover{border-color:var(--gold);background:rgba(217,180,92,.06)}
+.area-btn.picked{border-color:var(--gold);background:rgba(217,180,92,.1);color:var(--gold-lt)}
+@media(max-width:560px){.area-btns{grid-template-columns:1fr}}
+.personal-step{display:none}
+.personal-step.show{display:block;animation:riseIn .5s ease both}
+.personal-step p.txt{margin:0;font-size:16px;line-height:1.72;color:#c9cddf}
+.continue-step{display:none}
+.continue-step.show{display:block;animation:riseIn .5s ease both}
+.continue-step h3{margin-bottom:10px}
+.continue-step .lede{margin:0 0 26px}
+@media(max-width:640px){.funnel-step{border-radius:18px}}
+.ticker{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(17,23,49,.5),rgba(5,7,15,.5));
+  padding:20px 0;overflow:hidden;position:relative;
+}
+.ticker::before,.ticker::after{
+  content:"";position:absolute;top:0;bottom:0;width:16%;z-index:2;pointer-events:none;
+}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--void),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--void),transparent)}
+.tick-row{display:flex;gap:44px;width:max-content;animation:slide 46s linear infinite}
+.tick{display:flex;align-items:baseline;gap:11px;white-space:nowrap}
+.tick i{font-family:var(--serif);font-style:normal;font-size:22px;color:var(--gold-lt)}
+.tick s{
+  text-decoration:none;font-family:var(--util);font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mute);
+}
+@keyframes slide{to{transform:translateX(-50%)}}
+.statement{background:var(--navy-1);border-block:1px solid rgba(217,180,92,.1)}
+.statement h2{max-width:24ch;margin-inline:auto}
+.statement .sub{margin-top:26px;color:var(--mute);font-size:1.02rem;max-width:52ch;margin-inline:auto}
+.phone{
+  width:282px;flex:none;border-radius:38px;padding:9px;
+  background:linear-gradient(160deg,#2a3152,#0b0f1e);
+  border:1px solid rgba(217,180,92,.22);
+  box-shadow:0 30px 70px rgba(0,0,0,.62),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.phone .scr{
+  border-radius:30px;overflow:hidden;background:var(--void);
+  border:1px solid rgba(255,255,255,.05);
+}
+.phone .scr img{width:100%;height:auto}
+.shot-note{
+  font-family:var(--util);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mute);text-align:center;margin:0 0 30px;
+}
+.cap{
+  font-family:var(--util);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mute);text-align:center;margin:16px 0 0;
+}
+.rail{overflow:hidden;position:relative;padding:8px 0 4px}
+.rail::before,.rail::after{
+  content:"";position:absolute;top:0;bottom:0;width:12%;z-index:2;pointer-events:none;
+}
+.rail::before{left:0;background:linear-gradient(90deg,var(--void),transparent)}
+.rail::after{right:0;background:linear-gradient(270deg,var(--void),transparent)}
+.rail-row{display:flex;gap:26px;width:max-content;animation:slide 74s linear infinite}
+.rail .phone{width:246px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,40px);margin-top:64px}
+.step{border-top:1px solid var(--line);padding-top:26px}
+.step .num{
+  font-family:var(--serif);font-size:2.6rem;line-height:1;color:rgba(217,180,92,.42);
+  display:block;margin-bottom:14px;
+}
+.step h3{margin-bottom:12px}
+.step p{margin:0;color:var(--mute);font-size:15.5px;line-height:1.7}
+@media(max-width:860px){.steps{grid-template-columns:1fr;gap:34px}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,80px);align-items:center}
+.split + .split{margin-top:clamp(70px,9vw,120px)}
+.split-media{display:grid;place-items:center}
+.split.flip .split-media{order:-1}
+.checks{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:15px}
+.checks li{display:flex;gap:13px;align-items:flex-start;font-size:16px;color:#c6cadd}
+.checks svg{width:17px;height:17px;flex:none;margin-top:5px;stroke:var(--gold);fill:none;stroke-width:2}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split.flip .split-media{order:0}
+}
+.demo{
+  max-width:660px;margin:clamp(60px,8vw,96px) auto 0;border:1px solid var(--line);
+  border-radius:20px;background:linear-gradient(180deg,var(--navy-2),rgba(10,15,34,.6));overflow:hidden;
+}
+.demo-head{padding:22px 26px;border-bottom:1px solid rgba(217,180,92,.14)}
+.demo-head p{margin:0;font-family:var(--serif);font-size:1.35rem;color:var(--bone)}
+.demo-body{padding:8px 26px 26px;text-align:left}
+.demo-body .blk{padding:20px 0;border-bottom:1px solid rgba(217,180,92,.1)}
+.demo-body .blk:last-child{border-bottom:0;padding-bottom:6px}
+.demo-body .lbl{
+  font-family:var(--util);font-size:10px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px;
+}
+.demo-body .lbl.v{color:var(--violet)}
+.demo-body .lbl.c{color:var(--cyan)}
+.demo-body p.txt{margin:0;font-size:15.5px;line-height:1.72;color:#c9cddf}
+.demo-body p.aff{
+  margin:0;font-family:var(--serif);font-style:italic;font-size:1.22rem;
+  color:var(--gold-lt);line-height:1.5;
+}
+.avail-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px;text-align:left}
+.avail-card{
+  border:1px solid var(--line);border-radius:18px;padding:28px 26px;
+  background:rgba(17,23,49,.4);display:flex;flex-direction:column;
+}
+.avail-card.primary{
+  border-color:rgba(217,180,92,.4);
+  background:radial-gradient(ellipse 100% 70% at 50% 0%,rgba(217,180,92,.12),rgba(17,23,49,.5));
+}
+.avail-card.muted{opacity:.62}
+.avail-tag{
+  font-family:var(--util);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  margin:0 0 12px;color:var(--mute);
+}
+.avail-card.primary .avail-tag{color:var(--gold)}
+.avail-card > b{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--bone);margin-bottom:10px}
+.avail-card.primary > b{color:var(--gold-lt)}
+.avail-card span{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--mute);flex:1}
+.avail-card .btn{margin-top:20px;min-width:0;width:100%;justify-content:center}
+.avail-card .web-link{margin-top:16px}
+@media(max-width:860px){.avail-grid{grid-template-columns:1fr}}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:var(--line);margin-top:56px;border:1px solid var(--line);text-align:left}
+.cat{background:var(--void);padding:26px 24px;display:flex;flex-direction:column;gap:7px}
+.cat b{font-family:var(--serif);font-weight:400;font-size:1.28rem;color:var(--bone);display:flex;align-items:center;gap:9px}
+.cat span{font-family:var(--util);font-size:12.5px;letter-spacing:.06em;color:var(--mute)}
+.pill{
+  font-family:var(--util);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  border-radius:100px;padding:3px 9px;white-space:nowrap;
+}
+.pill.free{color:var(--cyan);border:1px solid rgba(127,216,232,.34)}
+.pill.full{color:var(--gold-lt);border:1px solid rgba(217,180,92,.34)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(266px,1fr));gap:22px;margin-top:60px}
+.quote{
+  border:1px solid var(--line);border-radius:18px;padding:28px 26px;
+  background:linear-gradient(180deg,rgba(17,23,49,.55),transparent);
+  display:flex;flex-direction:column;
+}
+.quote .qm{font-family:var(--serif);font-size:3rem;line-height:.6;color:rgba(217,180,92,.4);margin-bottom:14px}
+.quote p{margin:0 0 22px;font-size:15.5px;line-height:1.72;color:#cbcfe1}
+.quote .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.av{
+  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(217,180,92,.14);border:1px solid rgba(217,180,92,.3);
+  font-family:var(--util);font-size:13px;color:var(--gold-lt);
+}
+.who b{display:block;font-family:var(--util);font-weight:400;font-size:13.5px;color:var(--bone)}
+.who s{display:block;text-decoration:none;font-family:var(--util);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.ph{
+  display:inline-block;font-family:var(--util);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--violet);border:1px dashed rgba(139,108,240,.45);
+  border-radius:4px;padding:2px 7px;margin-bottom:14px;
+}
+.faq{max-width:820px;margin:56px auto 0}
+details{border-bottom:1px solid rgba(217,180,92,.14)}
+summary{
+  cursor:pointer;list-style:none;padding:24px 44px 24px 0;position:relative;
+  font-family:var(--serif);font-size:1.22rem;color:var(--bone);
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";position:absolute;right:6px;top:22px;font-family:var(--sans);font-size:1.35rem;
+  color:var(--gold);transition:transform .25s;
+}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 26px;color:var(--mute);font-size:15.5px;line-height:1.75;max-width:70ch}
+.tiers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:820px;margin:56px auto 0;text-align:left}
+.tier{border:1px solid var(--line);border-radius:22px;padding:38px 32px;display:flex;flex-direction:column}
+.tier.hero-tier{
+  border-color:rgba(217,180,92,.38);
+  background:radial-gradient(ellipse 100% 70% at 50% 0%,rgba(217,180,92,.1),rgba(17,23,49,.5));
+}
+.tier .tname{font-family:var(--util);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.tier .amt{font-family:var(--serif);font-size:3.4rem;line-height:1;color:var(--gold-lt)}
+.tier .per{font-family:var(--util);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:10px 0 28px}
+.tier ul{list-style:none;margin:0 0 30px;padding:0;display:grid;gap:13px}
+.tier li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:#c6cadd}
+.tier svg{width:16px;height:16px;flex:none;margin-top:5px;stroke:var(--gold);fill:none;stroke-width:2}
+.tier .foot-note{margin:auto 0 0;font-family:var(--util);font-size:11.5px;letter-spacing:.08em;color:var(--mute)}
+@media(max-width:760px){.tiers{grid-template-columns:1fr}}
+#alert{background:var(--navy-1);border-block:1px solid rgba(139,108,240,.22);padding:clamp(52px,6vw,76px) 0}
+#alert h3{margin-bottom:14px}
+#get{position:relative;overflow:hidden}
+#get::before{
+  content:"";position:absolute;inset:auto -20% -60% -20%;height:120%;
+  background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(217,180,92,.16),transparent 70%);
+  pointer-events:none;
+}
+.kicker{
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.6rem);
+  color:var(--gold-lt);max-width:34ch;margin:0 auto 10px;
+}
+footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:var(--navy-1)}
+.foot{display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between}
+.foot-links{display:flex;flex-wrap:wrap;gap:22px}
+.foot a{
+  font-family:var(--util);font-size:12.5px;letter-spacing:.08em;color:var(--mute);
+  text-decoration:none;transition:color .2s;
+}
+.foot a:hover{color:var(--gold-lt)}
+.tagline{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold-lt);margin:0}
+.copy{font-family:var(--util);font-size:11.5px;letter-spacing:.1em;color:rgba(154,162,189,.7);margin-top:30px}
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(5,7,15,.94);backdrop-filter:blur(14px);
+  border-top:1px solid rgba(217,180,92,.24);
+  transform:translateY(120%);transition:transform .3s ease;
+}
+.sticky.show{transform:translateY(0)}
+.sticky a{
+  display:block;text-align:center;text-decoration:none;color:#120d02;
+  background:linear-gradient(135deg,var(--gold-lt),var(--gold) 60%,#c39c40);
+  padding:14px;border-radius:12px;
+  font-family:var(--util);font-size:14px;letter-spacing:.06em;
+}
+@media(max-width:820px){.sticky{display:block}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#hero"><span class="mark" aria-hidden="true"></span><span>Archangel Frequencies</span></a>
+    <nav>
+      <a href="#how">How It Works</a>
+      <a href="#yours">Your Numbers</a>
+      <a href="#library">The Library</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="#get">Try It Free</a>
+  </div>
+</header>
+<section id="hero">
+  <canvas class="starfield" id="stars" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy center">
+      <p class="eyebrow">Try it right now, no download</p>
+      <h1>The number you keep seeing may be trying to tell you something.</h1>
+      <p class="lede">Enter the number that keeps appearing and discover what it means for you right now.</p>
+    </div>
+    <div class="funnel">
+      <div class="funnel-step" id="step1">
+        <p class="funnel-label">What number keeps appearing?</p>
+        <div class="num-row">
+          <input class="num-input" id="numInput" type="text" inputmode="numeric" placeholder="444" maxlength="6" aria-label="Enter a number">
+          <button class="reveal-btn" id="revealBtn" type="button">Reveal My Message</button>
+        </div>
+        <div class="chips" aria-label="Example numbers">
+          <button class="chip" type="button" data-n="111">111</button>
+          <button class="chip" type="button" data-n="444">444</button>
+          <button class="chip" type="button" data-n="777">777</button>
+          <button class="chip" type="button" data-n="999">999</button>
+          <button class="chip" type="button" data-n="1111">1111</button>
+        </div>
+        <p class="funnel-hint">No account. No email. No download required.</p>
+      </div>
+      <div class="funnel-step reading-card" id="readingCard">
+        <p class="funnel-label" id="readingLabel">Your reading</p>
+        <p class="reading-num" id="readingNum">444</p>
+        <p class="reading-sub" id="readingSub">Themes</p>
+        <div class="reading-blk">
+          <p class="rlbl">Meaning</p>
+          <p id="readingMeaning">&nbsp;</p>
+        </div>
+        <div class="reading-blk">
+          <p class="rlbl c">Guidance</p>
+          <p class="aff" id="readingAff">&nbsp;</p>
+        </div>
+      </div>
+      <div class="funnel-step not-found" id="notFoundCard">
+        <p class="msg">That number has a deeper reading waiting in Archangel Frequencies.</p>
+        <div class="btns">
+          <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
+            <b>Continue on the Web &mdash; Free</b>
+          </a>
+        </div>
+        <p class="funnel-hint">Android and iPhone apps coming soon</p>
+      </div>
+      <div class="funnel-step area-step" id="areaStep">
+        <p class="funnel-label">Where are you looking for guidance right now?</p>
+        <div class="area-btns">
+          <button class="area-btn" type="button" data-area="love">Love &amp; Relationships</button>
+          <button class="area-btn" type="button" data-area="money">Money &amp; Abundance</button>
+          <button class="area-btn" type="button" data-area="career">Career &amp; Purpose</button>
+          <button class="area-btn" type="button" data-area="growth">Personal Growth</button>
+        </div>
+      </div>
+      <div class="funnel-step personal-step" id="personalStep">
+        <p class="funnel-label" id="personalLabel">A closer look, just for now</p>
+        <p class="txt" id="personalText">&nbsp;</p>
+      </div>
+      <div class="funnel-step continue-step" id="continueStep">
+        <h3>Your signs don&rsquo;t stop here.</h3>
+        <p class="lede">Keep decoding the numbers that appear in your life, free in your browser.</p>
+        <div class="btns">
+          <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
+            <b>Continue on the Web &mdash; Free</b>
+          </a>
+        </div>
+        <p class="funnel-hint">Android and iPhone apps coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true">
+  <div class="tick-row" id="tickRow"></div>
+</div>
+<section class="statement center">
+  <div class="wrap">
+    <p class="eyebrow">Why people open it</p>
+    <h2>You look up. It is 11:11 again. And for once you get a real answer instead of thirty search results.</h2>
+    <p class="sub">No ads to scroll past. No eight hundred word article that never says the thing. One number in, one clear reading out.</p>
+  </div>
+</section>
+<section style="padding-top:clamp(56px,7vw,84px)">
+  <p class="shot-note">Real screens from the app</p>
+  <div class="rail">
+    <div class="rail-row" id="railRow">
+      <div class="phone"><div class="scr"><img src="app-today.png" alt="Today screen with the daily angel number" loading="lazy"></div></div>
+      <div class="phone"><div class="scr"><img src="app-lookup.png" alt="Angel number lookup screen with sacred numbers and patterns" loading="lazy"></div></div>
+      <div class="phone"><div class="scr"><img src="app-personal.png" alt="Personal Numbers screen with Life Path reading" loading="lazy"></div></div>
+      <div class="phone"><div class="scr"><img src="app-library.png" alt="Library screen listing angel number categories" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+<section id="how" class="center">
+  <div class="wrap">
+    <p class="eyebrow">Simple by design</p>
+    <h2>Open it. Decode it. Come back tomorrow.</h2>
+    <p class="lede">Three taps, start to finish. No journaling homework. No course to finish first. You get the meaning while the moment is still fresh.</p>
+    <div class="steps" style="text-align:left">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Open Today</h3>
+        <p>Your number for the day is already waiting, with its themes, its meaning, and one line of guidance you can use before you finish your coffee.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Decode what you saw</h3>
+        <p>Type any three-digit number you keep noticing, or one of the mirror hours and repeating patterns the app tracks, and tap Reveal Message. The answer is two sentences, not two thousand words. Free gives you 3 lookups a day; Premium removes the cap.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Keep the streak going</h3>
+        <p>Every day you open it, the count goes up. It sounds small, but it's the difference between checking once and building a real daily habit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="hr">
+<section id="yours">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Today</p>
+        <h2>A number, a meaning, and one thing to do with it.</h2>
+        <p class="lede" style="margin-top:22px">Most apps hand you a vague sentence and leave. Today gives you the three themes the number carries, what it means in plain language, and one specific piece of guidance for the next few hours.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A new number every day, ready the second you open it</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Today&rsquo;s Guidance, so the reading turns into an action</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A streak counter that quietly builds the habit</li>
+        </ul>
+        <div class="btns" style="margin-top:34px">
+          <a class="btn btn-ghost" href="#get">Get the app free</a>
+        </div>
+      </div>
+      <div class="split-media">
+        <div>
+          <div class="phone"><div class="scr"><img src="app-today.png" alt="Today screen showing 727 with meaning and guidance" loading="lazy"></div></div>
+          <p class="cap">Today &middot; your streak, day by day</p>
+        </div>
+      </div>
+    </div>
+    <div class="split flip">
+      <div>
+        <p class="eyebrow">Personal numbers</p>
+        <h2>Your numbers are already assigned.</h2>
+        <p class="lede" style="margin-top:22px">Enter a birth date and the app returns the Life Path number encoded in it, the archetype that goes with it, what it means, and the affirmation to carry. Yours, your partner&rsquo;s, your child&rsquo;s. Any date.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Life Path 1 through 9 plus the master numbers</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An archetype name you will recognise instantly</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An I AM affirmation you can say without cringing</li>
+        </ul>
+        <div class="btns" style="margin-top:34px">
+          <a class="btn btn-ghost" href="#get">See your Life Path</a>
+        </div>
+      </div>
+      <div class="split-media">
+        <div>
+          <div class="phone"><div class="scr"><img src="app-personal.png" alt="Personal Numbers screen showing Life Path 9, The Humanitarian" loading="lazy"></div></div>
+          <p class="cap">Personal numbers &middot; Life Path 9</p>
+        </div>
+      </div>
+    </div>
+    <div class="split">
+      <div>
+        <p class="eyebrow">Lookup</p>
+        <h2>The library goes deeper than a first look.</h2>
+        <p class="lede" style="margin-top:22px">You just tried Lookup at the top of this page. Inside the app, Lookup goes much deeper, with additional numbers, mirror hours, and repeating patterns.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One tap shortcuts for 111 through 999, plus 000, 911, and 007</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mirror hours from 10:10 to 23:23 read as their own pattern</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 free lookups a day, any three-digit number &mdash; unlimited with Premium</li>
+        </ul>
+        <div class="btns" style="margin-top:34px">
+          <a class="btn btn-ghost" href="#get">Decode your number</a>
+        </div>
+      </div>
+      <div class="split-media">
+        <div>
+          <div class="phone"><div class="scr"><img src="app-lookup.png" alt="Angel number lookup screen with reveal message button" loading="lazy"></div></div>
+          <p class="cap">Lookup &middot; decode a message</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="hr">
+<section id="library" class="center">
+  <div class="wrap">
+    <p class="eyebrow">Reference and browse</p>
+    <h2>One clear format. Across the entire library.</h2>
+    <p class="lede">Most apps cover the popular twenty and guess at the rest. This one is organised by category, so you can browse what you are living through instead of hunting for a number you half remember.</p>
+    <div class="cats">
+      <div class="cat">
+        <b>Angel Numbers <span class="pill free">Core numbers free</span></b>
+        <span>111 to 999 and beyond</span>
+      </div>
+      <div class="cat">
+        <b>Life Path Numbers <span class="pill free">Core numbers free</span></b>
+        <span>1 to 9 plus the master numbers</span>
+      </div>
+      <div class="cat">
+        <b>Mirror Numbers <span class="pill full">Premium</span></b>
+        <span>11:11, 12:12, 22:22 and more</span>
+      </div>
+      <div class="cat">
+        <b>4-Digit Mirror Numbers <span class="pill full">Premium</span></b>
+        <span>1001 to 2020, the complete set</span>
+      </div>
+      <div class="cat">
+        <b>Repeating Patterns <span class="pill full">Premium</span></b>
+        <span>Sequences with deeper messages</span>
+      </div>
+      <div class="cat">
+        <b>Love &amp; Relationships <span class="pill full">Premium</span></b>
+        <span>222, 611, 717, 919</span>
+      </div>
+      <div class="cat">
+        <b>Money &amp; Abundance <span class="pill full">Premium</span></b>
+        <span>888, 808, 111, 444</span>
+      </div>
+      <div class="cat">
+        <b>Protection &amp; Guidance <span class="pill full">Premium</span></b>
+        <span>444, 777, 999</span>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:44px">Each entry follows the same shape: themes, a meaning in plain language, one affirmation. Angel Numbers and Life Path give you a set of core numbers to browse free, any time. Premium unlocks every category and every number in it, browsable in full.</p>
+  </div>
+</section>
+<hr class="hr">
+<section id="reviews" class="center">
+  <div class="wrap">
+    <p class="eyebrow">Real people, real sightings</p>
+    <h2>Reviews are on their way.</h2>
+    <p class="lede">This app is new. Real reviews from real users will show up here as they come in &mdash; nothing simulated in the meantime.</p>
+  </div>
+</section>
+<hr class="hr">
+<section class="center">
+  <div class="wrap">
+    <p class="eyebrow">Simple and transparent</p>
+    <h2>Free every day. Premium when you want more.</h2>
+    <p class="lede">No trial timer. No account wall to explore. No card on file until you choose to upgrade.</p>
+    <div class="tiers">
+      <div class="tier hero-tier">
+        <p class="tname">Free</p>
+        <div class="amt">$0</div>
+        <p class="per">Free to start</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A new number every day with meaning and guidance, no cap</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 lookups a day, any three-digit number</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your Life Path number, from any birth date</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A set of core angel numbers, always free to browse</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your daily streak</li>
+        </ul>
+        <p class="foot-note">No account. No card.</p>
+      </div>
+      <div class="tier">
+        <p class="tname">Premium</p>
+        <div class="amt">$7.99</div>
+        <p class="per">Per month, cancel anytime</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Unlimited lookups, no daily cap</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every library category unlocked: Mirror Numbers, 4-Digit Mirrors, Repeating Patterns, Love, Money, Protection &amp; Guidance</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your full personal profile: Soul Urge, Destiny Number, Personal Year</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Saved readings and personal AI insights</li>
+        </ul>
+        <p class="foot-note">A recurring subscription, not a one-time unlock. No trial.</p>
+      </div>
+    </div>
+    <div class="btns" style="margin-top:44px">
+      <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
+        <b>Try It Free on the Web</b>
+      </a>
+      <span class="btn btn-apple" role="note" aria-label="Apple App Store, coming soon">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2.4 2-3.6 2-3.6-1.1-1.6-2.7-1.8-3.3-1.8-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.9-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.8 3-.8s1.8.7 3 .7 2.1-1.1 2.9-2.2c.6-.9.9-1.4 1.3-2.4-2.4-.9-3-3.7-3-3.7Zm-2.6-7.2c.6-.8 1.1-1.9 1-3-1 0-2.2.7-2.9 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.4Z"/></svg>
+        <span><small>Coming soon to</small><b>App Store</b></span>
+      </span>
+    </div>
+  </div>
+</section>
+<hr class="hr">
+<section id="faq" class="center">
+  <div class="wrap">
+    <p class="eyebrow">Straight answers</p>
+    <h2>Everything you might be wondering.</h2>
+    <div class="faq" style="text-align:left">
+      <details open>
+        <summary>What do I get without paying?</summary>
+        <p>A new daily number with its meaning and guidance, free every day, no cap. 3 lookups a day on any three-digit number. Your Life Path number from any birth date. And a set of core angel numbers you can browse free, any time. That's a real daily habit with no card required. Premium at $7.99/month removes the lookup cap, unlocks every category in the library, and adds your full personal profile.</p>
+      </details>
+      <details>
+        <summary>When is it coming to iPhone?</summary>
+        <p>Both Android and iOS are on their way. The Android app is awaiting public Google Play release, and the iOS version is in submission. In the meantime, everything works free at app.archangelfrequencies.com in your browser.</p>
+      </details>
+      <details>
+        <summary>What if the number I keep seeing is not a triple?</summary>
+        <p>It is in there. Type any three-digit number into Lookup and you'll get a real entry, not a generic one. Mirror hours and four digit mirrors are covered too, for the patterns the app tracks. On the free tier, each lookup counts toward your 3 a day. Browsing those categories in the Library rather than typing them in is a Premium feature.</p>
+      </details>
+      <details>
+        <summary>Do I have to make an account?</summary>
+        <p>No. Open it and use it. Personal Numbers works from any birth date you type in, so you can read your own, your partner&rsquo;s, or your child&rsquo;s without signing up for anything.</p>
+      </details>
+      <details>
+        <summary>How is this different from searching the number online?</summary>
+        <p>Search gives you thirty pages written to rank, each padded to eight hundred words. Here each entry follows one format. Three themes, a short meaning, one affirmation. You get the answer in the time it takes to read this sentence.</p>
+      </details>
+      <details>
+        <summary>Will you keep adding to it?</summary>
+        <p>Yes. The library keeps growing, and updates arrive through the app itself, no new download needed.</p>
+      </details>
+    </div>
+  </div>
+</section>
+<hr class="hr">
+<section class="center">
+  <div class="wrap">
+    <p class="eyebrow">Get Archangel Frequencies</p>
+    <h2>Free in your browser right now.</h2>
+    <p class="lede">Android and iPhone apps are both on the way. In the meantime, everything works free in your browser.</p>
+    <div class="avail-grid" style="margin-top:44px">
+      <div class="avail-card primary">
+        <p class="avail-tag">Available now</p>
+        <b>Web</b>
+        <span>No install, no waiting. Archangel Frequencies works free in your browser today.</span>
+        <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
+          <b>Open in your browser</b>
+        </a>
+      </div>
+      <div class="avail-card muted">
+        <p class="avail-tag">Coming soon</p>
+        <b>Android</b>
+        <span>The Android app is awaiting Google Play release. In the meantime, use it free in your browser.</span>
+      </div>
+      <div class="avail-card muted">
+        <p class="avail-tag">Coming soon</p>
+        <b>iPhone</b>
+        <span>In submission. In the meantime, use it free in your browser.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="get" class="center">
+  <div class="wrap">
+    <p class="kicker">You were going to look it up anyway.</p>
+    <h2 style="max-width:22ch;margin-inline:auto">Get the real answer, free, right now.</h2>
+    <p class="lede" style="margin-top:24px">The numbers have been showing up for a while now. No download needed to find out what they've been saying.</p>
+    <div class="btns" style="margin-top:36px;justify-content:center">
+      <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
+        <b>Continue on the Web &mdash; Free</b>
+      </a>
+    </div>
+    <p class="funnel-hint">Android and iPhone apps coming soon</p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <p class="tagline">The signs are already there.</p>
+      <div class="foot-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="https://www.skool.com/archangel-frequencies-academy-1947">The Academy</a>
+        <a href="https://archangelfrequencies.com">Angel Number Library</a>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Archangel Frequencies. All rights reserved.</p>
+  </div>
+</footer>
+<div class="sticky" id="stickyBar">
+  <a href="#get">Try Archangel Frequencies Free</a>
+</div>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Archangel Frequencies",
+  "applicationCategory":"LifestyleApplication",
+  "operatingSystem":"Android",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "description":"Enter the angel number you keep seeing and get a real reading instantly, free. Angel numbers, mirror numbers, repeating patterns, and your Life Path number. Android app coming soon."
+}
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var HERO_READINGS = {
+    "000":{subtitle:"Stillness, Open Space, New Start",
+      meaning:"You keep wanting the idea to feel more finished before you start, but this is the space before form, where nothing has to be proven yet. You are allowed to begin exactly here, in the open and unfinished moment.",
+      affirmation:"I AM allowed to begin in the unfinished moment.",
+      areas:{
+        love:"In love, this can mean giving yourself permission to say how you feel before you have the perfect words for it.",
+        money:"With money, it may be pointing to a financial start you've been delaying until the plan feels more complete. It doesn't have to be finished to begin.",
+        career:"In your work, this can be the nudge to submit the application, pitch the idea, or start the project before it feels fully ready.",
+        growth:"Personally, this often shows up as waiting to feel more ‘together’ before making a change you already know you want to make."
+      }},
+    "007":{subtitle:"Insight, Awakening, Direction",
+      meaning:"You are holding onto a version of this that already ended, but a clear new direction is already lighting up inside you. Follow what you suddenly know.",
+      affirmation:"I AM seeing this with new clarity.",
+      areas:{
+        love:"In love, this can mean a relationship pattern has already run its course, even if you're still holding the old story about it.",
+        money:"With money, a financial approach that used to work may no longer fit where you actually are now. A clearer direction is already forming.",
+        career:"In your work, this can point to a role or path that quietly ended before you officially left it. Follow what you're suddenly noticing.",
+        growth:"Personally, this often means you already know the next right move. The clarity isn't missing, it's just new."
+      }},
+    "111":{subtitle:"Direction, Confidence, Speed",
+      meaning:"You are assuming a quick decision must have been a careless one, but expansion often moves fast precisely because the direction was already clear. Trust the speed of a clear yes.",
+      affirmation:"I AM moving fast because the direction is clear.",
+      areas:{
+        love:"In love, this can mean trusting a fast connection or a quick decision about someone, instead of assuming speed means it wasn't considered.",
+        money:"With money, this often points to a financial move that felt obvious the moment you saw it. That clarity is worth trusting.",
+        career:"In your work, this can be permission to move quickly on an opportunity instead of slowing down just because it feels easy.",
+        growth:"Personally, this shows up as trusting a sudden yes, rather than needing to labor over a decision that was actually already clear."
+      }},
+    "222":{subtitle:"Harmony, Self-Trust, Surprising Yourself",
+      meaning:"You are doubting a decision just because even you didn't expect to make it, but real harmony trusts a choice even when it surprises you too. Let it stand as right.",
+      affirmation:"I AM trusting a choice that surprised even me.",
+      areas:{
+        love:"In love, this can mean trusting an attraction or a choice about a relationship that caught even you off guard.",
+        money:"With money, this often points to a financial decision that surprised you but was still the right one. Let it stand.",
+        career:"In your work, this can be a choice, a pivot, or a yes that didn't match your original plan, but fits who you're actually becoming.",
+        growth:"Personally, this shows up as trusting yourself even when your own decision surprises you. Surprise isn't the same as wrong."
+      }},
+    "333":{subtitle:"Expression, Confidence, A Real Creative Surge",
+      meaning:"You are doubting a sudden burst of creative energy because it feels like too much too fast, but real expression can move in genuine surges. Use it while it's here.",
+      affirmation:"I AM using this creative surge fully while it's here.",
+      areas:{
+        love:"In love, this can be a wave of honesty or affection that feels like too much too soon. Let it be real anyway.",
+        money:"With money, this often points to a burst of ideas around income or opportunity. Use the energy while it's here instead of slowing it down.",
+        career:"In your work, this can be a genuine creative surge worth acting on now, not scheduling for later once it's cooled off.",
+        growth:"Personally, this shows up as a real burst of self-expression. It doesn't need to be paced to be legitimate."
+      }},
+    "444":{subtitle:"Stability, Healing, Protection You Can Lean On",
+      meaning:"You are still scanning for danger that's no longer actually present, but real alignment lets you feel how protected and steady you already are. Lean into it.",
+      affirmation:"I AM steady, protected, and safe right now.",
+      areas:{
+        love:"In love, this can mean you're still guarding against a hurt that this relationship, or this version of you, isn't actually repeating.",
+        money:"With money, this often points to more financial stability than you're giving yourself credit for. You can lean on the ground you've already built.",
+        career:"In your work, this can be a sign that the instability you're bracing for has already passed. The footing is steadier than it feels.",
+        growth:"Personally, this shows up as relaxing a vigilance that was protective once but isn't needed the same way now."
+      }},
+    "555":{subtitle:"Change, Authenticity, Trusting the Pace of This Shift",
+      meaning:"You are resisting how much is shifting at once, but real healing trusts that this transformation is moving exactly as it should. Lean into the pace.",
+      affirmation:"I AM embracing transformation and moving in real truth.",
+      areas:{
+        love:"In love, this can mean a relationship or a feeling is genuinely evolving, faster than you expected but not faster than it should.",
+        money:"With money, this often points to a financial season of real change. It's moving at the pace it needs to, even if it feels fast.",
+        career:"In your work, this can be a sign that the shift you're in the middle of is supposed to feel this big. Let it.",
+        growth:"Personally, this shows up as trusting a season of real transformation instead of trying to slow it back down to something familiar."
+      }},
+    "666":{subtitle:"Love, Authenticity, Letting a Repeated Pattern Be Named With Care",
+      meaning:"You are noticing the same relational pattern again and staying quiet to avoid conflict, but real healing names it gently, with love. Name it with care.",
+      affirmation:"I AM naming this pattern gently, because I care enough to.",
+      areas:{
+        love:"In love, this often points directly at a pattern you've noticed more than once and haven't said out loud yet, out of care, not weakness.",
+        money:"With money, this can be a spending or earning pattern repeating quietly. Naming it, gently, is usually the actual fix.",
+        career:"In your work, this can be a dynamic with a colleague or a role that keeps repeating. It's worth naming plainly, not avoiding again.",
+        growth:"Personally, this shows up as a habit or a reaction you keep noticing in yourself. Naming it with care, not judgment, is the move."
+      }},
+    "777":{subtitle:"Insight, Intuition, Trusting an Awakening You Can Finally Name",
+      meaning:"You are circling around a shift in awareness without claiming it directly, but real arrival names it plainly. Name it now.",
+      affirmation:"I AM naming this awakening plainly, as it truly is.",
+      areas:{
+        love:"In love, this can mean you already sense something true about a relationship, you just haven't said it plainly yet.",
+        money:"With money, this often points to a realization about your finances that's been forming quietly. It's ready to be named.",
+        career:"In your work, this can be clarity about what you actually want next, arriving in full instead of in pieces.",
+        growth:"Personally, this shows up as an insight about yourself that's been circling for a while. It's time to say it directly."
+      }},
+    "888":{subtitle:"Abundance, Completion, Recognizing Expansion Beyond the Original Vision",
+      meaning:"You are still measuring success against a dream you had years ago, but real arrival recognizes when you've genuinely surpassed it. Recognize it now.",
+      affirmation:"I AM recognizing how far beyond my original vision I've grown.",
+      areas:{
+        love:"In love, this can mean the connection you have now has already grown past what you originally imagined, if you let yourself see it that way.",
+        money:"With money, this often points to real financial growth being measured against a goal you set years ago. You may have already surpassed it.",
+        career:"In your work, this can be a sign you've outgrown the original version of the goal. Recognize how far you've actually come.",
+        growth:"Personally, this shows up as underselling your own growth because you're still comparing it to an old, smaller version of the plan."
+      }},
+    "911":{subtitle:"Direction, Completion, Recognizing the Direction You Were Always Headed",
+      meaning:"You are still surprised by where you've ended up, but real arrival recognizes this as the direction you were quietly always headed. Recognize it now.",
+      affirmation:"I AM recognizing this as where I was always truly headed.",
+      areas:{
+        love:"In love, this can mean the relationship you're in now makes more sense than it did at the start, like it was where you were headed all along.",
+        money:"With money, this often points to financial decisions that, in hindsight, were building toward exactly where you are.",
+        career:"In your work, this can be a reminder that the path that felt scattered was actually building toward this.",
+        growth:"Personally, this shows up as recognizing a thread running through choices that felt random at the time."
+      }},
+    "999":{subtitle:"Completion, Completion, A Cycle Completed",
+      meaning:"You are still looking for what's next before honoring that this entire arc has reached its true, complete end. Honor it fully, right here.",
+      affirmation:"I AM honoring a calling that I have genuinely, fully lived.",
+      areas:{
+        love:"In love, this can mean a chapter, a relationship, or a version of how you loved someone has genuinely closed. Let it close fully before opening the next one.",
+        money:"With money, this often points to a financial cycle, a debt, a goal, a season, that has actually reached its end.",
+        career:"In your work, this can be permission to call a project, a role, or a phase complete instead of rushing straight into what's next.",
+        growth:"Personally, this shows up as needing to actually close a chapter, not just quietly start the next one on top of it."
+      }},
+    "1111":{subtitle:"New Start, New Start, A Clear Opening",
+      meaning:"You keep noticing this number because you're actually paying attention right now. That attention is the opening.",
+      affirmation:"I AM awake to the openings already in front of me.",
+      areas:{
+        love:"In love, this can mean you're finally paying attention to something you'd been overlooking, and that attention is the opening itself.",
+        money:"With money, this often points to a fresh opportunity that only becomes visible once you're actually looking for it.",
+        career:"In your work, this can be the start of something new, one that's only available because you're paying attention right now.",
+        growth:"Personally, this shows up as a genuine new beginning, arriving because you noticed it, not because it was hidden."
+      }},
+    "1212":{subtitle:"New Start, Harmony, Remembering Who You Are",
+      meaning:"You are circling back to something true about yourself that got buried under other people's expectations. Let it resurface.",
+      affirmation:"I AM remembering who I actually am underneath it all.",
+      areas:{
+        love:"In love, this can mean remembering what you actually want from connection, underneath what you thought you were supposed to want.",
+        money:"With money, this often points to reconnecting with your own real relationship to money, not the one you inherited from someone else.",
+        career:"In your work, this can be a return to the version of your ambition that's actually yours, not the one shaped by other people's expectations.",
+        growth:"Personally, this shows up as remembering who you are underneath the roles you've been playing for other people."
+      }}
+  };
+  var AREA_NAMES = {love:'Love & Relationships', money:'Money & Abundance', career:'Career & Purpose', growth:'Personal Growth'};
+  (function(){
+    var input = document.getElementById('numInput');
+    var revealBtn = document.getElementById('revealBtn');
+    var readingCard = document.getElementById('readingCard');
+    var notFoundCard = document.getElementById('notFoundCard');
+    var areaStep = document.getElementById('areaStep');
+    var personalStep = document.getElementById('personalStep');
+    var continueStep = document.getElementById('continueStep');
+    if(!input || !revealBtn) return;
+    function cleanNumber(raw){
+      return (raw || '').replace(/[^0-9]/g,'');
+    }
+    function reveal(el){ if(el){ el.classList.add('show'); } }
+    function hideAll(){
+      [readingCard, notFoundCard, areaStep, personalStep, continueStep].forEach(function(el){
+        if(el){ el.classList.remove('show'); }
+      });
+      document.querySelectorAll('.area-btn').forEach(function(b){ b.classList.remove('picked'); });
+    }
+    function doReveal(){
+      var key = cleanNumber(input.value);
+      hideAll();
+      if(!key){ return; }
+      var entry = HERO_READINGS[key];
+      if(entry){
+        document.getElementById('readingNum').textContent = key;
+        document.getElementById('readingSub').textContent = entry.subtitle;
+        document.getElementById('readingMeaning').textContent = entry.meaning;
+        document.getElementById('readingAff').textContent = entry.affirmation;
+        reveal(readingCard);
+        reveal(areaStep);
+        readingCard.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+      } else {
+        reveal(notFoundCard);
+        notFoundCard.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+      }
+    }
+    revealBtn.addEventListener('click', doReveal);
+    input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ doReveal(); } });
+    document.querySelectorAll('.chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        input.value = chip.getAttribute('data-n');
+        doReveal();
+      });
+    });
+    document.querySelectorAll('.area-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var key = cleanNumber(input.value);
+        var entry = HERO_READINGS[key];
+        if(!entry) return;
+        document.querySelectorAll('.area-btn').forEach(function(b){ b.classList.remove('picked'); });
+        btn.classList.add('picked');
+        var area = btn.getAttribute('data-area');
+        document.getElementById('personalLabel').textContent = key + ' + ' + AREA_NAMES[area];
+        document.getElementById('personalText').textContent = entry.areas[area];
+        reveal(personalStep);
+        reveal(continueStep);
+        personalStep.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+      });
+    });
+  })();
+  var pairs = [
+    ['111','New start'],['222','Alignment'],['333','Expression'],['444','Structure'],
+    ['555','Change'],['666','Rebalance'],['727','Insight'],['777','Confirmation'],
+    ['888','Return'],['999','Completion'],['11:11','Attention'],['12:12','Momentum'],
+    ['1010','Reset'],['919','Closure'],['611','Repair'],['007','Trust']
+  ];
+  var row = document.getElementById('tickRow');
+  if(row){
+    var html = pairs.map(function(p){
+      return '<span class="tick"><i>'+p[0]+'</i><s>'+p[1]+'</s></span>';
+    }).join('');
+    row.innerHTML = html + html;
+  }
+  var rail = document.getElementById('railRow');
+  if(rail && !reduce){ rail.innerHTML += rail.innerHTML; }
+  var c = document.getElementById('stars');
+  if(c){
+    var ctx = c.getContext('2d'), stars = [], W, H;
+    function size(){
+      W = c.width = c.offsetWidth; H = c.height = c.offsetHeight;
+      stars = [];
+      var n = Math.min(140, Math.round(W*H/12000));
+      for(var k=0;k<n;k++){
+        stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,a:Math.random()*.6+.15,s:Math.random()*.05+.01});
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(var k=0;k<stars.length;k++){
+        var st = stars[k];
+        ctx.beginPath();
+        ctx.arc(st.x, st.y, st.r, 0, 6.283);
+        ctx.fillStyle = 'rgba(232,230,223,'+st.a+')';
+        ctx.fill();
+        if(!reduce){ st.y -= st.s; if(st.y < 0){ st.y = H; st.x = Math.random()*W; } }
+      }
+      if(!reduce) requestAnimationFrame(draw);
+    }
+    size(); draw();
+    window.addEventListener('resize', function(){ size(); if(reduce) draw(); });
+  }
+  var bar = document.getElementById('stickyBar');
+  if(bar){
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY || 0;
+      var nearEnd = (y + window.innerHeight) > (document.body.scrollHeight - 700);
+      bar.classList.toggle('show', y > 640 && !nearEnd);
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>
