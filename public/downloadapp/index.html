@@ -1,61 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-================================================================
-  PRE-LAUNCH MODE — v2 — TEMPORARY, NO LAUNCH-ALERT VARIANT
-================================================================
-  This file is a variant of the PRE-LAUNCH staging page. It
-  assumes the same reality — Android awaiting Google Play
-  approval, iOS in submission — but does NOT use the launch-alert
-  squeeze page as its conversion mechanism. Every CTA on this
-  page routes to the web app instead, since that is the only
-  destination that is actually live right now.
-  There is no email-capture "Get Notified at Launch" flow
-  anywhere on this page, and the dedicated Launch Alert section
-  has been removed entirely.
-  Three files now exist for this landing page:
-      archangel-frequencies-landing-page-POST-LAUNCH.html
-          — Google Play live. Intended final version.
-      archangel-frequencies-landing-page-PRE-LAUNCH.html
-          — Google Play pending. Captures emails via launch alert.
-      archangel-frequencies-landing-page-PRE-LAUNCH-v2.html  (this file)
-          — Google Play pending. No email capture. Sends
-            everyone to the live web app instead.
-  Do not treat this file as the design direction. It is a
-  holding state, same as PRE-LAUNCH v1. When Google Play
-  approves the listing, stop publishing this file and switch
-  to POST-LAUNCH instead.
-  ----------------------------------------------------------
-  GOOGLE PLAY LAUNCH CHECKLIST (do this the day Play approves)
-  ----------------------------------------------------------
-  1. Stop publishing this file. Publish
-     archangel-frequencies-landing-page-POST-LAUNCH.html in
-     its place. That file already has every launch CTA correct
-     — no manual copy-reversal needed.
-  2. If anything was changed in the app, pricing, HERO_READINGS,
-     or personalization since this file was branched, port that
-     specific change into POST-LAUNCH by hand before publishing
-     it (the files diverged on the date below).
-  3. Replace the placeholder Play Store link (currently
-     https://geni.us/afapp in POST-LAUNCH) with the direct,
-     approved Google Play listing URL if it differs.
-  4. Spot-check on real devices: "Get Archangel Frequencies
-     Free" button, Availability section Android card, Pricing
-     section Play button, nav CTA, sticky mobile bar.
-  5. Confirm iOS status is still accurate (still Coming Soon,
-     or update if iOS has also launched by then).
-  6. Delete or archive this file, PRE-LAUNCH v1, and this
-     comment block once POST-LAUNCH is live.
-  Branched from PRE-LAUNCH (v1) on: 2026-08-07
-================================================================
--->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Archangel Frequencies | Angel Number Meanings, Instantly</title>
-<meta name="description" content="Enter the number you keep seeing and get a free angel number reading instantly. Explore angel numbers, mirror numbers, and Life Path meanings with Archangel Frequencies. Android app coming soon.">
+<meta name="description" content="Enter the number you keep seeing and get a real angel number reading right now, free, right on this page. Angel numbers, mirror numbers, and your Life Path. Free on Google Play, iPhone coming soon.">
 <meta property="og:title" content="Archangel Frequencies | Angel Number Meanings, Instantly">
-<meta property="og:description" content="Enter the number you keep seeing and discover what it means right now, free, no download required. Continue free in your browser &mdash; Android and iPhone apps coming soon.">
+<meta property="og:description" content="Enter the number you keep seeing and discover what it means right now, free, no download required to try it. Then get Archangel Frequencies free on Google Play.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="app-today.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -486,7 +437,7 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="nav-cta" href="#get">Try It Free</a>
+    <a class="nav-cta" href="#get">Get It Free</a>
   </div>
 </header>
 <section id="hero">
@@ -529,11 +480,12 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
       <div class="funnel-step not-found" id="notFoundCard">
         <p class="msg">That number has a deeper reading waiting in Archangel Frequencies.</p>
         <div class="btns">
-          <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
-            <b>Continue on the Web &mdash; Free</b>
+          <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.archangelfrequencies.app">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.1a1 1 0 0 0-.6.9v18a1 1 0 0 0 .6.9l10-9.9-10-9.9Zm11.5 8.5 2.6-2.6-9.4-5.3 6.8 7.9Zm0 2.8-6.8 7.9 9.4-5.3-2.6-2.6Zm4.1-1.4 2.4-1.3a1.3 1.3 0 0 1 0 2.6L19.2 12Z"/></svg>
+            <b>Look It Up in the Free App</b>
           </a>
         </div>
-        <p class="funnel-hint">Android and iPhone apps coming soon</p>
+        <p class="web-link"><a href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">Or continue on the web</a></p>
       </div>
       <div class="funnel-step area-step" id="areaStep">
         <p class="funnel-label">Where are you looking for guidance right now?</p>
@@ -550,13 +502,15 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
       </div>
       <div class="funnel-step continue-step" id="continueStep">
         <h3>Your signs don&rsquo;t stop here.</h3>
-        <p class="lede">Keep decoding the numbers that appear in your life, free in your browser.</p>
+        <p class="lede">Keep Archangel Frequencies with you and decode the numbers that appear throughout your day.</p>
         <div class="btns">
-          <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
-            <b>Continue on the Web &mdash; Free</b>
+          <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.archangelfrequencies.app">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.1a1 1 0 0 0-.6.9v18a1 1 0 0 0 .6.9l10-9.9-10-9.9Zm11.5 8.5 2.6-2.6-9.4-5.3 6.8 7.9Zm0 2.8-6.8 7.9 9.4-5.3-2.6-2.6Zm4.1-1.4 2.4-1.3a1.3 1.3 0 0 1 0 2.6L19.2 12Z"/></svg>
+            <b>Get Archangel Frequencies Free</b>
           </a>
         </div>
-        <p class="funnel-hint">Android and iPhone apps coming soon</p>
+        <p class="funnel-hint">iPhone coming soon</p>
+        <p class="web-link"><a href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">Prefer the web? Continue in your browser.</a></p>
       </div>
     </div>
   </div>
@@ -735,7 +689,7 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
       <div class="tier hero-tier">
         <p class="tname">Free</p>
         <div class="amt">$0</div>
-        <p class="per">Free to start</p>
+        <p class="per">On Google Play today</p>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A new number every day with meaning and guidance, no cap</li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 lookups a day, any three-digit number</li>
@@ -759,8 +713,9 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
       </div>
     </div>
     <div class="btns" style="margin-top:44px">
-      <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
-        <b>Try It Free on the Web</b>
+      <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.archangelfrequencies.app">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.1a1 1 0 0 0-.6.9v18a1 1 0 0 0 .6.9l10-9.9-10-9.9Zm11.5 8.5 2.6-2.6-9.4-5.3 6.8 7.9Zm0 2.8-6.8 7.9 9.4-5.3-2.6-2.6Zm4.1-1.4 2.4-1.3a1.3 1.3 0 0 1 0 2.6L19.2 12Z"/></svg>
+        <span><small>Get it on</small><b>Google Play</b></span>
       </a>
       <span class="btn btn-apple" role="note" aria-label="Apple App Store, coming soon">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2.4 2-3.6 2-3.6-1.1-1.6-2.7-1.8-3.3-1.8-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.9-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.8 3-.8s1.8.7 3 .7 2.1-1.1 2.9-2.2c.6-.9.9-1.4 1.3-2.4-2.4-.9-3-3.7-3-3.7Zm-2.6-7.2c.6-.8 1.1-1.9 1-3-1 0-2.2.7-2.9 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.9-1.4Z"/></svg>
@@ -781,7 +736,7 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
       </details>
       <details>
         <summary>When is it coming to iPhone?</summary>
-        <p>Both Android and iOS are on their way. The Android app is awaiting public Google Play release, and the iOS version is in submission. In the meantime, everything works free at app.archangelfrequencies.com in your browser.</p>
+        <p>Android is live now. The iOS version is in submission. Tap the launch alert button on this page and you will hear the day it goes live.</p>
       </details>
       <details>
         <summary>What if the number I keep seeing is not a triple?</summary>
@@ -806,41 +761,55 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
 <section class="center">
   <div class="wrap">
     <p class="eyebrow">Get Archangel Frequencies</p>
-    <h2>Free in your browser right now.</h2>
-    <p class="lede">Android and iPhone apps are both on the way. In the meantime, everything works free in your browser.</p>
+    <h2>Available now on Android.</h2>
+    <p class="lede">iPhone is on the way. Prefer not to install anything yet? It's also available in your browser.</p>
     <div class="avail-grid" style="margin-top:44px">
       <div class="avail-card primary">
         <p class="avail-tag">Available now</p>
-        <b>Web</b>
-        <span>No install, no waiting. Archangel Frequencies works free in your browser today.</span>
-        <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
-          <b>Open in your browser</b>
+        <b>Android</b>
+        <span>Get it free on Google Play. Keep it with you for decoding numbers the moment you see them.</span>
+        <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.archangelfrequencies.app">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.1a1 1 0 0 0-.6.9v18a1 1 0 0 0 .6.9l10-9.9-10-9.9Zm11.5 8.5 2.6-2.6-9.4-5.3 6.8 7.9Zm0 2.8-6.8 7.9 9.4-5.3-2.6-2.6Zm4.1-1.4 2.4-1.3a1.3 1.3 0 0 1 0 2.6L19.2 12Z"/></svg>
+          <b>Get it free</b>
         </a>
       </div>
-      <div class="avail-card muted">
-        <p class="avail-tag">Coming soon</p>
-        <b>Android</b>
-        <span>The Android app is awaiting Google Play release. In the meantime, use it free in your browser.</span>
+      <div class="avail-card">
+        <p class="avail-tag">No install needed</p>
+        <b>Web</b>
+        <span>Prefer not to install? Archangel Frequencies is also available in your browser, free.</span>
+        <p class="web-link"><a href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">Open in your browser</a></p>
       </div>
       <div class="avail-card muted">
         <p class="avail-tag">Coming soon</p>
         <b>iPhone</b>
-        <span>In submission. In the meantime, use it free in your browser.</span>
+        <span>In submission. Tap the launch alert below and you'll hear the day it goes live.</span>
       </div>
+    </div>
+  </div>
+</section>
+<section id="alert" class="center">
+  <div class="wrap">
+    <p class="eyebrow">iPhone users</p>
+    <h3>Want to know the minute it hits the App Store?</h3>
+    <p class="lede">One email, the day it goes live. Nothing else.</p>
+    <div class="btns" style="margin-top:28px">
+      <a class="btn btn-ghost" href="https://archangelfrequencies.systeme.io/b5a797a5-08bf6cef-b295bcf9">Get the launch alert</a>
     </div>
   </div>
 </section>
 <section id="get" class="center">
   <div class="wrap">
     <p class="kicker">You were going to look it up anyway.</p>
-    <h2 style="max-width:22ch;margin-inline:auto">Get the real answer, free, right now.</h2>
-    <p class="lede" style="margin-top:24px">The numbers have been showing up for a while now. No download needed to find out what they've been saying.</p>
+    <h2 style="max-width:22ch;margin-inline:auto">Get Archangel Frequencies free.</h2>
+    <p class="lede" style="margin-top:24px">The numbers have been showing up for a while now. Keep it with you and find out what they've been saying.</p>
     <div class="btns" style="margin-top:36px;justify-content:center">
-      <a class="btn btn-play" href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">
-        <b>Continue on the Web &mdash; Free</b>
+      <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.archangelfrequencies.app">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.1a1 1 0 0 0-.6.9v18a1 1 0 0 0 .6.9l10-9.9-10-9.9Zm11.5 8.5 2.6-2.6-9.4-5.3 6.8 7.9Zm0 2.8-6.8 7.9 9.4-5.3-2.6-2.6Zm4.1-1.4 2.4-1.3a1.3 1.3 0 0 1 0 2.6L19.2 12Z"/></svg>
+        <b>Get Archangel Frequencies Free</b>
       </a>
     </div>
-    <p class="funnel-hint">Android and iPhone apps coming soon</p>
+    <p class="funnel-hint">iPhone coming soon</p>
+    <p class="web-link" style="justify-content:center;display:flex"><a href="https://app.archangelfrequencies.com/" target="_blank" rel="noopener">Prefer the web? Open Archangel Frequencies in your browser.</a></p>
   </div>
 </section>
 <footer>
@@ -858,7 +827,7 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
   </div>
 </footer>
 <div class="sticky" id="stickyBar">
-  <a href="#get">Try Archangel Frequencies Free</a>
+  <a href="#get">Get Archangel Frequencies Free</a>
 </div>
 <script type="application/ld+json">
 {
@@ -868,7 +837,7 @@ footer{border-top:1px solid rgba(217,180,92,.14);padding:52px 0 44px;background:
   "applicationCategory":"LifestyleApplication",
   "operatingSystem":"Android",
   "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-  "description":"Enter the angel number you keep seeing and get a real reading instantly, free. Angel numbers, mirror numbers, repeating patterns, and your Life Path number. Android app coming soon."
+  "description":"Enter the angel number you keep seeing and get a real reading instantly, free. Angel numbers, mirror numbers, repeating patterns, and your Life Path number, free on Google Play."
 }
 </script>
 <script>
