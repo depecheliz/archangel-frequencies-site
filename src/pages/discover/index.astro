@@ -1,0 +1,862 @@
+---
+import Base from '../../layouts/Base.astro';
+import { EXTERNAL } from '../../lib/site';
+
+const APP_WEB = 'https://app.archangelfrequencies.com/';
+const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const quickNums = ['111','222','333','444','555','777','888','999'];
+const places = ['Clocks','Receipts / Prices','Addresses / Numbers','Social Media','Random Places','Everywhere'];
+const ctxOpts: [string, string][] = [
+  ['Love','Love'],['Money','Money'],['Career','Career / Purpose'],
+  ['Decision','A Decision'],['Change','Major Change'],
+  ['Healing','Healing / Letting Go'],['Unsure',"I'm Not Sure"],
+];
+---
+
+<Base
+  title="What Does Your Number Mean — For You? | Archangel Frequencies"
+  description="You've seen the generic meaning. Discover what your angel number means with your life path, your personal context, and what's actually happening in your life right now."
+  noindex={true}
+>
+<div class="discover">
+
+  <!-- ── S1: THE NUMBER FINDING YOU ─────────────────────────────────── -->
+  <section class="d-sec d-hero">
+    <div class="wrap">
+      <p class="eyebrow">The number is only one piece</p>
+      <h1>What number keeps<br>finding you?</h1>
+      <p class="d-lead">Enter the sequence you can't stop seeing.</p>
+
+      <div class="d-card" style="max-width:580px">
+
+        <div class="d-field">
+          <label class="d-lbl" for="numIn">The number</label>
+          <input
+            id="numIn"
+            class="d-num-input"
+            type="text"
+            inputmode="numeric"
+            placeholder="444"
+            maxlength="6"
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="numErr"
+          >
+          <div class="d-chips" role="group" aria-label="Common angel numbers">
+            {quickNums.map(n => <button class="d-chip" type="button" data-n={n}>{n}</button>)}
+            <button class="d-chip" type="button" data-n="1111">11:11</button>
+            <button class="d-chip" type="button" data-n="1212">12:12</button>
+          </div>
+        </div>
+
+        <div class="d-field">
+          <label class="d-lbl" for="freqRange">How often are you seeing it?</label>
+          <div class="d-slider-wrap">
+            <input id="freqRange" class="d-slider" type="range" min="0" max="3" value="2" aria-valuetext="Often">
+            <div class="d-freq-val" id="freqVal" aria-live="polite">Often</div>
+            <div class="d-slider-ticks" aria-hidden="true">
+              <span>Once or twice</span>
+              <span>Occasionally</span>
+              <span>Often</span>
+              <span>Everywhere</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-field">
+          <span class="d-lbl" id="where-lbl">Where does it usually appear?</span>
+          <div class="d-place-chips" role="group" aria-labelledby="where-lbl">
+            {places.map(p => <button class="d-place-chip" type="button" data-p={p}>{p}</button>)}
+          </div>
+        </div>
+
+        <p class="d-err" id="numErr" role="alert" aria-live="polite" style="display:none">Please enter a number first.</p>
+        <button class="btn d-go" id="s1btn" type="button">SHOW ME WHAT IT MEANS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S2: GENERIC ANSWER + GAP ──────────────────────────────────── -->
+  <section class="d-sec d-gone" id="s2" aria-live="polite">
+    <div class="wrap d-narrow">
+
+      <div class="d-generic-card">
+        <p class="eyebrow">The generic meaning</p>
+        <div class="d-big-num" id="s2num"></div>
+        <div class="d-tag-row" id="s2tags"></div>
+        <p class="d-generic-text" id="s2text"></p>
+      </div>
+
+      <h2>But there's a problem with generic angel-number meanings.</h2>
+      <p class="d-gap-body">
+        Thousands of people can see <strong id="s2ref"></strong> today.<br>
+        They're not all living the same life.<br>
+        They're not all facing the same decision.<br>
+        And they're not all in the same personal cycle.
+      </p>
+
+      <div class="d-transform" aria-hidden="true">
+        <div class="d-t-from" id="s2tFrom"></div>
+        <div class="d-t-arrow">↓</div>
+        <div class="d-t-to" id="s2tTo"></div>
+      </div>
+
+      <p class="d-map-intro">The number is only one piece.</p>
+      <div class="d-map" role="list">
+        <div class="d-map-item d-map-known" role="listitem">
+          <div class="d-map-lbl">THE NUMBER</div>
+          <div class="d-map-val" id="s2mapNum"></div>
+          <div class="d-map-badge d-badge-known">Known</div>
+        </div>
+        <div class="d-map-item" role="listitem">
+          <div class="d-map-lbl">YOUR LIFE PATH</div>
+          <div class="d-map-val d-map-q">?</div>
+          <div class="d-map-badge d-badge-miss">Missing</div>
+        </div>
+        <div class="d-map-item" role="listitem">
+          <div class="d-map-lbl">YOUR PERSONAL CYCLE</div>
+          <div class="d-map-val d-map-q">?</div>
+          <div class="d-map-badge d-badge-miss">Missing</div>
+        </div>
+        <div class="d-map-item" role="listitem">
+          <div class="d-map-lbl">WHAT'S HAPPENING IN YOUR LIFE</div>
+          <div class="d-map-val d-map-q">?</div>
+          <div class="d-map-badge d-badge-miss">Missing</div>
+        </div>
+      </div>
+
+      <button class="btn d-go" id="s2btn" type="button">SEE HOW MUCH YOUR CONTEXT CHANGES IT</button>
+    </div>
+  </section>
+
+  <!-- ── S3: YOUR CONTEXT + BIRTHDATE ──────────────────────────────── -->
+  <section class="d-sec d-gone" id="s3">
+    <div class="wrap d-narrow">
+      <p class="eyebrow">Your context changes everything</p>
+      <h2>See how much your context<br>changes it</h2>
+
+      <div class="d-card" style="max-width:540px">
+        <div class="d-field" style="margin-bottom:0">
+          <span class="d-lbl">Your birth date</span>
+          <p class="d-hint">Your birth date gives Archangel Frequencies additional numerology context for interpreting the numbers appearing in your life.</p>
+          <div class="d-dob-row">
+            <div>
+              <label class="d-sublbl" for="dobM">Month</label>
+              <select id="dobM" class="d-sel">
+                <option value="">Month</option>
+                {months.map((name, i) => <option value={String(i+1)}>{name}</option>)}
+              </select>
+            </div>
+            <div>
+              <label class="d-sublbl" for="dobD">Day</label>
+              <select id="dobD" class="d-sel">
+                <option value="">Day</option>
+                {Array.from({length:31},(_,i) => <option value={String(i+1)}>{i+1}</option>)}
+              </select>
+            </div>
+            <div>
+              <label class="d-sublbl" for="dobY">Year</label>
+              <input id="dobY" class="d-sel" type="number" inputmode="numeric" min="1920" max="2015" placeholder="1990">
+            </div>
+          </div>
+          <p class="d-err" id="dobErr" role="alert" aria-live="polite" style="display:none">Please enter a complete birth date.</p>
+          <button class="btn d-go" id="calcBtn" type="button" style="margin-top:18px">REVEAL MY LIFE PATH</button>
+        </div>
+      </div>
+
+      <!-- LP reveal + comparison — hidden until calculated -->
+      <div id="s3b" class="d-gone">
+
+        <div class="d-lp-reveal" aria-live="polite">
+          <p class="eyebrow">Your Life Path</p>
+          <div class="d-lp-num" id="s3lpNum"></div>
+          <p class="d-lp-lbl" id="s3lpLbl"></p>
+        </div>
+
+        <div class="d-compare">
+          <div class="d-col">
+            <div class="d-col-head">GENERIC</div>
+            <div class="d-col-num" id="s3cNum"></div>
+            <p class="d-col-text" id="s3cGeneric"></p>
+          </div>
+          <div class="d-col d-col-pers">
+            <div class="d-col-head">PERSONALIZED</div>
+            <div class="d-col-num" id="s3cPersTitle"></div>
+            <p class="d-col-text" id="s3cPers"></p>
+            <div class="d-col-fade" aria-hidden="true">
+              <div class="d-fade-bar"></div>
+              <p class="d-fade-note">And we're still missing something important.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-ctx-section">
+          <h3>What's happening in your life right now?</h3>
+          <div class="d-ctx-chips" role="group" aria-label="Current life focus">
+            {ctxOpts.map(([v, label]) =>
+              <button class="d-ctx-chip" type="button" data-ctx={v}>{label}</button>
+            )}
+          </div>
+        </div>
+
+        <!-- Equation — hidden until context selected -->
+        <div id="s3c" class="d-gone d-eq-wrap" aria-live="polite">
+          <div class="d-equation">
+            <div class="d-eq-piece"><span class="d-eq-big" id="eqNum"></span></div>
+            <span class="d-eq-op">+</span>
+            <div class="d-eq-piece"><span class="d-eq-sm">Life Path <span id="eqLP"></span></span></div>
+            <span class="d-eq-op">+</span>
+            <div class="d-eq-piece"><span class="d-eq-sm" id="eqCtx"></span></div>
+            <span class="d-eq-op">=</span>
+            <div class="d-eq-piece d-eq-you"><span class="d-eq-sm">Your interpretation</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S4: THE REVEAL ─────────────────────────────────────────────── -->
+  <section class="d-sec d-gone d-reveal-sec" id="s4">
+    <div class="wrap d-narrow" style="text-align:center">
+
+      <div class="d-summary">
+        <p class="eyebrow">Your number</p>
+        <div class="d-sum-num" id="s4num"></div>
+        <div class="d-sum-rows">
+          <div class="d-sum-row">
+            <span class="d-sum-key">Life Path</span>
+            <span class="d-sum-val" id="s4lp"></span>
+          </div>
+          <div class="d-sum-row">
+            <span class="d-sum-key">Showing up around</span>
+            <span class="d-sum-val" id="s4ctx"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-reveal-copy">
+        <h2>Now <span id="s4ref1"></span> isn't just <span id="s4ref2"></span>.</h2>
+        <p>The number may be the same.<br>The person seeing it isn't.</p>
+        <p class="d-reveal-sub">Archangel Frequencies connects the numbers appearing in your life with your personal numerology and context so you can move beyond generic definitions.</p>
+      </div>
+
+      <div class="d-cta-area">
+        <a class="btn d-big-btn" id="primaryCta" href={APP_WEB} target="_blank" rel="noopener">
+          SEE WHAT <span id="ctaNum"></span> MEANS FOR ME
+        </a>
+        <p class="d-cta-note">Continue your personalized reading in Archangel Frequencies.</p>
+        <p><a class="d-app-link" href={EXTERNAL.app} target="_blank" rel="noopener">Get the Android app free</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S5: PATTERN VALUE (always visible) ────────────────────────── -->
+  <section class="d-sec d-pattern-sec">
+    <div class="wrap d-narrow">
+      <h2 class="d-pattern-h">One number can get your attention.<br><em>Patterns can tell a bigger story.</em></h2>
+
+      <div class="d-seq" aria-label="Example repeating number pattern" role="img">
+        <span class="d-seq-n">111</span>
+        <span class="d-seq-arr">→</span>
+        <span class="d-seq-n">444</span>
+        <span class="d-seq-arr">→</span>
+        <span class="d-seq-n">111</span>
+        <span class="d-seq-arr">→</span>
+        <span class="d-seq-n">777</span>
+        <span class="d-seq-arr">→</span>
+        <span class="d-seq-n d-seq-hi">444</span>
+      </div>
+
+      <div class="d-pattern-qs">
+        <p>What keeps repeating?</p>
+        <p>When does it appear?</p>
+        <p>What was happening when you saw it?</p>
+      </div>
+
+      <div class="d-sacred">
+        <p class="eyebrow">The Sacred Record</p>
+        <p>Archangel Frequencies gives you a place to record the signs you're seeing so you don't have to rely on memory alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA (always visible) ───────────────────────────────── -->
+  <section class="d-sec d-final-sec">
+    <div class="wrap d-narrow" style="text-align:center">
+      <h2>Stop asking what the number means.<br>Start discovering what it means for you.</h2>
+      <a class="btn d-big-btn" href={APP_WEB} target="_blank" rel="noopener">OPEN ARCHANGEL FREQUENCIES</a>
+      <p class="d-final-sub">Personalized angel-number guidance based on your numerology.</p>
+    </div>
+  </section>
+
+</div><!-- /discover -->
+
+<style>
+/* Discover funnel — page-scoped styles.
+   All color/font/animation tokens come from global.css. */
+
+.discover { --pad: clamp(72px, 10vw, 112px); }
+.d-sec { padding: var(--pad) 0; }
+.d-hero { padding-top: clamp(52px, 7vw, 88px); }
+.d-narrow { max-width: 680px; }
+
+/* Progressive reveal */
+.d-gone { display: none; }
+@keyframes d-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.d-in { animation: d-rise 0.55s var(--ease) both; }
+
+.d-lead { font-size: 1.1rem; color: var(--muted); max-width: 44ch; margin: 0 0 2rem; }
+
+/* ── Card / inputs ─────────────────────────────── */
+.d-card {
+  background: var(--navy-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 4vw, 34px);
+}
+.d-field { margin-bottom: 26px; }
+.d-field:last-child { margin-bottom: 0; }
+.d-lbl {
+  display: block;
+  font-size: 0.73rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600; margin-bottom: 10px;
+}
+.d-sublbl {
+  display: block;
+  font-size: 0.69rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px;
+}
+.d-hint { font-size: 0.83rem; color: var(--muted); margin: -4px 0 14px; line-height: 1.55; }
+
+.d-num-input {
+  width: 100%;
+  background: var(--navy-0);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--gold-bright);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  letter-spacing: 0.08em;
+  padding: 12px 18px;
+  outline: none;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.d-num-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,162,75,0.15);
+}
+.d-num-input::placeholder { color: rgba(201,162,75,0.28); }
+
+/* Number chips */
+.d-chips, .d-place-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.d-chip, .d-place-chip {
+  font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.05em;
+  color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 13px; background: transparent; cursor: pointer;
+  transition: border-color 0.22s, color 0.22s, background 0.22s;
+}
+.d-chip:hover, .d-place-chip:hover { border-color: var(--gold); color: var(--gold-bright); }
+.d-chip.active { border-color: var(--gold); color: var(--gold-bright); background: rgba(201,162,75,0.1); }
+.d-place-chip.active { border-color: var(--cyan); color: var(--cyan); background: rgba(79,214,227,0.08); }
+
+/* Frequency slider */
+.d-slider-wrap { margin-top: 4px; }
+.d-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px;
+  background: var(--line); border-radius: 999px; outline: none; cursor: pointer;
+}
+.d-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  box-shadow: 0 0 8px rgba(201,162,75,0.5); cursor: grab;
+}
+.d-slider::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  border: none; cursor: grab;
+}
+.d-freq-val {
+  text-align: center; margin-top: 10px;
+  font-family: var(--serif); font-size: 1.05rem; color: var(--gold-bright); min-height: 1.4em;
+}
+.d-slider-ticks {
+  display: flex; justify-content: space-between; margin-top: 5px;
+  font-size: 0.64rem; color: var(--muted); letter-spacing: 0.03em;
+}
+
+/* DOB row */
+.d-dob-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.d-sel {
+  width: 100%;
+  background: var(--navy-0); border: 1px solid var(--line);
+  color: var(--text); border-radius: var(--radius);
+  padding: 10px 11px; font-family: var(--sans); font-size: 0.94rem;
+  outline: none; transition: border-color 0.25s;
+}
+.d-sel:focus { border-color: var(--gold); }
+input.d-sel { min-width: 0; }
+
+.d-err { font-size: 0.8rem; color: #e88; margin: 8px 0 0; }
+.d-go { margin-top: 22px; }
+
+/* ── Section 2: generic card ───────────────────── */
+.d-generic-card {
+  background: var(--navy-1); border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg); padding: clamp(20px,4vw,32px);
+  margin-bottom: 52px;
+}
+.d-big-num {
+  font-family: var(--serif); font-size: clamp(3.2rem, 10vw, 5.4rem);
+  color: var(--gold-bright); letter-spacing: 0.06em; line-height: 1;
+  text-shadow: 0 0 40px rgba(139,111,216,0.5);
+  animation: breathe 7s ease-in-out infinite;
+  margin-bottom: 12px;
+}
+.d-tag-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 14px; }
+.d-tag {
+  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--violet); border: 1px solid rgba(139,111,216,0.4);
+  border-radius: 999px; padding: 3px 11px;
+}
+.d-generic-text { color: var(--muted); font-size: 0.97rem; margin: 0; }
+
+/* Gap section */
+.d-gap-body { color: var(--muted); margin-bottom: 40px; line-height: 1.8; }
+
+/* Transform visual */
+.d-transform {
+  text-align: center; user-select: none; margin: 36px 0;
+  padding: 26px; background: rgba(10,14,30,0.5);
+  border: 1px solid var(--hairline); border-radius: var(--radius-lg);
+}
+.d-t-from {
+  font-family: var(--serif); font-size: clamp(1.9rem,5.5vw,3rem);
+  color: var(--muted); letter-spacing: 0.1em;
+}
+.d-t-arrow { color: var(--violet); font-size: 1.4rem; margin: 8px 0; opacity: 0.8; }
+.d-t-to {
+  font-family: var(--serif); font-size: clamp(1.9rem,5.5vw,3rem);
+  color: var(--gold-bright); letter-spacing: 0.1em;
+  text-shadow: 0 0 28px rgba(201,162,75,0.4);
+}
+
+.d-map-intro {
+  font-family: var(--serif); font-size: 1.2rem; color: var(--text); margin: 32px 0 18px;
+}
+.d-map {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 36px;
+}
+.d-map-item {
+  background: var(--navy-1); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 12px; text-align: center;
+}
+.d-map-known { border-color: rgba(201,162,75,0.45); }
+.d-map-lbl {
+  font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px; line-height: 1.4;
+}
+.d-map-val {
+  font-family: var(--serif); font-size: clamp(1.3rem,3.5vw,1.9rem);
+  color: var(--muted); margin-bottom: 10px;
+}
+.d-map-known .d-map-val { color: var(--gold-bright); }
+.d-map-q { opacity: 0.55; }
+.d-map-badge {
+  font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: 999px; padding: 3px 9px; display: inline-block;
+}
+.d-badge-known {
+  color: var(--gold); border: 1px solid rgba(201,162,75,0.4); background: rgba(201,162,75,0.07);
+}
+.d-badge-miss { color: var(--muted); border: 1px solid var(--line); }
+
+@media (max-width: 560px) { .d-map { grid-template-columns: repeat(2,1fr); } }
+
+/* ── Section 3: LP + comparison ──────────────── */
+.d-lp-reveal {
+  text-align: center; margin: 48px 0 36px;
+  border-top: 1px solid var(--hairline); padding-top: 44px;
+}
+.d-lp-num {
+  font-family: var(--serif); font-size: clamp(4rem,12vw,7rem);
+  color: var(--gold-bright); line-height: 1;
+  text-shadow: 0 0 50px rgba(201,162,75,0.45), 0 0 100px rgba(139,111,216,0.3);
+  animation: breathe 7s ease-in-out infinite;
+}
+.d-lp-lbl { color: var(--muted); font-size: 0.83rem; letter-spacing: 0.14em; text-transform: uppercase; margin: 6px 0 0; }
+
+.d-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 40px;
+}
+.d-col {
+  background: var(--navy-1); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); padding: 20px 17px;
+  position: relative; overflow: hidden; min-height: 200px;
+}
+.d-col-pers { border-color: rgba(201,162,75,0.4); }
+.d-col-head {
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+.d-col-pers .d-col-head { color: var(--gold); }
+.d-col-num {
+  font-family: var(--serif); font-size: 1rem; color: var(--gold-bright);
+  margin-bottom: 10px; line-height: 1.3;
+}
+.d-col-text { font-size: 0.86rem; color: var(--muted); margin: 0 0 10px; line-height: 1.6; }
+.d-col-fade {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, var(--navy-1) 55%);
+  padding: 44px 17px 17px;
+}
+.d-fade-bar { width: 38%; height: 1px; background: var(--hairline); margin: 0 auto 10px; }
+.d-fade-note { font-size: 0.76rem; color: var(--gold); font-style: italic; margin: 0; text-align: center; }
+
+@media (max-width: 500px) { .d-compare { grid-template-columns: 1fr; } }
+
+/* Context chips */
+.d-ctx-section { margin-bottom: 28px; }
+.d-ctx-section h3 { margin-bottom: 14px; }
+.d-ctx-chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.d-ctx-chip {
+  font-family: var(--sans); font-size: 0.87rem;
+  color: var(--text); border: 1px solid var(--line);
+  border-radius: 999px; padding: 9px 18px;
+  background: var(--navy-1); cursor: pointer;
+  transition: border-color 0.22s, background 0.22s, color 0.22s;
+}
+.d-ctx-chip:hover { border-color: var(--gold); color: var(--gold-bright); }
+.d-ctx-chip.active {
+  border-color: var(--gold); color: var(--gold-bright);
+  background: rgba(201,162,75,0.1);
+}
+
+/* Equation */
+.d-eq-wrap { margin-top: 6px; }
+.d-equation {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  background: rgba(10,14,30,0.6); border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg); padding: 20px 22px;
+}
+.d-eq-piece { text-align: center; }
+.d-eq-big {
+  font-family: var(--serif); font-size: clamp(1.5rem,4vw,2.2rem);
+  color: var(--gold-bright); display: block;
+}
+.d-eq-sm { font-size: 0.84rem; color: var(--muted); letter-spacing: 0.03em; }
+.d-eq-op { font-size: 1.2rem; color: var(--violet); opacity: 0.75; }
+.d-eq-you .d-eq-sm { color: var(--gold); font-style: italic; font-family: var(--serif); font-size: 0.95rem; }
+
+/* ── Section 4: summary + CTA ─────────────────── */
+.d-reveal-sec { position: relative; overflow: hidden; }
+.d-reveal-sec::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%,-50%); z-index: -1;
+  width: min(120vw,900px); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(139,111,216,0.14), transparent 62%);
+}
+.d-summary {
+  display: inline-block; text-align: center;
+  background: linear-gradient(135deg, rgba(201,162,75,0.12), rgba(139,111,216,0.1));
+  border: 1px solid var(--hairline); border-radius: var(--radius-lg);
+  padding: 30px 44px; margin-bottom: 44px; min-width: 260px;
+}
+.d-sum-num {
+  font-family: var(--serif); font-size: clamp(3.2rem,10vw,5.4rem);
+  color: var(--gold-bright); letter-spacing: 0.06em; line-height: 1;
+  text-shadow: 0 0 40px rgba(201,162,75,0.5), 0 0 90px rgba(139,111,216,0.35);
+  animation: breathe 7s ease-in-out infinite; margin-bottom: 18px;
+}
+.d-sum-rows { border-top: 1px solid var(--hairline); padding-top: 14px; }
+.d-sum-row {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 7px 0; border-bottom: 1px solid rgba(38,46,85,0.5); font-size: 0.88rem;
+}
+.d-sum-row:last-child { border-bottom: none; }
+.d-sum-key { color: var(--muted); text-align: left; }
+.d-sum-val { color: var(--gold-bright); font-family: var(--serif); text-align: right; }
+
+.d-reveal-copy { max-width: 50ch; margin: 0 auto 38px; }
+.d-reveal-copy h2 { font-size: clamp(1.55rem,3.8vw,2.3rem); }
+.d-reveal-sub { color: var(--muted); font-size: 0.93rem; }
+
+.d-cta-area { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.d-big-btn { font-size: 0.9rem; letter-spacing: 0.1em; padding: 16px 34px; }
+.d-cta-note { color: var(--muted); font-size: 0.86rem; margin: 0; }
+.d-app-link {
+  font-size: 0.8rem; color: var(--cyan);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: rgba(79,214,227,0.4);
+}
+.d-app-link:hover { text-decoration-color: var(--cyan); color: var(--cyan); }
+
+/* ── Section 5: pattern ────────────────────────── */
+.d-pattern-sec { border-top: 1px solid var(--hairline); text-align: center; }
+.d-pattern-h { margin-bottom: 34px; }
+.d-pattern-h em { color: var(--gold-bright); font-style: italic; }
+
+.d-seq {
+  display: flex; align-items: baseline; justify-content: center;
+  flex-wrap: wrap; gap: 8px 14px; margin: 0 auto 38px;
+}
+.d-seq-n {
+  font-family: var(--serif); font-size: clamp(1.7rem,4.5vw,2.8rem);
+  color: var(--gold-bright); opacity: 0.5;
+}
+.d-seq-hi { opacity: 1; }
+.d-seq-arr { color: var(--violet); font-size: 1.1rem; opacity: 0.55; }
+
+.d-pattern-qs {
+  font-family: var(--serif); font-size: 1.12rem; color: var(--text);
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 36px;
+}
+.d-pattern-qs p { margin: 0; }
+
+.d-sacred {
+  background: var(--navy-1); border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg); padding: 22px 26px;
+  max-width: 500px; margin: 0 auto; text-align: left;
+}
+.d-sacred .eyebrow { margin-bottom: 7px; }
+.d-sacred p { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* ── Final CTA ─────────────────────────────────── */
+.d-final-sec {
+  border-top: 1px solid var(--hairline); text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(139,111,216,0.05) 50%, transparent);
+}
+.d-final-sec h2 { max-width: 18em; margin: 0 auto 26px; }
+.d-final-sub { color: var(--muted); font-size: 0.86rem; margin-top: 14px; }
+</style>
+
+<script is:inline>
+(function () {
+  'use strict';
+
+  /* ── Content ─────────────────────────────────────────────────────── */
+
+  var FREQ = ['Once or twice', 'Occasionally', 'Often', 'Everywhere'];
+
+  var GENERIC = {
+    '111': { tags: ['new beginnings', 'alignment', 'open gate'],
+      short: 'New beginnings. Alignment. Pay attention to your thoughts and where you\'re directing your energy.' },
+    '222': { tags: ['harmony', 'trust', 'balance'],
+      short: 'Harmony. Trust. You\'re where you need to be — stay steady and let it develop.' },
+    '333': { tags: ['expression', 'creativity', 'voice'],
+      short: 'Expression. Something in you wants to be said or created — don\'t silence it.' },
+    '444': { tags: ['protection', 'steadiness', 'foundation'],
+      short: 'Stability and protection. The foundation you\'re building is stronger than it feels right now.' },
+    '555': { tags: ['change', 'transition', 'freedom'],
+      short: 'Change. What is shifting is supposed to shift. Don\'t slow it down.' },
+    '666': { tags: ['balance', 'love', 'care'],
+      short: 'Rebalance. Something has been pulled out of alignment — name it gently.' },
+    '777': { tags: ['confirmation', 'trust', 'insight'],
+      short: 'Confirmation. You\'re on the right path. Deepen your awareness of it.' },
+    '888': { tags: ['abundance', 'return', 'completion'],
+      short: 'Abundance. What you\'ve built is coming back to you.' },
+    '999': { tags: ['completion', 'closure', 'release'],
+      short: 'Completion. A cycle has genuinely ended — honor it fully before opening what\'s next.' },
+    '1111': { tags: ['awakening', 'new start', 'attention'],
+      short: 'A gate stands open. The thought you held when you saw it matters more than the clock.' },
+    '1212': { tags: ['remembering', 'harmony', 'clarity'],
+      short: 'A return to something true about yourself that\'s been buried.' },
+  };
+
+  var DEFAULT_G = { tags: ['guidance', 'signal', 'message'],
+    short: 'This number is appearing in your life for a reason. The meaning becomes clearer with your personal context.' };
+
+  var LP_LABELS = {
+    '1': 'The Leader', '2': 'The Diplomat', '3': 'The Voice', '4': 'The Builder',
+    '5': 'The Explorer', '6': 'The Guardian', '7': 'The Seeker', '8': 'The Executive',
+    '9': 'The Humanitarian', '11': 'The Intuitive', '22': 'The Master Builder', '33': 'The Master Teacher',
+  };
+
+  var LP_LENSES = {
+    '1':  'often asks for decisive personal action — move before you feel fully ready',
+    '2':  'may speak to the relational dimension — what you give, what you withhold',
+    '3':  'tends to center on creative expression and finding or using your voice',
+    '4':  'often calls for building something stable rather than reacting to the moment',
+    '5':  'may point to what genuinely needs to change or be released right now',
+    '6':  'tends to speak through responsibility, home, or someone you\'re caring for',
+    '7':  'often asks for inner clarity before any outward action is taken',
+    '8':  'may connect directly to material alignment — abundance, power, or reciprocity',
+    '9':  'often asks what chapter is truly complete and ready to be honored as finished',
+    '11': 'tends to amplify your intuitive knowing — trust what you already sense',
+    '22': 'may call for a larger, more structured vision to take concrete form',
+    '33': 'often speaks through compassion, teaching, or service to something greater',
+  };
+
+  var CTX_LABELS = {
+    'Love': 'Love', 'Money': 'Money', 'Career': 'Career / Purpose',
+    'Decision': 'A Decision', 'Change': 'Major Change',
+    'Healing': 'Healing / Letting Go', 'Unsure': 'Not Sure Yet',
+  };
+
+  /* ── State ───────────────────────────────────────────────────────── */
+  var userNum = '';
+  var userLP  = '';
+
+  /* ── Helpers ─────────────────────────────────────────────────────── */
+  function el(id) { return document.getElementById(id); }
+
+  function show(id) {
+    var e = el(id);
+    if (!e) return;
+    e.classList.remove('d-gone');
+    e.classList.add('d-in');
+  }
+
+  function scrollTo(id) {
+    var e = el(id);
+    if (e) e.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function disp(raw) {
+    if (raw === '1111') return '11:11';
+    if (raw === '1212') return '12:12';
+    return raw;
+  }
+
+  /* ── Life path (Pythagorean, preserves 11/22/33) ────────────────── */
+  function reducePart(n) {
+    while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+      n = String(n).split('').reduce(function (a, c) { return a + Number(c); }, 0);
+    }
+    return n;
+  }
+  function calcLP(m, d, y) {
+    var rm = reducePart(m);
+    var rd = reducePart(d);
+    var ry = reducePart(String(y).split('').reduce(function (a, c) { return a + Number(c); }, 0));
+    return reducePart(rm + rd + ry);
+  }
+
+  /* ── Section 1 ───────────────────────────────────────────────────── */
+  var freqRange = el('freqRange');
+  var freqVal   = el('freqVal');
+
+  freqRange.addEventListener('input', function () {
+    freqVal.textContent = FREQ[this.value];
+    this.setAttribute('aria-valuetext', FREQ[this.value]);
+  });
+
+  document.querySelectorAll('.d-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('.d-chip').forEach(function (c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+      el('numIn').value = chip.dataset.n;
+    });
+  });
+
+  document.querySelectorAll('.d-place-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () { chip.classList.toggle('active'); });
+  });
+
+  el('s1btn').addEventListener('click', function () {
+    var raw = (el('numIn').value || '').replace(/\D/g, '').trim();
+    if (!raw) {
+      el('numErr').style.display = 'block';
+      el('numIn').focus();
+      return;
+    }
+    el('numErr').style.display = 'none';
+    userNum = raw;
+    populateS2(raw);
+    show('s2');
+    setTimeout(function () { scrollTo('s2'); }, 80);
+  });
+
+  /* ── Section 2 ───────────────────────────────────────────────────── */
+  function populateS2(num) {
+    var d    = disp(num);
+    var entry = GENERIC[num] || DEFAULT_G;
+
+    el('s2num').textContent    = d;
+    el('s2ref').textContent    = d;
+    el('s2tFrom').textContent  = d;
+    el('s2tTo').textContent    = d + ' + YOU';
+    el('s2mapNum').textContent = d;
+
+    var tagRow = el('s2tags');
+    tagRow.innerHTML = '';
+    entry.tags.forEach(function (t) {
+      var span = document.createElement('span');
+      span.className   = 'd-tag';
+      span.textContent = t;
+      tagRow.appendChild(span);
+    });
+
+    el('s2text').textContent = entry.short;
+  }
+
+  el('s2btn').addEventListener('click', function () {
+    show('s3');
+    setTimeout(function () { scrollTo('s3'); }, 80);
+  });
+
+  /* ── Section 3 ───────────────────────────────────────────────────── */
+  el('calcBtn').addEventListener('click', function () {
+    var m = parseInt(el('dobM').value, 10);
+    var d = parseInt(el('dobD').value, 10);
+    var y = parseInt(el('dobY').value, 10);
+    if (!m || !d || !y || y < 1920 || y > 2015) {
+      el('dobErr').style.display = 'block';
+      return;
+    }
+    el('dobErr').style.display = 'none';
+    var lp = calcLP(m, d, y);
+    userLP  = String(lp);
+    populateS3b(userNum, userLP);
+    show('s3b');
+    setTimeout(function () {
+      var e = el('s3b');
+      if (e) e.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 80);
+  });
+
+  function populateS3b(num, lp) {
+    var d     = disp(num);
+    var entry = GENERIC[num] || DEFAULT_G;
+    var lens  = LP_LENSES[lp] || 'speaks to your unique path and timing';
+    var label = LP_LABELS[lp] || '';
+
+    el('s3lpNum').textContent    = lp;
+    el('s3lpLbl').textContent    = label;
+    el('s3cNum').textContent     = d;
+    el('s3cPersTitle').textContent = d + ' + Life Path ' + lp;
+    el('s3cGeneric').textContent  = entry.short;
+    el('s3cPers').textContent     = 'For a Life Path ' + lp + ', this number ' + lens + '.';
+    el('eqNum').textContent = d;
+    el('eqLP').textContent  = lp;
+  }
+
+  document.querySelectorAll('.d-ctx-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('.d-ctx-chip').forEach(function (c) { c.classList.remove('active'); });
+      chip.classList.add('active');
+      var ctx      = chip.dataset.ctx;
+      var ctxLabel = CTX_LABELS[ctx] || ctx;
+      el('eqCtx').textContent = ctxLabel;
+      show('s3c');
+      populateS4(userNum, userLP, ctxLabel);
+      show('s4');
+      setTimeout(function () { scrollTo('s4'); }, 200);
+    });
+  });
+
+  /* ── Section 4 ───────────────────────────────────────────────────── */
+  function populateS4(num, lp, ctxLabel) {
+    var d = disp(num);
+    el('s4num').textContent  = d;
+    el('s4lp').textContent   = lp;
+    el('s4ctx').textContent  = ctxLabel;
+    el('s4ref1').textContent = d;
+    el('s4ref2').textContent = d;
+    el('ctaNum').textContent = d;
+  }
+
+})();
+</script>
+</Base>
