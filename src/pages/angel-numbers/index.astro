@@ -36,7 +36,7 @@ const schema = [articleSchema({ title, description, path }), faqSchema(faqs), br
     <h2>Most Searched Angel Numbers</h2>
     <ul class="grid">
       {featuredEntries.map((e) => (
-        <li><a class="card" href={`/angel-numbers/${e.slug}/`}><span class="num">{e.number}</span><span class="lbl">{e.tags[0]}</span></a></li>
+        <li><a class="card" href={`/angel-numbers/${e.slug}/`}><span class="num">{e.number}</span></a></li>
       ))}
     </ul>
     <p><a href="/angel-numbers/meanings/">Browse every number meaning →</a></p>

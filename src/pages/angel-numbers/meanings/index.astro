@@ -40,7 +40,7 @@ const schema = [
         <h2>{g.label}</h2>
         <ul class="grid">
           {sorted.filter((e) => g.test(e.slug)).map((e) => (
-            <li><a class="card" href={`/angel-numbers/${e.slug}/`}><span class="num">{e.number}</span><span class="lbl">{e.tags[0]}</span></a></li>
+            <li><a class="card" href={`/angel-numbers/${e.slug}/`}><span class="num">{e.number}</span></a></li>
           ))}
         </ul>
       </section>
