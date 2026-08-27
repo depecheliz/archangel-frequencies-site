@@ -132,13 +132,13 @@ const ctxOpts: [string, string][] = [
   <!-- ── S3: YOUR CONTEXT + BIRTHDATE ──────────────────────────────── -->
   <section class="d-sec d-gone" id="s3">
     <div class="wrap d-narrow">
-      <p class="eyebrow">Your context changes everything</p>
-      <h2>See how much your context<br>changes it</h2>
+      <p class="eyebrow">One step away</p>
+      <h2>When were you born?</h2>
 
       <div class="d-card" style="max-width:540px">
         <div class="d-field" style="margin-bottom:0">
           <span class="d-lbl">Your birth date</span>
-          <p class="d-hint">Your birth date gives Archangel Frequencies additional numerology context for interpreting the numbers appearing in your life.</p>
+          <p class="d-hint">Your birth date unlocks your Life Path number — a core numerology reading unique to you.</p>
           <div class="d-dob-row">
             <div>
               <label class="d-sublbl" for="dobM">Month</label>
@@ -155,11 +155,12 @@ const ctxOpts: [string, string][] = [
               </select>
             </div>
             <div>
-              <label class="d-sublbl" for="dobY">Year</label>
+              <label class="d-sublbl" for="dobY">Year (4 digits)</label>
               <input id="dobY" class="d-sel" type="number" inputmode="numeric" min="1920" max="2015" placeholder="1990">
             </div>
           </div>
-          <p class="d-err" id="dobErr" role="alert" aria-live="polite" style="display:none">Please enter a complete birth date.</p>
+          <p class="d-err" id="dobErr" role="alert" aria-live="polite" style="display:none">Please select a month and day.</p>
+          <p class="d-err" id="dobErrY" role="alert" aria-live="polite" style="display:none">Please enter a 4-digit year between 1920 and 2015.</p>
           <button class="btn d-go" id="calcBtn" type="button" style="margin-top:18px">REVEAL MY LIFE PATH</button>
         </div>
       </div>
@@ -208,7 +209,7 @@ const ctxOpts: [string, string][] = [
             <span class="d-eq-op">+</span>
             <div class="d-eq-piece"><span class="d-eq-sm" id="eqCtx"></span></div>
             <span class="d-eq-op">=</span>
-            <div class="d-eq-piece d-eq-you"><span class="d-eq-sm">Your interpretation</span></div>
+            <div class="d-eq-piece d-eq-you"><span class="d-eq-sm">Your reading</span></div>
           </div>
         </div>
       </div>
@@ -228,23 +229,22 @@ const ctxOpts: [string, string][] = [
             <span class="d-sum-val" id="s4lp"></span>
           </div>
           <div class="d-sum-row">
-            <span class="d-sum-key">Showing up around</span>
+            <span class="d-sum-key">You're navigating</span>
             <span class="d-sum-val" id="s4ctx"></span>
           </div>
         </div>
       </div>
 
       <div class="d-reveal-copy">
-        <h2>Now <span id="s4ref1"></span> isn't just <span id="s4ref2"></span>.</h2>
-        <p>The number may be the same.<br>The person seeing it isn't.</p>
-        <p class="d-reveal-sub">Archangel Frequencies connects the numbers appearing in your life with your personal numerology and context so you can move beyond generic definitions.</p>
+        <h2><span id="s4ref1"></span> means something specific to you.</h2>
+        <p class="d-reveal-sub">Generic definitions don't account for who you are.<br>Your reading does.</p>
       </div>
 
       <div class="d-cta-area">
         <a class="btn d-big-btn" id="primaryCta" href={APP_WEB} target="_blank" rel="noopener">
           SEE WHAT <span id="ctaNum"></span> MEANS FOR ME
         </a>
-        <p class="d-cta-note">Continue your personalized reading in Archangel Frequencies.</p>
+        <p class="d-cta-note">Get your full reading free in the Archangel Frequencies app.</p>
         <p><a class="d-app-link" href={EXTERNAL.app} target="_blank" rel="noopener">Get the Android app free</a></p>
       </div>
     </div>
@@ -801,11 +801,10 @@ input.d-sel { min-width: 0; }
     var m = parseInt(el('dobM').value, 10);
     var d = parseInt(el('dobD').value, 10);
     var y = parseInt(el('dobY').value, 10);
-    if (!m || !d || !y || y < 1920 || y > 2015) {
-      el('dobErr').style.display = 'block';
-      return;
-    }
-    el('dobErr').style.display = 'none';
+    var yBad = !y || y < 1920 || y > 2015;
+    el('dobErr').style.display  = (!m || !d) ? 'block' : 'none';
+    el('dobErrY').style.display = yBad ? 'block' : 'none';
+    if (!m || !d || yBad) return;
     var lp = calcLP(m, d, y);
     userLP  = String(lp);
     populateS3b(userNum, userLP);
@@ -853,7 +852,6 @@ input.d-sel { min-width: 0; }
     el('s4lp').textContent   = lp;
     el('s4ctx').textContent  = ctxLabel;
     el('s4ref1').textContent = d;
-    el('s4ref2').textContent = d;
     el('ctaNum').textContent = d;
   }
 
