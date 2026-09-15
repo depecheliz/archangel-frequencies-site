@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Infinity Frequency™ — Archangel Frequencies</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#0B0E1A;
+  --bg-alt:#11142A;
+  --bg-violet:#171034;
+  --ivory:#F3EFE6;
+  --ivory-dim:#B9B5A8;
+  --gold:#C9A227;
+  --gold-soft:#E4C567;
+  --violet:#8172C4;
+  --line:rgba(243,239,230,0.12);
+  --line-soft:rgba(243,239,230,0.07);
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --ink:#1C1930;
+  --ink-dim:#5A5346;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ivory);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+img,svg{display:block; max-width:100%;}
+
+.wrap{max-width:640px; margin:0 auto; padding:0 24px;}
+.wrap-wide{max-width:960px; margin:0 auto; padding:0 24px;}
+
+section{padding:64px 0;}
+.alt{background:var(--bg-alt);}
+.violet-bg{background:var(--bg-violet);}
+.ivory-section{background:var(--ivory); color:var(--ink-dim);}
+.ivory-section h1,.ivory-section h2,.ivory-section h3{color:var(--ink);}
+.ivory-section p{color:var(--ink-dim);}
+.ivory-section .eyebrow2{color:var(--violet);}
+.ivory-section .mono-note{color:var(--ink-dim);}
+.ivory-section .lede{color:var(--ink);}
+
+h1,h2,h3{font-family:var(--serif); font-weight:500; letter-spacing:0.01em; line-height:1.15;}
+h1{font-size:clamp(38px,8vw,60px);}
+h2{font-size:clamp(28px,5.5vw,38px); margin-bottom:16px;}
+h3{font-size:21px; margin-bottom:8px; font-weight:600;}
+p{color:var(--ivory-dim); margin-bottom:14px; max-width:64ch;}
+p.lede{color:var(--ivory); font-size:19px;}
+.center{text-align:center;}
+.center p{margin-left:auto; margin-right:auto;}
+
+.btn{
+  display:inline-block;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:16px;
+  padding:17px 34px;
+  border-radius:2px;
+  text-decoration:none;
+  transition:transform .15s ease, background .2s ease;
+  min-height:48px;
+}
+.btn-primary{background:var(--gold); color:#191307;}
+.btn-primary:hover{background:var(--gold-soft); transform:translateY(-1px);}
+.btn-ghost{border:1px solid var(--line); color:var(--ivory);}
+.btn-ghost:hover{border-color:var(--gold); color:var(--gold-soft);}
+.btn-small{padding:10px 18px; font-size:14px; min-height:40px;}
+.ivory-section .btn-ghost{border-color:rgba(28,25,48,0.2); color:var(--ink);}
+
+.mono-note{font-size:13px; color:var(--ivory-dim); letter-spacing:0.02em; margin-top:12px;}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky; top:0; z-index:50; background:rgba(11,14,26,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-soft);}
+.nav-inner{max-width:960px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.nav-mark{font-family:var(--serif); font-size:19px; letter-spacing:0.03em; display:flex; align-items:center; gap:8px; white-space:nowrap;}
+.nav-mark .inf{color:var(--gold);}
+
+/* ---------- HERO / MOVING INFINITY ---------- */
+.hero{padding:56px 0 44px; position:relative; overflow:hidden;}
+.hero-inner{max-width:580px; margin:0 auto; padding:0 24px; text-align:center; position:relative; z-index:2;}
+.hero-fig{width:170px; margin:0 auto 20px;}
+.hero h1{margin-bottom:14px;}
+.hero .sub{font-family:var(--serif); font-size:clamp(19px,3.6vw,23px); color:var(--gold-soft); font-style:italic; margin-bottom:16px;}
+.hero .desc{font-size:16px; margin-bottom:6px;}
+.hero .pillars{font-size:14px; color:var(--gold-soft); letter-spacing:0.02em; margin-bottom:26px;}
+.hero-cta{margin-bottom:14px;}
+
+.inf-path{stroke:var(--gold); stroke-width:1.4; fill:none; opacity:0.55;}
+.inf-glow{
+  offset-path:path('M40,50 C40,20 65,20 80,50 C95,80 120,80 120,50 C120,20 95,20 80,50 C65,80 40,80 40,50 Z');
+  animation:travel 9s linear infinite;
+}
+@keyframes travel{ to { offset-distance:100%; } }
+.dot{fill:var(--gold-soft); filter:drop-shadow(0 0 6px var(--gold));}
+@media (prefers-reduced-motion: reduce){ .inf-glow{animation:none; offset-distance:0%;} }
+
+/* ---------- IMAGES ---------- */
+.product-image{width:100%; display:block; border-radius:4px; box-shadow:0 24px 60px rgba(0,0,0,0.3);}
+.product-image.soft{box-shadow:0 12px 32px rgba(0,0,0,0.10); border-radius:6px;}
+.image-wrap{max-width:640px; margin:32px auto 0;}
+.image-wrap.wide{max-width:820px;}
+
+/* ---------- AUDIO PREVIEW ---------- */
+.feel-it{text-align:center;}
+.feel-it h2{max-width:22ch; margin:0 auto 6px;}
+.preview-big{font-family:var(--serif); font-style:italic; font-size:26px; color:var(--gold-soft); text-align:center; margin-bottom:6px;}
+.audio-player{
+  border:1px solid var(--line); background:var(--bg-alt); padding:26px 22px; max-width:460px; margin:28px auto 0; text-align:left;
+  transition:box-shadow .6s ease, border-color .6s ease;
+}
+.audio-player.playing{border-color:rgba(201,162,39,0.5); box-shadow:0 0 40px rgba(201,162,39,0.12);}
+.ap-state{font-family:var(--serif); font-style:italic; color:var(--gold-soft); font-size:16px; margin-bottom:14px; min-height:22px; text-align:center;}
+.ap-visual{position:relative; width:100%; height:80px; margin-bottom:18px;}
+.ap-inf{position:absolute; inset:0; width:100%; height:100%;}
+.ap-inf-path{stroke:var(--gold); stroke-width:1.2; fill:none; opacity:0.32; transition:opacity .6s ease;}
+.audio-player.playing .ap-inf-path{opacity:0.75;}
+.ap-dot{fill:var(--gold-soft); filter:drop-shadow(0 0 5px var(--gold)); opacity:0; transition:opacity .4s ease;}
+.audio-player.playing .ap-dot{opacity:1;}
+.ap-dot.travel{offset-path:path('M40,50 C40,20 65,20 80,50 C95,80 120,80 120,50 C120,20 95,20 80,50 C65,80 40,80 40,50 Z'); animation:travel 6s linear infinite paused;}
+.audio-player.playing .ap-dot.travel{animation-play-state:running;}
+.ap-wave{position:absolute; left:0; right:0; bottom:0; width:100%; height:30px; opacity:0.9;}
+.ap-controls{display:flex; align-items:center; gap:14px;}
+.ap-play{flex:none; width:52px; height:52px; border-radius:50%; border:1px solid var(--gold); background:transparent; color:var(--gold-soft); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .15s ease;}
+.ap-play:hover{background:rgba(201,162,39,0.1);}
+.ap-play:active{transform:scale(0.96);}
+.ap-play svg{width:18px; height:18px;}
+.ap-info{flex:1; min-width:0;}
+.ap-name{font-family:var(--serif); font-size:17px; color:var(--ivory);}
+.ap-purpose{font-size:13px; color:var(--ivory-dim); margin:2px 0 4px;}
+.ap-reco{font-size:12px; color:var(--gold-soft); letter-spacing:0.02em;}
+.ap-time{margin-top:16px;}
+.ap-progress{height:10px; display:flex; align-items:center; cursor:pointer;}
+.ap-progress::before{content:""; display:block; width:100%; height:3px; background:var(--line); border-radius:2px;}
+.ap-progress-fill{height:3px; width:0%; background:var(--gold); transition:width .1s linear; margin-top:-10px; border-radius:2px;}
+.ap-time-text{display:flex; justify-content:space-between; font-size:12px; color:var(--ivory-dim); margin-top:8px;}
+.ap-replay{display:block; margin:14px auto 0; background:transparent; border:1px solid var(--line); color:var(--ivory); font-family:var(--sans); font-size:13px; padding:10px 18px; border-radius:2px; cursor:pointer; min-height:44px;}
+.ap-replay:hover{border-color:var(--gold); color:var(--gold-soft);}
+.ap-play:focus-visible, .ap-replay:focus-visible, .ap-progress:focus-visible{outline:2px solid var(--gold-soft); outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){ .ap-dot.travel{animation:none !important;} .ap-progress-fill{transition:none;} .audio-player,.audio-player.playing{transition:none;} }
+
+/* ---------- FOUNDER / EXPERIENCE GRID SHARED ---------- */
+.eyebrow2{font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:var(--violet); margin-bottom:10px; text-align:center;}
+.founder-photo{width:100%; display:block; object-fit:cover; border:1px solid rgba(243,239,230,0.10); box-shadow:0 20px 50px rgba(0,0,0,0.18); border-radius:2px;}
+.ivory-section .founder-photo{border-color:rgba(28,25,48,0.08); box-shadow:0 14px 34px rgba(0,0,0,0.10);}
+.founder-intro-grid{display:grid; grid-template-columns:1fr; gap:22px; align-items:center; margin-top:8px; max-width:480px; margin-left:auto; margin-right:auto;}
+.founder-intro-grid .founder-photo{aspect-ratio:4/5; max-width:200px; margin:0 auto;}
+.founder-intro-grid blockquote{border-left:2px solid var(--gold); padding-left:18px; font-family:var(--serif); font-style:italic; color:var(--ink); font-size:18px; line-height:1.6; margin:0; text-align:left;}
+.sig{margin-top:12px; font-size:14px; color:var(--violet); font-style:normal;}
+
+/* 8 Experiences grid */
+.exp-grid{display:grid; grid-template-columns:1fr; gap:0; margin-top:30px; max-width:640px; margin-left:auto; margin-right:auto; border-top:1px solid var(--line);}
+.exp-row{display:grid; grid-template-columns:1fr auto; gap:6px 16px; padding:16px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+.exp-row .exp-name{font-family:var(--serif); font-size:18px; color:var(--ivory);}
+.exp-row .exp-dur{font-size:13px; color:var(--gold-soft); text-align:right; white-space:nowrap;}
+.exp-row .exp-use{grid-column:1 / -1; font-size:14px; color:var(--ivory-dim); margin:0;}
+
+/* Selector (kept, compacted) */
+.pills{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0 20px; justify-content:center;}
+.pill{border:1px solid var(--line); background:transparent; color:var(--ivory); font-family:var(--sans); font-size:14px; padding:12px 20px; border-radius:999px; cursor:pointer; transition:all .15s ease; min-height:44px;}
+.pill:hover, .pill.active{border-color:var(--gold); color:var(--gold-soft); background:rgba(201,162,39,0.08);}
+.field-result{border:1px solid var(--line); background:var(--bg-alt); padding:22px; min-height:80px; display:none;}
+.field-result.show{display:block;}
+.field-result .rtitle{font-family:var(--serif); color:var(--gold-soft); font-size:19px; margin-bottom:6px;}
+.field-result p{margin-bottom:10px; font-size:15px;}
+.field-result .field-included{font-size:13px; color:var(--gold-soft); letter-spacing:0.02em; margin-bottom:8px;}
+.field-result a{font-size:14px; color:var(--gold); text-decoration:underline;}
+
+/* Why Infinity */
+.display-line{font-family:var(--serif); font-style:italic; color:var(--gold-soft); font-size:20px; letter-spacing:0.02em; text-align:center; margin:22px 0;}
+.pull-quote{font-family:var(--serif); font-style:italic; color:var(--gold-soft); font-size:24px; line-height:1.4; text-align:center; max-width:460px; margin:32px auto; padding:0 12px;}
+.ivory-section .pull-quote{color:var(--violet);}
+
+/* Method (compact, HTML/CSS only) */
+.method-name{color:var(--gold-soft); font-family:var(--serif); font-style:italic; font-size:19px; margin-bottom:6px; text-align:center;}
+.method-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px 20px; margin:26px auto; max-width:480px;}
+.method-grid div{font-size:14px; color:var(--ivory-dim); border-bottom:1px solid var(--line); padding-bottom:10px;}
+.method-grid span{color:var(--gold-soft); font-family:var(--serif); font-size:14px; margin-right:8px;}
+.strong-line{font-family:var(--serif); font-style:italic; color:var(--gold-soft); font-size:19px; text-align:center; max-width:32ch; margin:22px auto 0;}
+.structure-line{font-size:13px; color:var(--ivory-dim); text-align:center; max-width:52ch; margin:18px auto 0;}
+
+/* Science evidence */
+.evidence-grid{display:grid; grid-template-columns:1fr; gap:18px; margin:28px auto; max-width:640px;}
+.evidence-item{border-top:1px solid rgba(28,25,48,0.12); padding-top:14px;}
+.evidence-item .stat{font-family:var(--serif); font-size:28px; color:var(--violet);}
+.evidence-item .label{font-size:14px; color:var(--ink-dim);}
+
+/* Guides */
+.guides-copy{display:grid; grid-template-columns:1fr; gap:16px; max-width:520px; margin:28px auto 0; text-align:center;}
+.guides-copy h3{font-size:17px; color:var(--gold-soft);}
+
+/* Why not YouTube */
+.no-list{display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:center; margin:22px 0; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-soft);}
+
+/* Founder story */
+.story-block{max-width:500px; margin:0 auto;}
+.story-block p{font-size:16px; color:var(--ink); margin-bottom:12px;}
+.story-photo-block{margin:32px auto; max-width:380px;}
+.story-photo-block img{aspect-ratio:4/5;}
+.gold-rule{width:52px; height:1px; background:var(--gold); border:none; margin:30px auto; opacity:0.6;}
+
+/* Offer / collection */
+.value-points{margin:24px auto 0; max-width:460px; text-align:left;}
+.value-points p{color:var(--ivory); font-size:15px; margin-bottom:8px;}
+.value-points strong{color:var(--gold-soft);}
+.offer-box{border:1px solid var(--gold); padding:30px 26px; margin-top:24px; background:var(--bg-alt);}
+.offer-list{list-style:none; margin-bottom:18px;}
+.offer-list li{display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--line-soft); font-size:14px; color:var(--ivory-dim);}
+.offer-list li strong{color:var(--ivory); font-weight:500;}
+.offer-total{display:flex; justify-content:space-between; padding:12px 0; font-size:14px; color:var(--ivory-dim);}
+.offer-price{text-align:center; margin-top:18px;}
+.offer-price .today{font-family:var(--serif); font-size:42px; color:var(--gold-soft);}
+.offer-price .was{text-decoration:line-through; color:var(--ivory-dim); font-size:15px; margin-right:10px;}
+.guarantee-box{border:1px solid var(--gold); background:var(--bg-alt); padding:28px 26px; max-width:540px; margin:28px auto 0; text-align:center;}
+.guarantee-badge{width:48px; height:48px; margin:0 auto 14px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center;}
+.guarantee-badge svg{width:22px; height:22px;}
+.guarantee-box h3{font-family:var(--serif); font-size:21px; color:var(--gold-soft); margin-bottom:8px;}
+.guarantee-box p{margin:0 auto; font-size:15px;}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line); padding:15px 0;}
+summary{cursor:pointer; font-family:var(--serif); font-size:18px; color:var(--ivory); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+"; color:var(--gold); font-size:22px; font-family:var(--sans); margin-left:12px;}
+details[open] summary::after{content:"–";}
+details p{margin-top:8px; font-size:15px;}
+
+/* Final CTA */
+.final-cta{text-align:center; padding-bottom:110px;}
+.final-cta h2{max-width:16ch; margin:0 auto 8px;}
+
+/* Sticky */
+.sticky-bar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:rgba(11,14,26,0.94); backdrop-filter:blur(10px); border-top:1px solid var(--line); padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; transform:translateY(120%); transition:transform .3s ease;}
+.sticky-bar.show{transform:translateY(0);}
+.sticky-bar span{font-size:13px; color:var(--ivory-dim);}
+
+footer{padding:34px 24px; text-align:center; font-size:13px; color:var(--ivory-dim); opacity:0.6;}
+
+@media (max-width:480px){
+  section{padding:44px 0;}
+  .hero{padding:36px 0 30px;}
+  .sticky-bar span{display:none;}
+  .sticky-bar{justify-content:center;}
+  .exp-row{grid-template-columns:1fr;}
+  .exp-row .exp-dur{text-align:left;}
+}
+
+@media (min-width:700px){
+  .founder-intro-grid{grid-template-columns:200px 1fr; max-width:600px;}
+  .method-grid{grid-template-columns:repeat(4,1fr);}
+  .evidence-grid{grid-template-columns:repeat(3,1fr);}
+  .guides-copy{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><span class="inf">∞</span> Archangel Frequencies</div>
+    <a href="#offer" class="btn btn-ghost btn-small">Get The Collection — $47</a>
+  </div>
+</nav>
+
+<!-- HERO / MOVING INFINITY -->
+<header class="hero">
+  <div class="hero-inner">
+    <svg class="hero-fig" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+      <path class="inf-path" d="M40,50 C40,20 65,20 80,50 C95,80 120,80 120,50 C120,20 95,20 80,50 C65,80 40,80 40,50 Z"/>
+      <circle class="dot inf-glow" r="3"/>
+    </svg>
+    <h1>The Infinity Frequency&trade;</h1>
+    <p class="sub">Change the way you feel in the next 15 minutes.</p>
+    <p class="desc">One signature sound system. Eight immersive experiences.</p>
+    <p class="pillars">Calm &middot; Sleep &middot; Abundance &middot; Healing &middot; Love &middot; Expansion &middot; Home &middot; Vortex</p>
+    <div class="hero-cta">
+      <a href="#offer" class="btn btn-primary">Get The Complete Collection — $47</a>
+    </div>
+    <p class="mono-note">One payment &middot; Instant access &middot; Lifetime access</p>
+  </div>
+</header>
+
+<!-- HEAR IT FOR YOURSELF -->
+<section class="feel-it" id="preview">
+  <div class="wrap">
+    <div class="eyebrow2">Hear it for yourself</div>
+    <h2>Don&rsquo;t take our word for it.</h2>
+    <p class="center">Put on your headphones. This is 60 seconds from one of the actual experiences inside the collection.</p>
+
+    <div class="audio-player" data-experience="infinite_abundance" data-label-idle="Preview the Field" data-label-playing="You&rsquo;re Inside the Field">
+      <!-- AUDIO FILE PLACEHOLDER: /audio/infinite-abundance-preview.mp3 -->
+      <audio class="ap-audio" preload="metadata" src="/audio/infinite-abundance-preview.mp3"></audio>
+      <div class="ap-state" aria-live="polite">Preview the Field</div>
+      <div class="ap-visual">
+        <svg class="ap-inf" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="ap-inf-path" d="M40,50 C40,20 65,20 80,50 C95,80 120,80 120,50 C120,20 95,20 80,50 C65,80 40,80 40,50 Z"/>
+          <circle class="ap-dot travel" r="3"/>
+        </svg>
+        <canvas class="ap-wave" width="400" height="90" aria-hidden="true"></canvas>
+      </div>
+      <div class="ap-controls">
+        <button class="ap-play" type="button" aria-label="Play preview of Infinite Abundance" aria-pressed="false">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+        </button>
+        <div class="ap-info">
+          <div class="ap-name">Infinite Abundance&trade;</div>
+          <div class="ap-purpose">Expansion, receiving, and abundance ritual.</div>
+          <div class="ap-reco">Headphones recommended</div>
+        </div>
+      </div>
+      <div class="ap-time">
+        <div class="ap-progress" role="slider" aria-label="Seek preview" tabindex="0"><div class="ap-progress-fill"></div></div>
+        <div class="ap-time-text"><span class="ap-elapsed">0:00</span><span class="ap-remaining">-0:00</span></div>
+      </div>
+      <button class="ap-replay" type="button" hidden aria-label="Replay preview">Replay</button>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK BREAKDOWN (IVORY) -->
+<section class="ivory-section">
+  <div class="wrap-wide center">
+    <div class="image-wrap wide">
+      <img class="product-image soft" src="/images/infinity-breakdown.png" alt="The Infinity Frequency Complete Collection: 8 immersive sound experiences, 2 in-depth guides, lifetime access, simple to use.">
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER CONNECTION (IVORY) -->
+<section class="ivory-section">
+  <div class="wrap">
+    <div class="eyebrow2">Created by Archangel Frequencies</div>
+    <div class="founder-intro-grid">
+      <img class="founder-photo" src="/images/founder-connection.png" alt="Liz, founder of Archangel Frequencies, seated in her workspace." style="object-position:60% 22%;">
+      <blockquote>
+        I didn&rsquo;t find sound because I was looking for a business idea.
+        <br><br>
+        <span style="font-style:normal; font-family:var(--sans); font-size:15px; color:var(--ink-dim); line-height:1.7; display:block;">I found it because I needed it.
+        <br><br>
+        During one of the hardest periods of my life, meditation and sound became something I leaned on every day.
+        <br><br>
+        What began as a private practice eventually became Archangel Frequencies, a community of 170,000+ across social media.</span>
+        <div class="sig">— Liz<br>Founder, Archangel Frequencies</div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- SEE THE 8 EXPERIENCES -->
+<section id="toolkit">
+  <div class="wrap-wide center">
+    <h2>One sound system.<br>Eight ways to experience it.</h2>
+    <div class="image-wrap wide">
+      <img class="product-image" src="/images/infinity-experiences.png" alt="Eight Infinity Frequency sound experiences, each represented by its own card.">
+    </div>
+    <div class="exp-grid">
+      <div class="exp-row"><span class="exp-name">Infinite Calm&trade;</span><span class="exp-dur">15 min</span><p class="exp-use">When everything feels like too much.</p></div>
+      <div class="exp-row"><span class="exp-name">Infinite Sleep&trade;</span><span class="exp-dur">55 min</span><p class="exp-use">When your mind won&rsquo;t switch off.</p></div>
+      <div class="exp-row"><span class="exp-name">Infinite Abundance&trade;</span><span class="exp-dur">22 min</span><p class="exp-use">When you&rsquo;re ready to imagine more.</p></div>
+      <div class="exp-row"><span class="exp-name">Infinite Healing&trade;</span><span class="exp-dur">30 min</span><p class="exp-use">When you need space to reflect.</p></div>
+      <div class="exp-row"><span class="exp-name">Infinite Love&trade;</span><span class="exp-dur">18 min</span><p class="exp-use">When you want to reconnect.</p></div>
+      <div class="exp-row"><span class="exp-name">Infinite Expansion&trade;</span><span class="exp-dur">25 min</span><p class="exp-use">When you feel stuck.</p></div>
+      <div class="exp-row"><span class="exp-name">The Home Frequency&trade;</span><span class="exp-dur">90 min</span><p class="exp-use">When you want to shift the atmosphere.</p></div>
+      <div class="exp-row"><span class="exp-name">Enter the Vortex&trade;</span><span class="exp-dur">40 min</span><p class="exp-use">When you want to go deeper.</p></div>
+    </div>
+
+    <div class="eyebrow2" style="margin-top:40px;">What do you need today?</div>
+    <p>Choose the moment you&rsquo;re in right now.</p>
+    <div class="pills" id="pills">
+      <button class="pill" data-field="calm">Calm my mind</button>
+      <button class="pill" data-field="sleep">Sleep</button>
+      <button class="pill" data-field="abundance">Feel abundant</button>
+      <button class="pill" data-field="healing">Heal</button>
+      <button class="pill" data-field="love">Feel connected</button>
+      <button class="pill" data-field="expansion">Get unstuck</button>
+      <button class="pill" data-field="home">Shift my space</button>
+    </div>
+    <div class="field-result" id="fieldResult"></div>
+  </div>
+</section>
+
+<!-- WHY INFINITY -->
+<section class="alt">
+  <div class="wrap-wide center">
+    <div class="eyebrow2">Why infinity?</div>
+    <h2>A practice of returning to yourself.</h2>
+    <div class="image-wrap wide">
+      <img class="product-image" src="/images/infinity-meaning.png" alt="The infinity symbol formed of light above a still lake at sunset.">
+    </div>
+    <p class="display-line">Return &middot; Receive &middot; Release &middot; Repeat</p>
+    <p>The infinity symbol has represented the endless for centuries. For us, it represents something simpler.</p>
+    <p>You don&rsquo;t listen once and arrive somewhere forever. You return. Back to your breath. Back to stillness. Back to intention. Back to yourself.</p>
+    <p class="pull-quote">The practice isn&rsquo;t perfection.<br>It&rsquo;s return.</p>
+  </div>
+</section>
+
+<!-- INFINITY FIELD METHOD -->
+<section id="method">
+  <div class="wrap center">
+    <div class="method-name">The Infinity Field Method&trade;</div>
+    <h2>Eight layers.<br>One continuous experience.</h2>
+    <div class="method-grid">
+      <div><span>01</span>Breath</div>
+      <div><span>02</span>Rhythm</div>
+      <div><span>03</span>Frequency</div>
+      <div><span>04</span>Harmonics</div>
+      <div><span>05</span>Spatial Sound</div>
+      <div><span>06</span>Intention</div>
+      <div><span>07</span>Silence</div>
+      <div><span>08</span>Repetition</div>
+    </div>
+    <p>There isn&rsquo;t one magic frequency. Sound is more than a number. Each experience brings together eight layers of sound, pacing and practice, then shapes them for a different listening moment.</p>
+    <p class="strong-line">The experience is in the relationship between the layers.</p>
+    <p class="structure-line">The collection also follows a consistent 3&ndash;6&ndash;9 structural discipline: three phases, six harmonic layers, and a nine-count pacing framework.</p>
+  </div>
+</section>
+
+<!-- SCIENCE + SPIRITUALITY (IVORY) -->
+<section class="ivory-section">
+  <div class="wrap-wide center">
+    <div class="eyebrow2">Spiritually open. Scientifically honest.</div>
+    <h2>We don&rsquo;t believe you have to choose between wonder and discernment.</h2>
+    <p>Some elements inside The Infinity Field Method&trade; come from established acoustics and independently studied practices. Others belong intentionally to ritual, intention and spiritual practice. We tell you which is which.</p>
+    <div class="evidence-grid">
+      <div class="evidence-item"><div class="stat">223 studies</div><div class="label">Slow-paced breathing + HRV</div></div>
+      <div class="evidence-item"><div class="stat">22 studies</div><div class="label">Binaural-beat meta-analysis</div></div>
+      <div class="evidence-item"><div class="stat">8 layers</div><div class="label">One Infinity Field Method&trade;</div></div>
+    </div>
+    <p class="mono-note">Research supports individual elements of the experience. The Infinity Frequency&trade; itself is not presented as medical treatment.</p>
+    <p class="pull-quote">We don&rsquo;t need to choose between wonder and discernment.</p>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section class="alt center">
+  <div class="wrap-wide">
+    <h2>Go deeper when you&rsquo;re ready.</h2>
+    <div class="image-wrap wide">
+      <img class="product-image" src="/images/infinity-guides.png" alt="The Infinity Ritual Guide and The Infinity Listening Guide, two companion books included with the collection.">
+    </div>
+    <div class="guides-copy">
+      <div><h3>The Infinity Ritual Guide&trade;</h3><p>Experience the practice.</p></div>
+      <div><h3>The Infinity Listening Guide&trade;</h3><p>Understand the sound.</p></div>
+    </div>
+    <p class="mono-note">Both included.</p>
+  </div>
+</section>
+
+<!-- WHY NOT YOUTUBE -->
+<section class="center">
+  <div class="wrap">
+    <h2>YouTube has thousands of frequency tracks.</h2>
+    <p class="lede">This isn&rsquo;t another one.</p>
+    <p>You&rsquo;re not buying a frequency. You&rsquo;re getting eight purpose-built experiences, one consistent method, two companion guides and downloadable lifetime access.</p>
+    <div class="no-list"><span>No ads</span><span>No searching</span><span>No subscription</span></div>
+    <p class="lede">Choose what you need. Press play.</p>
+  </div>
+</section>
+
+<!-- SHORT FOUNDER STORY (IVORY / EDITORIAL) -->
+<section class="ivory-section">
+  <div class="wrap">
+    <div class="eyebrow2">Why I created this</div>
+    <h2 class="center">I didn&rsquo;t find sound because I was looking for a business idea.</h2>
+    <p class="center" style="font-family:var(--serif); font-style:italic; color:var(--violet); font-size:18px; margin-bottom:30px;">I found it because I needed it.</p>
+
+    <div class="story-block">
+      <p>There was a period of my life when everything I thought I knew about myself had been shaken. I was healing. Rebuilding.</p>
+      <p>During those hardest days, meditation and sound became something I leaned on every single day.</p>
+      <p>When my mind wouldn&rsquo;t quiet down, I put on my headphones. I listened. I breathed. I meditated.</p>
+    </div>
+
+    <div class="story-photo-block">
+      <img class="founder-photo" src="/images/founder-practice.png" alt="Liz meditating with headphones beside Lake George." style="object-position:28% 30%;">
+    </div>
+
+    <div class="story-block">
+      <p>I became fascinated by the deeply relaxed states I experienced. And then the analytical part of me took over. I began researching the science behind sound, breath, rhythm and binaural audio.</p>
+      <p>The more I learned, the more I realized I didn&rsquo;t have to choose between science and spirituality.</p>
+    </div>
+
+    <p class="pull-quote">I was spiritually open enough to experience it and analytical enough to question it.</p>
+
+    <div class="story-block">
+      <p>Day after day, those quiet sessions gave me somewhere to breathe, reflect and reconnect with myself.</p>
+    </div>
+
+    <div class="story-photo-block">
+      <img class="founder-photo" src="/images/founder-return.png" alt="Liz walking outdoors near Lake George at sunset." style="object-position:35% 25%;">
+    </div>
+
+    <div class="story-block">
+      <p>And slowly, the light started coming back. What began as a deeply personal practice eventually became Archangel Frequencies.</p>
+      <p>The Infinity Frequency&trade; is the culmination of that journey.</p>
+    </div>
+
+    <p class="pull-quote">I created the collection I wish I could have pressed play on during those hardest days.</p>
+  </div>
+</section>
+
+<!-- COMPLETE COLLECTION VISUAL -->
+<section class="violet-bg" id="offer">
+  <div class="wrap-wide center">
+    <h2>The Complete Infinity Frequency&trade; Collection</h2>
+    <div class="image-wrap wide">
+      <img class="product-image" src="/images/infinity-complete-collection.png" alt="The complete Infinity Frequency collection: 8 sound experiences plus the Infinity Ritual Guide and Infinity Listening Guide.">
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="value-points">
+      <p><strong>8 Immersive Sound Experiences</strong></p>
+      <p>+ <strong>The Infinity Ritual Guide&trade;</strong></p>
+      <p>+ <strong>The Infinity Listening Guide&trade;</strong></p>
+      <p>+ <strong>Lifetime Access</strong></p>
+    </div>
+
+    <div class="offer-box">
+      <ul class="offer-list">
+        <li><strong>Infinite Abundance</strong><span>$27</span></li>
+        <li><strong>Infinite Healing</strong><span>$27</span></li>
+        <li><strong>Infinite Calm</strong><span>$19</span></li>
+        <li><strong>Infinite Love</strong><span>$19</span></li>
+        <li><strong>Infinite Sleep</strong><span>$29</span></li>
+        <li><strong>Infinite Expansion</strong><span>$24</span></li>
+        <li><strong>The Home Frequency</strong><span>$34</span></li>
+        <li><strong>Enter the Vortex</strong><span>$39</span></li>
+        <li><strong>Infinity Ritual Guide</strong> (PDF)<span>$17</span></li>
+        <li><strong>Listening Guide</strong> (PDF)<span>$12</span></li>
+      </ul>
+      <div class="offer-total"><span>Total value</span><span>$247</span></div>
+      <div class="offer-price">
+        <span class="was">$247</span><span class="today">$47</span>
+        <p class="mono-note">One payment &middot; Instant access &middot; Lifetime access</p>
+        <!-- CHECKOUT PLACEHOLDER: point href="#checkout" at the real Systeme checkout URL -->
+        <div style="margin-top:22px;"><a href="#checkout" class="btn btn-primary checkout-btn" data-checkout data-cta-location="offer">Get The Infinity Frequency&trade; — $47</a></div>
+      </div>
+    </div>
+
+    <div class="guarantee-box" id="guarantee">
+      <div class="guarantee-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E4C567" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h3>The 7-Day Field Guarantee</h3>
+      <p>Explore The Infinity Frequency&trade; Collection for seven days. If you decide it isn't for you, contact us within seven days of purchase and we'll refund your purchase. No complicated forms. No hoops.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <h2 class="center">Questions</h2>
+    <div class="faq-list">
+      <details><summary>Do I need headphones?</summary><p>Not required for every experience, but recommended for the spatial layers. Enter the Vortex&trade; is designed specifically for headphone listening.</p></details>
+      <details><summary>How often should I listen?</summary><p>There&rsquo;s no required schedule. Choose the experience that fits the moment you&rsquo;re in.</p></details>
+      <details><summary>Can I use it while sleeping?</summary><p>Infinite Sleep&trade; is created specifically for nighttime listening. The Home Frequency&trade; can also be used as long-form ambient audio.</p></details>
+      <details><summary>Why isn't this the same as free frequency music?</summary><p>The Infinity Frequency&trade; is not built around one frequency loop. Every experience uses the eight-layer Infinity Field Method&trade; and is created for a specific listening purpose.</p></details>
+      <details><summary>What are binaural beats?</summary><p>Binaural beats are a perceptual effect created when slightly different tones are presented to each ear. Research into specific outcomes varies, so we don't promise that everyone will experience them the same way.</p></details>
+      <details><summary>Can I download the tracks?</summary><p>Yes. The collection includes downloadable digital files with lifetime access.</p></details>
+      <details><summary>Is this medical treatment?</summary><p>No. The Infinity Frequency&trade; is not a substitute for medical or mental-health care.</p></details>
+      <details><summary>What is the 7-Day Field Guarantee?</summary><p>Explore the collection for seven days. If you decide it isn't for you, contact us within seven days of purchase for a refund.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>You don't have to chase the next version of yourself.</h2>
+    <p class="lede">You can build a field to meet her in instead.</p>
+    <!-- CHECKOUT PLACEHOLDER: point href="#checkout" at the real Systeme checkout URL -->
+    <a href="#checkout" class="btn btn-primary checkout-btn" data-checkout data-cta-location="final">Get The Infinity Frequency&trade; — $47</a>
+    <p class="mono-note">8 experiences &middot; Lifetime access &middot; One payment</p>
+  </div>
+</section>
+
+<footer>Archangel Frequencies &middot; The Infinity Frequency&trade; &middot; The Infinity Field Method&trade;</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <span>The Infinity Frequency&trade;</span>
+  <a href="#offer" class="btn btn-primary btn-small">Get The Infinity Frequency™ — $47</a>
+</div>
+
+<script>
+function trackEvent(eventName, data){
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({event:eventName}, data || {}));
+}
+
+// ---------- CHECKOUT CONFIG ----------
+// Single source of truth for the Systeme.io checkout URL.
+// Update this one value only — never hardcode the checkout URL elsewhere.
+const CHECKOUT_URL = 'SYSTEME_CHECKOUT_URL_HERE';
+
+const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+
+// Builds the final checkout URL, carrying forward any incoming UTM
+// params without duplicating params the checkout URL already has.
+function buildCheckoutUrl(){
+  let target;
+  try{
+    target = new URL(CHECKOUT_URL, window.location.origin);
+  }catch(err){
+    return CHECKOUT_URL; // malformed/placeholder base — pass through as-is
+  }
+  const incoming = new URLSearchParams(window.location.search);
+  UTM_KEYS.forEach(key => {
+    const value = incoming.get(key);
+    if(value && !target.searchParams.has(key)){
+      target.searchParams.set(key, value);
+    }
+  });
+  return target.toString();
+}
+
+// What Do You Need Today interaction
+const fields = {
+  calm: {title:"Infinite Calm&trade;", text:"For the moments when everything feels like too much and you want somewhere quieter to land."},
+  sleep: {title:"Infinite Sleep&trade;", text:"For the nights when trying harder to sleep is the problem."},
+  abundance: {title:"Infinite Abundance&trade;", text:"For abundance rituals, visualization, possibility and practicing receiving."},
+  healing: {title:"Infinite Healing&trade;", text:"For rest, reflection and making room for what you're carrying."},
+  love: {title:"Infinite Love&trade;", text:"For compassion, connection and returning to yourself."},
+  expansion: {title:"Infinite Expansion&trade;", text:"For visualization, creative thinking and opening up possibility."},
+  home: {title:"The Home Frequency&trade;", text:"For intentionally setting the atmosphere of your space."}
+};
+const pillsEl = document.getElementById('pills');
+const resultEl = document.getElementById('fieldResult');
+pillsEl.addEventListener('click', (e) => {
+  const btn = e.target.closest('.pill');
+  if(!btn) return;
+  pillsEl.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const key = btn.dataset.field;
+  const f = fields[key];
+  resultEl.innerHTML = `<div class="rtitle">${f.title}</div><p>${f.text}</p><p class="field-included">Included in The Infinity Frequency&trade; Collection</p><a href="#toolkit">See everything included &darr;</a>`;
+  resultEl.classList.add('show');
+  trackEvent('field_selector_clicked', {field:key});
+  trackEvent('experience_selected', {experience:key});
+});
+
+// Sticky bar
+const stickyBar = document.getElementById('stickyBar');
+const heroEl = document.querySelector('.hero');
+const finalCta = document.querySelector('.final-cta');
+const io1 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting && entry.boundingClientRect.top < 0){
+      stickyBar.classList.add('show');
+    } else {
+      stickyBar.classList.remove('show');
+    }
+  });
+}, {threshold:0});
+io1.observe(heroEl);
+
+const io2 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){ stickyBar.classList.remove('show'); }
+  });
+}, {threshold:0.3});
+io2.observe(finalCta);
+
+// Offer viewed / guarantee viewed (fire once each)
+let offerViewed = false;
+const offerEl = document.getElementById('offer');
+if(offerEl){
+  const io3 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !offerViewed){
+        offerViewed = true;
+        trackEvent('offer_viewed', {});
+        io3.disconnect();
+      }
+    });
+  }, {threshold:0.3});
+  io3.observe(offerEl);
+}
+
+let guaranteeViewed = false;
+const guaranteeEl = document.getElementById('guarantee');
+if(guaranteeEl){
+  const io4 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !guaranteeViewed){
+        guaranteeViewed = true;
+        trackEvent('guarantee_viewed', {});
+        io4.disconnect();
+      }
+    });
+  }, {threshold:0.3});
+  io4.observe(guaranteeEl);
+}
+
+// Checkout clicks — the only two true purchase buttons on the page.
+// Fires checkout_clicked with location + preview attribution, then
+// navigates to the Systeme checkout URL (with UTMs carried forward).
+document.querySelectorAll('[data-checkout]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    trackEvent('checkout_clicked', {
+      cta_location: btn.dataset.ctaLocation || null,
+      preview_played: anyPreviewPlayed,
+      last_preview_experience: lastPreviewExperience
+    });
+    window.location.href = buildCheckoutUrl();
+  });
+});
+
+/* ============================================================
+   AUDIO PREVIEW PLAYER
+   ------------------------------------------------------------
+   Exactly one preview remains on this page:
+
+     /audio/infinite-abundance-preview.mp3
+
+   To swap the file: drop the new file into an /audio/ folder at
+   the site root using the exact filename above. No code changes
+   needed. The <audio> tag's src is the only thing that matters.
+   ============================================================ */
+
+let activePlayer = null;
+let anyPreviewPlayed = false;
+let lastPreviewExperience = null;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function formatTime(sec){
+  if(!isFinite(sec) || sec < 0) return '0:00';
+  const m = Math.floor(sec/60);
+  const s = Math.floor(sec%60).toString().padStart(2,'0');
+  return m + ':' + s;
+}
+
+class InfinityPlayer{
+  constructor(el){
+    this.el = el;
+    this.experience = el.dataset.experience;
+    this.labelIdle = el.dataset.labelIdle;
+    this.labelPlaying = el.dataset.labelPlaying;
+    this.audio = el.querySelector('.ap-audio');
+    this.playBtn = el.querySelector('.ap-play');
+    this.replayBtn = el.querySelector('.ap-replay');
+    this.stateEl = el.querySelector('.ap-state');
+    this.progress = el.querySelector('.ap-progress');
+    this.progressFill = el.querySelector('.ap-progress-fill');
+    this.elapsedEl = el.querySelector('.ap-elapsed');
+    this.remainingEl = el.querySelector('.ap-remaining');
+    this.canvas = el.querySelector('.ap-wave');
+    this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
+    this.milestones = {25:false, 50:false, 75:false};
+    this.audioCtx = null;
+    this.analyser = null;
+    this.source = null;
+    this.rafId = null;
+
+    this.playBtn.addEventListener('click', () => this.toggle());
+    this.replayBtn.addEventListener('click', () => this.replay());
+    this.progress.addEventListener('click', (e) => this.seek(e));
+    this.progress.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowRight'){ this.audio.currentTime = Math.min((this.audio.currentTime||0)+2, this.audio.duration||0); }
+      if(e.key === 'ArrowLeft'){ this.audio.currentTime = Math.max((this.audio.currentTime||0)-2, 0); }
+    });
+    this.audio.addEventListener('timeupdate', () => this.onTimeUpdate());
+    this.audio.addEventListener('ended', () => this.onEnded());
+    this.audio.addEventListener('loadedmetadata', () => this.onTimeUpdate());
+    this.audio.addEventListener('error', () => this.handleLoadError());
+    this.unavailable = false;
+    this.drawIdleWave();
+  }
+
+  // Fails gracefully if the preview file is missing or won't load:
+  // no thrown error, no technical language shown to the customer,
+  // the play control is simply disabled and the rest of the page
+  // (including checkout) keeps working normally.
+  handleLoadError(){
+    this.unavailable = true;
+    this.playBtn.disabled = true;
+    this.playBtn.style.opacity = '0.4';
+    this.playBtn.style.cursor = 'default';
+    this.playBtn.setAttribute('aria-disabled', 'true');
+    this.stateEl.textContent = 'Preview unavailable right now';
+    this.replayBtn.hidden = true;
+  }
+
+  // Web Audio API analyser: connected only once, on first play,
+  // so the waveform reacts to the actual audio signal rather
+  // than a fake/decorative animation.
+  setupAnalyser(){
+    if(this.audioCtx) return;
+    try{
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      this.audioCtx = new AudioCtx();
+      this.source = this.audioCtx.createMediaElementSource(this.audio);
+      this.analyser = this.audioCtx.createAnalyser();
+      this.analyser.fftSize = 128;
+      this.source.connect(this.analyser);
+      this.analyser.connect(this.audioCtx.destination);
+    }catch(err){
+      this.analyser = null; // falls back to a decorative idle line only
+    }
+  }
+
+  toggle(){ if(this.unavailable) return; this.audio.paused ? this.play() : this.pause(); }
+
+  play(){
+    if(this.unavailable) return;
+    if(activePlayer && activePlayer !== this){ activePlayer.pause(); }
+    this.setupAnalyser();
+    if(this.audioCtx && this.audioCtx.state === 'suspended'){ this.audioCtx.resume(); }
+    this.audio.play().then(() => {
+      activePlayer = this;
+      this.el.classList.add('playing');
+      this.playBtn.setAttribute('aria-pressed','true');
+      this.playBtn.querySelector('.icon-play').hidden = true;
+      this.playBtn.querySelector('.icon-pause').hidden = false;
+      this.stateEl.textContent = this.labelPlaying;
+      this.replayBtn.hidden = true;
+      trackEvent('audio_preview_started', {experience:this.experience});
+      anyPreviewPlayed = true;
+      lastPreviewExperience = this.experience;
+      this.runVisual();
+    }).catch(() => { /* playback blocked or interrupted; no autoplay fallback by design */ });
+  }
+
+  pause(){
+    this.audio.pause();
+    this.el.classList.remove('playing');
+    this.playBtn.setAttribute('aria-pressed','false');
+    this.playBtn.querySelector('.icon-play').hidden = false;
+    this.playBtn.querySelector('.icon-pause').hidden = true;
+    this.stateEl.textContent = this.labelIdle;
+    if(activePlayer === this) activePlayer = null;
+    if(this.rafId) cancelAnimationFrame(this.rafId);
+    this.drawIdleWave();
+  }
+
+  replay(){
+    this.audio.currentTime = 0;
+    this.milestones = {25:false,50:false,75:false};
+    this.replayBtn.hidden = true;
+    this.play();
+  }
+
+  seek(e){
+    if(!this.audio.duration) return;
+    const rect = this.progress.getBoundingClientRect();
+    const pct = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
+    this.audio.currentTime = pct * this.audio.duration;
+  }
+
+  onTimeUpdate(){
+    const d = this.audio.duration || 0;
+    const c = this.audio.currentTime || 0;
+    const pct = d ? (c/d)*100 : 0;
+    this.progressFill.style.width = pct + '%';
+    this.elapsedEl.textContent = formatTime(c);
+    this.remainingEl.textContent = '-' + formatTime(Math.max(d-c,0));
+    [25,50,75].forEach(m => {
+      if(!this.milestones[m] && pct >= m){
+        this.milestones[m] = true;
+        trackEvent('audio_preview_' + m, {experience:this.experience});
+      }
+    });
+  }
+
+  onEnded(){
+    trackEvent('audio_preview_completed', {experience:this.experience});
+    this.pause();
+    this.replayBtn.hidden = false;
+  }
+
+  drawIdleWave(){
+    if(!this.ctx) return;
+    const w = this.canvas.width, h = this.canvas.height;
+    this.ctx.clearRect(0,0,w,h);
+    this.ctx.strokeStyle = 'rgba(201,162,39,0.3)';
+    this.ctx.lineWidth = 1;
+    this.ctx.beginPath();
+    this.ctx.moveTo(0,h/2);
+    this.ctx.lineTo(w,h/2);
+    this.ctx.stroke();
+  }
+
+  // Real, audio-reactive visualization via AnalyserNode.
+  // Falls back to a slow decorative line only if the Web Audio
+  // API is unavailable in this browser; that fallback is never
+  // presented as an analysis of the audio.
+  runVisual(){
+    if(reducedMotion || !this.ctx) return;
+    const draw = () => {
+      if(this.audio.paused) return;
+      const w = this.canvas.width, h = this.canvas.height;
+      this.ctx.clearRect(0,0,w,h);
+      this.ctx.strokeStyle = 'rgba(228,197,103,0.85)';
+      this.ctx.lineWidth = 1.5;
+      this.ctx.beginPath();
+      if(this.analyser){
+        const data = new Uint8Array(this.analyser.frequencyBinCount);
+        this.analyser.getByteFrequencyData(data);
+        const step = w / data.length;
+        data.forEach((v,i) => {
+          const barHeight = (v/255) * (h*0.8);
+          const x = i*step, y = h - barHeight;
+          i === 0 ? this.ctx.moveTo(x,y) : this.ctx.lineTo(x,y);
+        });
+      } else {
+        const t = Date.now()/500;
+        for(let x=0; x<=w; x+=4){
+          const y = h/2 + Math.sin(x/18 + t) * (h*0.22);
+          x === 0 ? this.ctx.moveTo(x,y) : this.ctx.lineTo(x,y);
+        }
+      }
+      this.ctx.stroke();
+      this.rafId = requestAnimationFrame(draw);
+    };
+    draw();
+  }
+}
+
+document.querySelectorAll('.audio-player').forEach(el => new InfinityPlayer(el));
+
+// Stop audio when the tab is hidden or the page is left
+document.addEventListener('visibilitychange', () => {
+  if(document.hidden && activePlayer){ activePlayer.pause(); }
+});
+window.addEventListener('pagehide', () => {
+  if(activePlayer){ activePlayer.pause(); }
+});
+
+// CTA tracking: flag clicks on primary CTAs that happen after
+// a visitor has heard the preview, so conversion can later be
+// compared against visitors who never pressed play.
+document.querySelectorAll('.btn-primary').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if(anyPreviewPlayed){
+      trackEvent('cta_click_after_preview', {last_experience: lastPreviewExperience});
+    }
+  });
+});
+</script></body>
+</html>
