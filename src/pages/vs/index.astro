@@ -8,6 +8,7 @@ const description = 'Clear, side-by-side comparisons of the terms people mix up 
 const crumbs = [{ name: 'Home', href: '/' }, { name: 'Comparisons', href: path }];
 const guides = [
   { name: 'Life Path Number vs Angel Number', href: '/vs/life-path-vs-angel-number/', blurb: "What's actually different between your life path number and the angel numbers you keep seeing." },
+{ name: '432Hz vs 528Hz', href: '/vs/432hz-vs-528hz/', blurb: "What's actually different between a tuning standard and a Solfeggio tone." },
   ];
   const schema = [breadcrumbSchema(crumbs)];
   ---
@@ -17,7 +18,7 @@ const guides = [
   <header class="hero"><p class="eyebrow">Comparisons</p><h1>Comparisons</h1>
   <p class="lead">Side-by-side answers to the terms people mix up most.</p></header>
   <ul class="hub-grid">{guides.map((g) => (<li><a class="hub-card" href={g.href}><h3>{g.name}</h3><p>{g.blurb}</p></a></li>))}</ul>
-  <p class="muted">Coming next: 432Hz vs 528Hz, binaural beats vs healing frequencies, life path vs expression number.</p>
+  <p class="muted">Coming next: binaural beats vs healing frequencies, life path vs expression number.</p>
   </div>
   </Base>
   
