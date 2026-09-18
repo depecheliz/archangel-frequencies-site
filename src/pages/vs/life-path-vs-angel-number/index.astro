@@ -1,0 +1,78 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { articleSchema, faqSchema, breadcrumbSchema } from '../../../lib/schema';
+
+const path = '/vs/life-path-vs-angel-number/';
+const title = "Life Path Number vs Angel Number: What's the Difference?";
+const description = 'A life path number is one core number calculated from your birthdate. An angel number is a repeating sequence you notice in daily life. Here is how each is calculated, and how they connect.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+    { name: 'Comparisons', href: '/vs/' },
+      { name: 'Life Path vs Angel Number', href: path },
+      ];
+
+      const faqs = [
+        { q: 'Is a life path number the same as an angel number?', a: 'No. A life path number is one fixed number, calculated once from your full birthdate, that describes your lifelong direction. An angel number is a repeating sequence, like 444 or 1111, that carries a specific, timely message and can change throughout your life.' },
+          { q: 'Can my life path number also be my angel number?', a: 'Yes. Each life path digit has a signal form: the repeating sequence built from it. A life path 4 noticing 444 often reads the sequence as an echo of their core theme rather than a separate message.' },
+            { q: 'Which one should I calculate first?', a: 'Start with your life path number, since it sets the long-term context. From there, track which angel numbers you notice day to day and read them against that baseline.' },
+              { q: 'Do I calculate them the same way?', a: 'No. Your life path number comes from reducing your month, day, and year of birth separately, then combining and reducing again. Your personal angel number comes from adding all the digits of your birthdate together in a single pass.' },
+              ];
+
+              const schema = [articleSchema({ title, description, path }), faqSchema(faqs), breadcrumbSchema(crumbs)];
+              ---
+
+              <Base title={title} description={description} schema={schema}>
+              <div class="article">
+              <Breadcrumbs crumbs={crumbs} />
+              <header class="hero">
+              <p class="eyebrow">Comparisons</p>
+              <h1>Life Path Number vs Angel Number: What's the Difference?</h1>
+              </header>
+
+              <p>A life path number is a single digit calculated from your full date of birth, and it stays the same for life and describes your overall direction. An angel number is a repeating sequence, like 444 or 1111, that you notice appearing in daily life, and it carries a specific, timely message. One is a fixed trait; the other is a recurring signal.</p>
+
+              <h2>What Is a Life Path Number?</h2>
+              <p>Your life path number is the single core number in your numerology chart. It's calculated by reducing your month, day, and year of birth separately, then adding those three results together and reducing again, stopping early at the master numbers 11, 22, or 33. It doesn't change, and it describes broad, lifelong themes: your natural strengths, the lesson you keep circling back to, and the direction your life tends to move in without effort. Full breakdown on the <a href="/numerology/life-path/">life path numbers page</a>, or calculate yours with the <a href="/calculators/life-path/">free life path calculator</a>.</p>
+
+              <h2>What Is an Angel Number?</h2>
+              <p>An angel number is a repeating or patterned number sequence, such as 444, 1111, or 1212, that shows up in ordinary places: a clock, a receipt, a license plate. Unlike a life path number, you don't calculate it once and keep it for life; a new sequence can start appearing at any point, and each one is read individually based on the digits and pattern it contains. Full guide on the <a href="/angel-numbers/">angel numbers page</a>, or look up any sequence in the <a href="/angel-numbers/meanings/">meanings index</a>.</p>
+
+              <h2>What's the Main Difference?</h2>
+              <table>
+              <thead><tr><th></th><th>Life Path Number</th><th>Angel Number</th></tr></thead>
+              <tbody>
+              <tr><td>What it is</td><td>One core number</td><td>A repeating sequence</td></tr>
+              <tr><td>How you get it</td><td>Calculated once from your full birthdate</td><td>Noticed in daily life, or calculated separately from your birthdate</td></tr>
+              <tr><td>Does it change</td><td>No, fixed for life</td><td>Yes, new sequences can appear anytime</td></tr>
+              <tr><td>Possible values</td><td>1 to 9, or master numbers 11, 22, 33</td><td>Any repeating or patterned sequence: 111, 444, 1212, and more</td></tr>
+              <tr><td>What it tells you</td><td>Your long-term direction and core theme</td><td>A specific, timely message tied to what's active right now</td></tr>
+              </tbody>
+              </table>
+
+              <h2>Are They Related?</h2>
+              <p>Yes. Each life path digit has a signal form: the repeating sequence built from it. A life path 4, for example, meets <a href="/angel-numbers/444/">444</a> differently than anyone else does, because the angel number echoes the life path's core theme instead of introducing a separate one. Seeing your life path number repeated back as an angel number is commonly read as a sign of alignment.</p>
+
+              <h2>Do I Calculate Them the Same Way?</h2>
+              <p>No. Your life path number comes from one formula: reduce month, day, and year separately, then combine and reduce again. Your personal angel number comes from a different formula: adding all the digits of your birthdate together in a single pass. Use the <a href="/calculators/life-path/">life path calculator</a> for your core number and the <a href="/angel-numbers/calculator/">angel number calculator</a> for your personal sequence.</p>
+
+              <Cta secondaryHref="/numerology/life-path/" secondaryLabel="Read the full life path guide" />
+
+              <section class="faq" aria-labelledby="faq-h">
+              <h2 id="faq-h">Life Path vs Angel Number FAQs</h2>
+              {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+              </section>
+
+              <section class="related">
+              <h2>Related Guides</h2>
+              <ul>
+              <li><a href="/numerology/life-path/">Life Path Numbers: Meanings 1 to 9 and Master Numbers</a></li>
+              <li><a href="/angel-numbers/">Angel Numbers: The Complete Guide</a></li>
+              <li><a href="/calculators/life-path/">Life Path Calculator</a></li>
+              <li><a href="/angel-numbers/calculator/">Angel Number Calculator</a></li>
+              </ul>
+              </section>
+              </div>
+              </Base>
+              
