@@ -1,0 +1,78 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { articleSchema, faqSchema, breadcrumbSchema } from '../../../lib/schema';
+
+const path = '/vs/432hz-vs-528hz/';
+const title = "432Hz vs 528Hz: What's the Difference?";
+const description = '432Hz is a tuning standard that shifts an entire musical scale. 528Hz is a single Solfeggio tone linked to a specific meaning. Here is how each works, what they are used for, and how to tell them apart.';
+const crumbs = [
+  { name: 'Home', href: '/' },
+    { name: 'Comparisons', href: '/vs/' },
+      { name: '432Hz vs 528Hz', href: path },
+      ];
+
+      const faqs = [
+        { q: 'Is 432Hz a Solfeggio frequency?', a: "No. 432Hz is a tuning standard, meaning it sets where the note A sits and shifts every other note in the scale to match. The Solfeggio frequencies, including 528Hz, are a separate set of nine specific tones, not a tuning system." },
+          { q: 'What is 528Hz used for?', a: "528Hz is commonly used in meditation tracks, sound baths, and sleep music. It's nicknamed the miracle tone or love frequency, and proponents associate it with renewal and emotional healing." },
+            { q: 'Can you combine 432Hz and 528Hz?', a: "Yes. Since 432Hz is a tuning choice and 528Hz is a specific tone, a track can be tuned to 432Hz and still contain a 528Hz layer. The two are not mutually exclusive." },
+              { q: 'Is there scientific proof that 432Hz or 528Hz heals anything?', a: "No peer-reviewed research confirms the specific healing claims made about either frequency, including DNA repair. What is well documented is that calm, intentional music of any kind can support relaxation, and many listeners report a real subjective effect from both." },
+              ];
+
+              const schema = [articleSchema({ title, description, path }), faqSchema(faqs), breadcrumbSchema(crumbs)];
+              ---
+
+              <Base title={title} description={description} schema={schema}>
+              <div class="article">
+              <Breadcrumbs crumbs={crumbs} />
+              <header class="hero">
+              <p class="eyebrow">Comparisons</p>
+              <h1>432Hz vs 528Hz: What's the Difference?</h1>
+              </header>
+
+              <p>432Hz is a tuning standard: it resets where the note A sits and shifts an entire musical scale to match, the way choosing a different starting point changes every note around it. 528Hz is a single frequency, one of the nine Solfeggio tones, associated with a specific meaning rather than a whole-scale retuning. One changes the foundation a piece of music is built on; the other is a specific note used on purpose.</p>
+
+              <h2>What Is 432Hz?</h2>
+              <p>432Hz is an alternative tuning reference for the note A, used in place of the modern standard of 440Hz. Retuning to 432Hz shifts every note in the scale slightly lower, since a tuning standard sets where one note sits and the rest of the scale follows. It's sometimes called Verdi's A, after the composer who argued for a lower standard pitch in the 1800s. Listeners who prefer it often describe it as warmer or more relaxing than standard tuning, though that's a subjective preference rather than a measured effect.</p>
+
+              <h2>What Is 528Hz?</h2>
+              <p>528Hz is one of the nine Solfeggio frequencies, a set of tones tied to an old hymn scale and popularized in modern sound healing. It's nicknamed the miracle tone or love frequency, and is commonly used in meditation tracks, sound baths, and sleep music. Unlike 432Hz, it isn't a tuning system: it's a single, specific frequency played or layered on its own, independent of what scale the rest of the music is in.</p>
+
+              <h2>What's the Main Difference?</h2>
+              <table>
+              <thead><tr><th></th><th>432Hz</th><th>528Hz</th></tr></thead>
+              <tbody>
+              <tr><td>What it is</td><td>A tuning standard for the note A</td><td>One specific Solfeggio tone</td></tr>
+              <tr><td>What it affects</td><td>The whole musical scale, shifted to match</td><td>Just itself, played or layered as a single frequency</td></tr>
+              <tr><td>Where it comes from</td><td>An alternative to modern concert pitch (440Hz)</td><td>The Solfeggio scale, linked to old hymn syllables</td></tr>
+              <tr><td>Common nickname</td><td>Verdi's A</td><td>The miracle tone, or love frequency</td></tr>
+              <tr><td>Typical use</td><td>Retuned music, ambient tracks</td><td>Meditation, sound baths, sleep tracks</td></tr>
+              </tbody>
+              </table>
+
+              <h2>Can You Use Them Together?</h2>
+              <p>Yes. Because 432Hz is a tuning choice and 528Hz is a specific tone, they aren't competing options; a track can be tuned to 432Hz as its overall reference and still include a 528Hz layer on top. Many sound healing tracks do exactly this, combining a 432Hz base with one or more Solfeggio tones.</p>
+
+              <h2>Does the Science Back This Up?</h2>
+              <p>No peer-reviewed research confirms the specific claims made about either frequency, including 528Hz's association with DNA repair. What is well established is that calm, intentional music supports relaxation generally, regardless of the exact tuning. Many listeners report a real, personal effect from both 432Hz and 528Hz, and that experience is worth taking seriously even where the specific mechanism isn't scientifically settled.</p>
+
+              <Cta secondaryHref="/frequency/" secondaryLabel="Explore the Frequency pillar" />
+
+              <section class="faq" aria-labelledby="faq-h">
+              <h2 id="faq-h">432Hz vs 528Hz FAQs</h2>
+              {faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+              </section>
+
+              <section class="related">
+              <h2>Related Guides</h2>
+              <ul>
+              <li><a href="/frequency/">Frequency: Solfeggio Tones and the Frequency Code&#8482;</a></li>
+              <li><a href="/frequency/code/">The Frequency Code&#8482;</a></li>
+              <li><a href="/frequency/248/">The 248 Frequency&#8482;</a></li>
+              <li><a href="/vs/life-path-vs-angel-number/">Life Path Number vs Angel Number</a></li>
+              </ul>
+              </section>
+              </div>
+              </Base>
+              
