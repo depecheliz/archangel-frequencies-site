@@ -2,29 +2,49 @@
 import Base from '../../../layouts/Base.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Cta from '../../../components/Cta.astro';
-import { articleSchema, breadcrumbSchema } from '../../../lib/schema';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 const path = '/frequency/code/';
-const title = 'The Frequency Code™: What It Is & How It’s Built';
-const description = 'The Frequency Code™ is the personalized report at the center of Archangel Frequencies — what it contains, how it is built from your birthdate, and how it differs from the free tools.';
+const title = "Birth Date Numerology: How the Frequency Code\u2122 Is Built";
+const description = "Birth date numerology explained: how your Frequency Code\u2122 report reads your life path, birthday number, and personal year together, what it contains, and how it's built from your birthdate.";
 const crumbs = [
   { name: 'Home', href: '/' },
   { name: 'Frequency', href: '/frequency/' },
-  { name: 'The Frequency Code™', href: path },
+  { name: 'The Frequency Code\u2122', href: path },
 ];
-const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs)];
+const faqs = [
+  { q: 'What is birth date numerology?', a: "Birth date numerology is the practice of reducing the numbers in your date of birth down to a small set of core numbers, each carrying a consistent theme. Your life path number, your birthday number, and your personal year all come from this same method." },
+  { q: 'What numbers come from my birth date?', a: "Your birth date produces several distinct numbers: your life path number (from your full date of birth), your birthday number (from the day you were born alone), and your personal year (which changes annually). Each is calculated differently and tells you something different." },
+  { q: 'Is birth date numerology the same as the Frequency Code\u2122?', a: "Birth date numerology is the underlying system. The Frequency Code\u2122 is our application of it: reading your life path, birthday number, and personal year together as one pattern instead of three separate lookups." },
+];
+const schema = [articleSchema({ title, description, path }), breadcrumbSchema(crumbs), faqSchema(faqs)];
 ---
+
 <Base title={title} description={description} schema={schema}>
-  <div class="article">
-    <Breadcrumbs crumbs={crumbs} />
-    <header class="hero"><p class="eyebrow">Signature Methodology</p><h1>The Frequency Code™</h1></header>
-    <p>The Frequency Code™ is the personalized report every free tool on this site points toward. Where an angel-number page reads one sequence and a calculator reveals one number, the Frequency Code™ takes every number tied to your birthdate — your angel number, your life path, your current personal year — and reads them together, as one signal instead of several separate ones.</p>
-    <h2>How It's Built</h2>
-    <p>The method is the same three-step system described on our <a href="/methodology/">methodology page</a> — core digit, pattern, reduction — applied across your full set of personal numbers at once rather than one page at a time, then cross-referenced against the <a href="/frequency/248/">248 Frequency™</a>: which of the three core themes (balance, foundation, return) your numbers keep circling back to. A single free angel-number page can tell you what 444 means in general. The Frequency Code™ tells you what 444 means for someone whose life path is a 7 and whose personal year is a 2 — the combination is specific to you, not a lookup.</p>
-    <h2>What's Inside</h2>
-    <p>The report runs 26 pages and covers the same categories as the free angel-number pages — spiritual meaning, love, money and career, twin flame, biblical reading — but written for your specific numbers rather than one sequence in isolation, plus a forward-looking section the free content can't offer without your birthdate: where the next twelve months are pointed, and the specific place your energy tends to leak when the pattern goes unread.</p>
-    <h2>How It's Different From the Free Tools</h2>
-    <p>The calculators on this site are free and stay free — the angel number calculator, life path calculator, personal year calculator, and mirror hour decoder all give you a real number and a real reading, no email required. The Frequency Code™ is the next layer: instead of one number, the full set, read as one pattern. Most people start with a calculator, recognize themselves in it, and come back for the Frequency Code™ when they want the whole picture rather than one piece of it.</p>
-    <p>The report is $27, one time, no subscription. Start with the free <a href="/angel-numbers/calculator/">angel number calculator</a> first if you haven't — it takes fifteen seconds and shows you whether the system resonates before you spend anything.</p>
-    <Cta heading="Get your Frequency Code™" line="Twenty-six pages, built from your numbers alone." />
-  </div>
+<div class="article">
+<Breadcrumbs crumbs={crumbs} />
+<header class="hero"><p class="eyebrow">Signature Methodology</p><h1>Birth Date Numerology and The Frequency Code&#8482;</h1></header>
+
+<p>Birth date numerology reduces the numbers in your date of birth down to a small set of core numbers, each carrying a consistent theme. The Frequency Code&#8482; is our application of that system: instead of reading one number from your birthdate, it reads your life path, your birthday number, and your current personal year together, as one signal instead of three separate lookups.</p>
+
+<h2>What Is Birth Date Numerology?</h2>
+<p>Birth date numerology works by reduction: your full date of birth, or a single part of it, gets added together and reduced until it becomes one core number, or a master number: 11, 22, 33. Different parts of your birthdate produce different numbers. Your life path number comes from your whole date of birth. Your birthday number comes from the day alone. Your personal year comes from your birthdate combined with the current calendar year, and changes annually. Each carries its own theme; none of them replace the others.</p>
+
+<h2>How the Frequency Code&#8482; Is Built</h2>
+<p>The method is the same three-step system described on our <a href="/methodology/">methodology page</a>, core digit, pattern, reduction, applied across your full set of personal numbers at once rather than one page at a time, then cross-referenced against the <a href="/frequency/248/">248 Frequency&#8482;</a>: which of the three core themes (balance, foundation, return) your numbers keep circling back to. A single free angel-number page can tell you what 444 means in general. The Frequency Code&#8482; tells you what 444 means for someone whose life path is a 7 and whose personal year is a 2, the combination is specific to you, not a lookup.</p>
+
+<h2>What's Inside the Report</h2>
+<p>The report runs 26 pages and covers the same categories as the free angel-number pages, spiritual meaning, love, money and career, twin flame, biblical reading, but written for your specific numbers rather than one sequence in isolation, plus a forward-looking section the free content can't offer without your birthdate: where the next twelve months are pointed, and the specific place your energy tends to leak when the pattern goes unread.</p>
+
+<h2>How It's Different From the Free Tools</h2>
+<p>The calculators on this site are free and stay free: the angel number calculator, life path calculator, personal year calculator, and mirror hour decoder all give you a real number and a real reading, no email required. The Frequency Code&#8482; is the next layer: instead of one number, the full set, read as one pattern. Most people start with a calculator, recognize themselves in it, and come back for the Frequency Code&#8482; when they want the whole picture rather than one piece of it.</p>
+
+<p>The report is $27, one time, no subscription. Start with the free <a href="/angel-numbers/calculator/">angel number calculator</a> first if you haven't, it takes fifteen seconds and shows you whether the system resonates before you spend anything.</p>
+
+<Cta heading="Get your Frequency Code&#8482;" line="Twenty-six pages, built from your numbers alone." />
+
+<section class="faq" aria-labelledby="faq-h">
+<h2 id="faq-h">Birth Date Numerology FAQs</h2>
+{faqs.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+</section>
+</div>
 </Base>
